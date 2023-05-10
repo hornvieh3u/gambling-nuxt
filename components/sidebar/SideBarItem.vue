@@ -1,0 +1,42 @@
+<script setup lang="ts">
+interface SideBarItemInterFace {
+    title: string;
+    backUrl: string;
+    iconUrl: string;
+    link: string;
+}
+
+const props = withDefaults(defineProps<SideBarItemInterFace>(), {
+    title: '',
+    backUrl: '',
+    iconUrl: '',
+    link: '',
+});
+
+</script>
+<template>
+    <nuxt-link :to="link">
+        <div class="relative mt-7">
+            <div
+                style="max-width: 109px"
+                class="absolute top-1/2 -translate-y-1/2 z-10 left-2"
+            >
+                <p
+                    style="line-height: 15px"
+                    class="text-base font-bold text-shadow-md"
+                >
+                    {{ title }}
+                </p>
+            </div>
+            <q-img :src="backUrl" spinner-color="primary" spinner-size="24px" :alt="title" />
+            <q-img
+                style="width: 108px;"
+                class="absolute right-0 bottom-0"
+                :src="iconUrl"
+                spinner-color="primary"
+                spinner-size="24px"
+                :alt="title"
+            />
+        </div>
+    </nuxt-link>
+</template>

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.q-btn--rectangle {
+  border-radius: 6px;
+}
+
+body {
+font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+font-family: 'Montserrat';
+src: url('@/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
