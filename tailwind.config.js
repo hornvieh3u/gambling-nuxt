@@ -14,14 +14,21 @@ module.exports = {
                 selectText: '#FFFFFF',
                 selectPlaceholder: '#A0AEC0',
             },
-
-            
+            maxWidth: {
+                lg: '489px',
+            },
             boxShadow: {
                 select: '0 0 0 1px #EBF8FF, 0 4px 14px 0 rgba(75, 85, 99, 0.16)',
             },
             borderRadius: {
                 select: '.5rem',
                 selectBtn: '.375rem',
+            },
+            screens: {
+                lg: '992px',
+            },
+            textShadow: {
+                lg: '0 4px 6px rgba(0, 0, 0, 0.1)',
             },
         },
     },

@@ -24,7 +24,7 @@ const toggleLeftDrawer = computed(() => {
         />
 
         <!-- Container -->
-        <q-page-container style="background-color: #1e1e1e">
+        <q-page-container style="background-color: #151515">
             <NuxtPage />
             <PageFooter />
         </q-page-container>
@@ -32,7 +32,7 @@ const toggleLeftDrawer = computed(() => {
         <!-- Footer -->
         <q-footer
             class="text-sm font-normal text-center"
-            style="background-color: #1e1e1e; color: #7d8396; padding: 10px"
+            style="background-color: #151515; color: #7d8396; padding: 10px"
             >Copyright 2023 Europa777 All Right Reserved.</q-footer
         >
     </q-layout>

@@ -29,7 +29,9 @@
                     one of the luckiest players out there.
                 </p>
             </div>
-            <div class="px-10 grid grid-cols-2 sm:grid-cols-4 md:gap-4 w-full lg:w-auto">
+            <div
+                class="px-10 grid grid-cols-2 sm:grid-cols-4 md:gap-4 w-full lg:w-auto"
+            >
                 <div class="col-span-1">
                     <p class="text-base font-semibold pb-2">iGaming</p>
                     <p class="pb-1" style="font-size: 11px; font-weight: 400">
@@ -103,7 +105,9 @@
                     </p>
                 </div>
             </div>
-            <div class="flex justify-around w-full lg:w-auto lg:block pt-4 lg:pt-0 ">
+            <div
+                class="flex justify-around w-full lg:w-auto lg:block pt-4 lg:pt-0"
+            >
                 <div class="lg:hidden" style="max-width: 196px">
                     <img
                         style="max-width: 163px"

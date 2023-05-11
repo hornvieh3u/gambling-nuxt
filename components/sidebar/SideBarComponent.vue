@@ -27,7 +27,6 @@ watch(props, (newValue) => {
 
 function handleMenu() {
     // props.toggleLeftDrawer();
-    console.log('DDDDDDDDDDDDDDDDD');
 }
 
 interface SideBarItemInterFace {

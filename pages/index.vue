@@ -6,42 +6,13 @@ dark.set(true);
 </script>
 <template>
     <q-page class="q-pl-lg">
-        <p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p>
-        <p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p>
-        <p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p><p class="text-red-950">Plugin Showcase</p>
-        
-        <p class="text-h6 q-pt-md">Directive Showcase</p><p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p><p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p><p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p><p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p><p class="text-red-950">Plugin Showcase</p>
-        <q-list>
-            <q-item> </q-item>
-        </q-list>
-        <p class="text-h6 q-pt-md">Directive Showcase</p>
+        <div class="w-full">
+            <section
+                class="main h-full px-10 md:px-20 lg:px-32 py-8 max-w-7xl m-auto"
+            >
+                <landing-page-overview />
+                <landing-page-intro-cards />
+            </section>
+        </div>
     </q-page>
 </template>
