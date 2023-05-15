@@ -6,7 +6,7 @@
         class="relative text-gray-600 focus-within:text-gray-400 m-auto"
     >
         <span class="absolute inset-y-0 right-1 flex items-center">
-            <img
+            <q-img
                 class="q-mr-sm"
                 style="max-width: 22px"
                 src="@/assets/imgs/header/search.png"

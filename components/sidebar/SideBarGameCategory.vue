@@ -2,7 +2,7 @@
     <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-32">
         <a class="flex items-center h-8 px-4" href="#">
             <div class="flex justify-start items-center">
-                <img
+                <q-img
                     class="w-4"
                     src="@/assets/imgs/sidebar/slot.png"
                     alt="slot"
@@ -17,7 +17,7 @@
         </a>
         <a class="flex items-center h-8 px-4" href="#"
             ><div class="flex justify-start items-center">
-                <img
+                <q-img
                     class="w-4"
                     src="@/assets/imgs/sidebar/live_casino.png"
                     alt="slot"
@@ -32,7 +32,7 @@
         >
         <a class="flex items-center h-8 px-4" href="#"
             ><div class="flex justify-start items-center">
-                <img
+                <q-img
                     class="w-4"
                     src="@/assets/imgs/sidebar/table.png"
                     alt="table"
@@ -47,7 +47,7 @@
         >
         <a class="flex items-center h-8 px-4" href="#"
             ><div class="flex justify-start items-center">
-                <img
+                <q-img
                     class="w-4"
                     src="@/assets/imgs/sidebar/roulette.png"
                     alt="roulette"

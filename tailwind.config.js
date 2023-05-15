@@ -14,6 +14,9 @@ module.exports = {
                 selectText: '#FFFFFF',
                 selectPlaceholder: '#A0AEC0',
             },
+            width: {
+                '462': '669px'
+            },
             maxWidth: {
                 lg: '489px',
             },

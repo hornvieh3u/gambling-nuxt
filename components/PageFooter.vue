@@ -16,7 +16,7 @@
             class="p-5 flex items-start justify-center"
         >
             <div class="hidden lg:!block" style="max-width: 196px">
-                <img
+                <q-img
                     style="max-width: 163px"
                     src="@/assets/imgs/logo_full.png"
                     alt="logo"
@@ -109,7 +109,7 @@
                 class="flex justify-around w-full lg:w-auto lg:block pt-4 lg:pt-0"
             >
                 <div class="lg:hidden" style="max-width: 196px">
-                    <img
+                    <q-img
                         style="max-width: 163px"
                         src="@/assets/imgs/logo_full.png"
                         alt="logo"
@@ -125,40 +125,40 @@
                 </div>
                 <div style="max-width: 196px">
                     <p class="text-base font-semibold pb-2">Payment Methods</p>
-                    <img
+                    <q-img
                         class="w-full"
                         src="@/assets/imgs/footer/payment.png"
                         alt="logo"
                     />
                     <p class="text-base font-semibold pt-4 pb-2">Follow Us</p>
                     <div class="flex justify-between items-center">
-                        <img
+                        <q-img
                             style="max-width: 17px"
                             src="@/assets/imgs/footer/telegram.png"
                             alt="logo"
                         />
-                        <img
+                        <q-img
                             style="max-width: 17px"
                             src="@/assets/imgs/footer/youtube.png"
                             alt="logo"
                         />
-                        <img
+                        <q-img
                             style="max-width: 17px"
                             src="@/assets/imgs/footer/twitter.png"
                             alt="logo"
                         />
-                        <img
+                        <q-img
                             style="max-width: 17px"
                             src="@/assets/imgs/footer/instagram.png"
                             alt="logo"
                         />
-                        <img
+                        <q-img
                             style="max-width: 17px"
                             src="@/assets/imgs/footer/linkdin.png"
                             alt="logo"
                         />
                         <img
-                            style="max-height: 17px"
+                            style="max-height: 17px;"
                             src="@/assets/imgs/footer/facebook.png"
                             alt="logo"
                         />

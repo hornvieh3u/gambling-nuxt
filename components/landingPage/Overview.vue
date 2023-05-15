@@ -30,27 +30,27 @@
                 />
             </div>
             <div class="flex items-center justify-start pt-3 pl-3">
-                <img
+                <q-img
                     class="w-9 md:w-10 lg:w-12"
                     src="@/assets/imgs/visa.png"
                     alt="visa"
                 />
-                <img
+                <q-img
                     class="w-9 md:w-10 lg:w-12 ml-1"
                     src="@/assets/imgs/master_card.png"
                     alt="master_card"
                 />
-                <img
+                <q-img
                     class="w-9 md:w-10 lg:w-12 ml-1"
                     src="@/assets/imgs/interac.png"
                     alt="interac"
                 />
-                <img
+                <q-img
                     class="w-9 md:w-10 lg:w-12 ml-1"
                     src="@/assets/imgs/bitcoin.png"
                     alt="bitcoin"
                 />
-                <img
+                <q-img
                     class="w-9 md:w-10 lg:w-12 ml-1"
                     src="@/assets/imgs/etirum.png"
                     alt="etirum"

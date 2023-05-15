@@ -1,0 +1,66 @@
+<script setup lang="ts"></script>
+
+<template>
+    <div class="grid grid-cols-10 m-4 gap-2">
+        <div class="col-span-10 md:col-span-4 relative">
+            <q-img class="w-full h-full" src="@/assets/imgs/back_daily_b.png" />
+            <div class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8">
+                <p class="font-bold text-xl text-shadow-lg">
+                    DAILY<br />CASHBACK
+                </p>
+                <div class="flex items-center justify-start">
+                    <p class="text-xs">UP TO</p>
+                    <p style="color: #ffd62f" class="text-5xl font-black pl-1">
+                        20%
+                    </p>
+                </div>
+                <q-btn
+                    class="mt-2"
+                    size="sm"
+                    color="primary"
+                    label="Join Now"
+                />
+            </div>
+        </div>
+        <div class="col-span-10 md:col-span-6 relative">
+            <q-img class="w-full h-full" src="@/assets/imgs/back_bonus_b.png" />
+            <div class="absolute top-4 z-10 left-1/4 text-center">
+                <p class="font-bold text-xl text-shadow-lg">WELCOME BONUS</p>
+                <div class="flex justify-center items-center">
+                    <div>
+                        <p
+                            style="color: #ffd62f"
+                            class="text-xl font-extrabold"
+                        >
+                            200%
+                        </p>
+                        <p class="text-sm">BONUS</p>
+                    </div>
+                    <div class="ml-3">
+                        <p
+                            style="color: #ffd62f"
+                            class="text-xl font-extrabold"
+                        >
+                            +100
+                        </p>
+                        <p class="text-sm">free spins</p>
+                    </div>
+                </div>
+
+                <q-btn class="mt-2" size="sm" color="primary" label="SIGN UP" />
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center">
+        <img class="w-44" src="@/assets/imgs/crypto_acceptable.png" />
+        <div class="flex items-center justify-start pl-2">
+            <img class="w-8" src="@/assets/imgs/18.png" />
+            <p class="pl-2" style="font-size: 10px; color: #7D8396; max-width: 420px;">
+                This website offers gaming with risk experience. To be a user of
+                our site you must be over 18 y.o. We are not responsible for the
+                violation of your local laws related to i-gaming. Play
+                responsibly and have fun on Europa777.
+            </p>
+        </div>
+    </div>
+</template>

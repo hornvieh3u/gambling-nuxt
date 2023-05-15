@@ -18,7 +18,7 @@ function toggleCasinoSport(val: string) {
             class="q-pl-md q-pt-sm q-pb-sm q-pr-md !rounded-3xl flex items-center justify-start"
             @click="toggleCasinoSport('sport')"
         >
-            <img
+            <q-img
                 class="q-mr-sm"
                 style="max-width: 22px"
                 src="@/assets/imgs/header/wallet-icon.png"
