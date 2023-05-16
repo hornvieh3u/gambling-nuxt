@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import Activity from '~~/components/landingPage/Activity.vue';
 import PersonalInfo from '~~/components/profile/PersonalInfo.vue';
+import Verification from '~~/components/profile/Verification.vue';
+import History from '~~/components/profile/History.vue';
+import ResponsibleGambling from '~~/components/profile/ResponsibleGambling.vue';
 
-// !Get TmpData
 </script>
 <template>
     <q-page class="q-pl-lg">
@@ -19,7 +21,10 @@ import PersonalInfo from '~~/components/profile/PersonalInfo.vue';
                     </div>
                     <div class="col-span-12 md:col-span-6 lg:col-span-7 xl:col-span-9">
                         <ProfileCategory />
-                        <PersonalInfo />
+                        <!-- <ResponsibleGambling /> -->
+                        <!-- <History /> -->
+                        <!-- <PersonalInfo /> -->
+                        <Verification />
                     </div>
                 </div>
             </section>

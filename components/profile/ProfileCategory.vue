@@ -22,20 +22,19 @@ const categories = [
         icon: 'hands',
         active: false,
     },
-    
-];
+    // {
+    //     name: 'Shadow Chaser',
+    //     email: 'shadowchaser.1119',
+    //     password: shadowgroup!!!9
 
-const provider = {
-    name: 'Providers',
-    icon: 'provider',
-    active: false,
-};
+    // }
+
+
+];
 </script>
 
 <template>
-    <div
-        class="rounded-lg w-full lg:flex items-center justify-start pb-2"
-    >
+    <div class="rounded-lg w-full lg:flex items-center justify-start pb-2">
         <CategoryBarItem
             v-for="category in categories"
             :key="category.icon"
