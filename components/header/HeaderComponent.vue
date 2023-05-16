@@ -1,27 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 import CasinoSportToogleButton from '~~/components/header/CasinoSportToogleButton.vue';
-import SelectLanguageBox from '~~/components/header/SelectLanguageBox.vue';
-import SearchInput from '~~/components/header/SearchInput.vue';
 import LoginRegisterButton from '~~/components/header/LoginRegisterButton.vue';
-import Login from '~~/components/header/Login.vue';
+import SearchInput from '~~/components/header/SearchInput.vue';
+import SelectLanguageBox from '~~/components/header/SelectLanguageBox.vue';
 
 const props = defineProps({
-    toggleLeftDrawer: {
+    toggleState: {
         type: Function,
         required: true,
     },
+    leftDrawerOpen: {
+        type: Boolean,
+        required: true,
+    },
 });
-
-const isDialog = ref(true);
-function onDialogClose() {
-    isDialog.value = false;
-}
-
-function handleMenu() {
-    props.toggleLeftDrawer();
-}
 
 const { dark } = useQuasar();
 dark.set(true);
@@ -37,7 +30,9 @@ dark.set(true);
                 style="max-width: 30px"
                 src="@/assets/imgs/header/menu.png"
                 alt="menu"
-                @click="handleMenu"
+                @click="
+                    () => props.toggleState('leftDrawerOpen', !leftDrawerOpen)
+                "
             />
             <q-img
                 class="q-pl-md hidden sm:!block"
@@ -58,17 +53,16 @@ dark.set(true);
                 </div>
             </q-toolbar>
             <div class="hidden sm:!block pr-5">
-                <LoginRegisterButton />
+                <LoginRegisterButton
+                    :toggleState="
+                        (name:string, val:boolean) =>
+                            props.toggleState(name, val)
+                    "
+                />
             </div>
             <div>
                 <SelectLanguageBox />
             </div>
         </q-toolbar>
-
-        <q-dialog v-model="isDialog" @hide="onDialogClose">
-            <q-card style="width: 700px; max-width: 60vw">
-                <Login />
-            </q-card>
-        </q-dialog>
     </q-header>
 </template>

@@ -11,22 +11,15 @@ const props = defineProps({
         type: Boolean,
         required: true,
     },
-    toggleLeftDrawer: {
-        type: Function,
-        required: true,
-    },
 });
 
 const isOpen = ref(props.leftDrawerOpen);
 
 watch(props, (newValue) => {
-    console.log(newValue, 'MMMMMMMMMM');
-
     isOpen.value = newValue.leftDrawerOpen;
 });
 
 function handleMenu() {
-    // props.toggleLeftDrawer();
 }
 
 interface SideBarItemInterFace {
@@ -79,7 +72,7 @@ const sideBarLinks: SideBarItemInterFace[] = [
                 <CasinoSportToogleButton />
             </div>
             <div class="sm:!hidden mt-5 text-center">
-                <LoginRegisterButton />
+                <!-- <LoginRegisterButton /> -->
             </div>
         </div>
         <q-list>

@@ -10,27 +10,25 @@ const props = defineProps({
         type: Boolean,
         required: true,
     },
-    toggleState: {
+    onClose: {
         type: Function,
         required: true,
     },
 });
 let open = ref(props.open);
 watch(props, (newValue) => {
-    console.log(newValue.open);
-    
     open.value = newValue.open;
 });
 </script>
 <template>
-    <q-dialog v-model="open" @hide="props.toggleState( 'isLogin', false )">
+    <q-dialog v-model="open" @hide="props.onClose">
         <q-card style="width: 700px; max-width: 60vw">
             <div style="background: #0072ff 90%">
                 <div class="grid grid-cols-2 p-6">
                     <div class="p-1">
                         <q-img
                             style="max-width: 221px"
-                            src="@/assets/imgs/man_right.png"
+                            src="@/assets/imgs/casino_offers.png"
                             alt="man"
                         />
                     </div>

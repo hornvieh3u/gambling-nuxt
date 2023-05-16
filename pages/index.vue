@@ -16,7 +16,7 @@ import providers from './providers.tmp.json';
                 <landing-page-overview />
                 <landing-page-intro-cards />
             </section>
-            <section class="pt-4">
+            <section class="pt-4">  
                 <landing-page-category-bar />
                 <game-list v-for="game in games" :game="game" />
                 <provider-list :providers="providers" />
