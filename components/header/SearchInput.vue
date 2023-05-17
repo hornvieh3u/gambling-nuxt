@@ -3,7 +3,7 @@
 <template>
     <div
         style="max-width: 181px"
-        class="relative text-gray-600 focus-within:text-gray-400 m-auto"
+        class="hidden md:!block relative text-gray-600 focus-within:text-gray-400 m-auto"
     >
         <span class="absolute inset-y-0 right-1 flex items-center">
             <q-img

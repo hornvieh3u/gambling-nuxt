@@ -99,3 +99,8 @@ body {
     background: #fff;
 }
 
+.q-table__container{
+    background: transparent;
+    box-shadow: none;
+}
+

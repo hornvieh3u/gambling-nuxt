@@ -31,27 +31,27 @@ interface SideBarItemInterFace {
 const sideBarLinks: SideBarItemInterFace[] = [
     {
         title: 'Daily Cash Back',
-        backUrl: '/_nuxt/assets/imgs/sidebar/side_1.png',
-        iconUrl: '/_nuxt/assets/imgs/sidebar/cash_back.png',
-        link: '/',
+        backUrl: 'side_1.png',
+        iconUrl: 'cash_back.png',
+        link: '#',
     },
     {
         title: 'BONUS WHEEl',
-        backUrl: '/_nuxt/assets/imgs/sidebar/side_2.png',
-        iconUrl: '/_nuxt/assets/imgs/sidebar/wheel.png',
-        link: '/',
+        backUrl: 'side_2.png',
+        iconUrl: 'wheel.png',
+        link: '#',
     },
     {
         title: 'BONUS PROMOTIONS',
-        backUrl: '/_nuxt/assets/imgs/sidebar/side_3.png',
-        iconUrl: '/_nuxt/assets/imgs/sidebar/promotion.png',
-        link: '/',
+        backUrl: 'side_3.png',
+        iconUrl: 'promotion.png',
+        link: '#',
     },
     {
         title: 'TOURNAMENTS',
-        backUrl: '/_nuxt/assets/imgs/sidebar/side_4.png',
-        iconUrl: '/_nuxt/assets/imgs/sidebar/tournament.png',
-        link: '/',
+        backUrl: 'side_4.png',
+        iconUrl: 'tournament.png',
+        link: '#',
     },
 ];
 </script>

@@ -5,6 +5,34 @@ import Verification from '~~/components/profile/Verification.vue';
 import History from '~~/components/profile/History.vue';
 import ResponsibleGambling from '~~/components/profile/ResponsibleGambling.vue';
 
+const selectedItem = ref('General Information');
+
+const categories = computed(() => [
+    {
+        name: 'General Information',
+        icon: 'info',
+        active: selectedItem.value === 'General Information',
+    },
+    {
+        name: 'Verification',
+        icon: 'check',
+        active: selectedItem.value === 'Verification',
+    },
+    {
+        name: 'Game History',
+        icon: 'game',
+        active: selectedItem.value === 'Game History',
+    },
+    {
+        name: 'Responsible Gambling',
+        icon: 'hands',
+        active: selectedItem.value === 'Responsible Gambling',
+    },
+]);
+
+function selectCategory(val: string) {
+    selectedItem.value = val;
+}
 </script>
 <template>
     <q-page class="q-pl-lg">
@@ -13,18 +41,29 @@ import ResponsibleGambling from '~~/components/profile/ResponsibleGambling.vue';
             class="w-full px-6 md:px-10 lg:px-14 py-8 m-auto"
         >
             <section class="main h-full px-4">
-                
                 <div class="grid grid-cols-12 gap-6">
-                    <div class="col-span-12 md:col-span-6 lg:col-span-5 xl:col-span-3">
-                        <p class="text-base font-bold py-3 text-center">Profile</p>
+                    <div
+                        class="col-span-12 md:col-span-6 lg:col-span-5 xl:col-span-3"
+                    >
+                        <p class="text-base font-bold py-3 text-center">
+                            Profile
+                        </p>
                         <ProfileUser />
                     </div>
-                    <div class="col-span-12 md:col-span-6 lg:col-span-7 xl:col-span-9">
-                        <ProfileCategory />
-                        <!-- <ResponsibleGambling /> -->
-                        <!-- <History /> -->
-                        <!-- <PersonalInfo /> -->
-                        <Verification />
+                    <div
+                        class="col-span-12 md:col-span-6 lg:col-span-7 xl:col-span-9"
+                    >
+                        <CategoryBar
+                            :selectCategory="selectCategory"
+                            :categories.sync="categories"
+                        />
+                        <div class="p-1"></div>
+                        <ResponsibleGambling
+                            v-if="selectedItem === 'Responsible Gambling'"
+                        />
+                        <History v-if="selectedItem === 'Game History'" />
+                        <PersonalInfo v-if="selectedItem === 'General Information'" />
+                        <Verification v-if="selectedItem === 'Verification'" />
                     </div>
                 </div>
             </section>

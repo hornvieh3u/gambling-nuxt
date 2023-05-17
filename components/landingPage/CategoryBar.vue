@@ -48,7 +48,7 @@ const provider = {
 
 <template>
     <div
-        class="rounded-lg w-full py-2 px-3 flex items-center justify-start"
+        class="rounded-lg w-full py-2 px-3 md:flex items-center justify-start"
         style="background: #282b34"
     >
         <CategoryBarItem

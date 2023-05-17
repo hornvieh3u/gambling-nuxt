@@ -1,0 +1,45 @@
+<script setup lang="ts">
+const props = defineProps({
+    background: {
+        type: String,
+        required: true,
+    },
+    img: {
+        type: String,
+        required: true,
+    },
+    comment: {
+        type: String,
+        required: true,
+    },
+    slotName: {
+        type: String,
+        required: true,
+    },
+});
+</script>
+<template>
+    <div class="flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between relative">
+                <slot :name="props?.slotName"></slot>
+                <q-img
+                    :src="`/_nuxt/assets/imgs/bonus/${background}.png`"
+                    spinner-color="primary"
+                    alt="title"
+                />
+                <q-img
+                    class="w-1/2 absolute right-0 bottom-0"
+                    :src="`/_nuxt/assets/imgs/${img}.png`"
+                    spinner-color="primary"
+                    alt="title"
+                />
+            </div>
+            <p class="text-xs pt-4">{{ comment }}</p>
+        </div>
+
+        <div class="text-center pb-10">
+            <q-btn class="mt-4" color="primary" label="READ MORE" />
+        </div>
+    </div>
+</template>
