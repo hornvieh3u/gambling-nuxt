@@ -50,6 +50,32 @@ body {
     background-repeat: no-repeat;
 }
 
+.bonus_baner {
+    background-image: url('@/assets/imgs/banner_bonus.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.wallet_baner {
+    background-image: url('@/assets/imgs/banner_wallet.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.tournament_card {
+    background-image: url('@/assets/imgs/tournament_card.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.vip_banner {
+    background-image: url('@/assets/imgs/vip.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .gradiant {
     line-height: 24px;
     background: linear-gradient(to bottom right, #f5a300 0%, #fff783 100%);

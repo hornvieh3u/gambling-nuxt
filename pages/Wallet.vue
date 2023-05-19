@@ -1,0 +1,86 @@
+<script setup lang="ts">
+import Activity from '~~/components/landingPage/Activity.vue';
+import Deposit from '~~/components/withdraw/Deposit.vue';
+import DepositHistory from '~~/components/withdraw/DepositHistory.vue';
+import Withdrawal from '~~/components/withdraw/Withdrawal.vue';
+import Balances from '~~/components/withdraw/Balances.vue';
+
+const selectedItem = ref('Balances');
+
+const categories = computed(() => [
+    {
+        name: 'Balances',
+        icon: 'balance',
+        active: selectedItem.value === 'Balances',
+    },
+    {
+        name: 'Deposit',
+        icon: 'deposit',
+        active: selectedItem.value === 'Deposit',
+    },
+    {
+        name: 'Withdrawal',
+        icon: 'withdrawl',
+        active: selectedItem.value === 'Withdrawal',
+    },
+    {
+        name: 'Deposit History',
+        icon: 'history',
+        active: selectedItem.value === 'Deposit History',
+    },
+    {
+        name: 'Withdrawl History',
+        icon: 'withdrawl_history',
+        active: selectedItem.value === 'Withdrawl History',
+    },
+]);
+
+function selectCategory(val: string) {
+    selectedItem.value = val;
+}
+</script>
+<template>
+    <q-page class="q-pl-lg">
+        <div
+            style="max-width: 1450px"
+            class="w-full px-6 md:px-10 lg:px-14 py-8 m-auto"
+        >
+            <section class="main h-full px-4">
+                <div
+                    class="wallet_baner w-full h-40 font-bold text-xl flex justify-center flex-col text-center"
+                >
+                    <div>
+                        <img class="w-40 m-auto" src="@/assets/imgs/logo_full.png" alt="logo" />
+                        <p style="color: #ffff03" class="font-black text-5xl">
+                            Europe #1
+                        </p>
+                        <p>Online casino</p>
+                    </div>
+                </div>
+
+                <div class="w-full py-4 flex items-center justify-center">
+                    <p class="font-bold text-base hidden lg:!block">WALLET</p>
+                    <div
+                        class="mx-2 hidden lg:!block"
+                        style="width: 1px; height: 20px; background: #383d47"
+                    ></div>
+                    <div>
+                        <CategoryBar
+                            :selectCategory="selectCategory"
+                            :categories.sync="categories"
+                        />
+                    </div>
+                </div>
+
+                <DepositHistory v-if="selectedItem === 'Deposit History'" />
+                <WithdrawHistory v-if="selectedItem === 'Withdrawl History'" />
+                <Deposit v-if="selectedItem === 'Deposit'" />
+                <Withdrawal v-if="selectedItem === 'Withdrawal'" />
+                <Balances v-if="selectedItem === 'Balances'" />
+            </section>
+            <section class="pt-8">
+                <Activity />
+            </section>
+        </div>
+    </q-page>
+</template>

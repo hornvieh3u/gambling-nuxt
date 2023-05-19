@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ActiveBonus from '~~/components/bonus/ActiveBonus.vue';
 import AvailableBonus from '~~/components/bonus/AvailableBonus.vue';
+import FreeSpins from '~~/components/bonus/FreeSpins.vue';
 import Activity from '~~/components/landingPage/Activity.vue';
 
 const selectedItem = ref('Available Bonus');
@@ -8,27 +9,27 @@ const selectedItem = ref('Available Bonus');
 const categories = computed(() => [
     {
         name: 'Available Bonus',
-        icon: 'info',
+        icon: 'available_icon',
         active: selectedItem.value === 'Available Bonus',
     },
     {
         name: 'Active Bonus',
-        icon: 'check',
+        icon: 'active_icon',
         active: selectedItem.value === 'Active Bonus',
     },
     {
         name: 'Free Spins',
-        icon: 'game',
+        icon: 'free_spin_icon',
         active: selectedItem.value === 'Free Spins',
     },
     {
         name: 'Cash Back',
-        icon: 'hands',
+        icon: 'cashback_icon',
         active: selectedItem.value === 'Cash Back',
     },
     {
         name: 'Bonus History',
-        icon: 'hands',
+        icon: 'history_icon',
         active: selectedItem.value === 'Bonus History',
     },
 ]);
@@ -44,17 +45,29 @@ function selectCategory(val: string) {
             class="w-full px-6 md:px-10 lg:px-14 py-8 m-auto"
         >
             <section class="main h-full px-4">
-                <div>
-                    <q-img
-                        class="w-full"
-                        src="@/assets/imgs/banner_bonus.png"
-                    />
+                <div
+                    class="bonus_baner w-full h-40 font-bold text-xl flex justify-center flex-col text-right"
+                >
+                    <div class="pr-12 md:pr-24 lg:pr-36">
+                        <p>
+                            <span>DAILY CASHBACK OF UP TO</span>&nbsp;<span
+                                style="color: #ffff03"
+                                class="font-black text-5xl"
+                                >20%</span
+                            >
+                        </p>
+                        <p>
+                            ONLY ON
+                            <span style="color: #ffff03">EURPOE #1</span> ONLINE
+                            CASINO
+                        </p>
+                    </div>
                 </div>
 
                 <div class="w-full py-4 flex items-center justify-center">
-                    <p class="font-bold text-base">Bonus</p>
+                    <p class="font-bold text-base hidden lg:!block">Bonus</p>
                     <div
-                        class="mx-2"
+                        class="mx-2 hidden lg:!block"
                         style="width: 1px; height: 20px; background: #383d47"
                     ></div>
                     <div>
@@ -64,8 +77,12 @@ function selectCategory(val: string) {
                         />
                     </div>
                 </div>
+
+                <BonusCashBack v-if="selectedItem === 'Cash Back'" />
+                <BonusHistory v-if="selectedItem === 'Bonus History'" />
                 <ActiveBonus v-if="selectedItem === 'Active Bonus'" />
                 <AvailableBonus v-if="selectedItem === 'Available Bonus'" />
+                <FreeSpins v-if="selectedItem === 'Free Spins'" />
             </section>
             <section class="pt-8">
                 <Activity />
