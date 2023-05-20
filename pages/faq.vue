@@ -73,7 +73,7 @@ const faqList = [
                                 </div>
                                 <q-img
                                     class="w-2 relative"
-                                    src="/_nuxt/assets/imgs/sidebar/accordion_icon.svg"
+                                    src="/imgs/sidebar/accordion_icon.svg"
                                 />
                         </div>
                         <div

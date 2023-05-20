@@ -22,7 +22,7 @@
                     />
                     <p class="font-semibold text-sm p-3">Games</p>
                 </div>
-                <q-img class="w-2" src="/_nuxt/assets/imgs/sidebar/accordion_icon.svg" />
+                <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
             <SideBarGameCategory />
         </button>
@@ -38,7 +38,7 @@
                     />
                     <p class="font-semibold text-sm p-3">Sportbook</p>
                 </div>
-                <q-img class="w-2" src="/_nuxt/assets/imgs/sidebar/accordion_icon.svg" />
+                <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
             <SideBarGameCategory />
         </button>
@@ -54,7 +54,7 @@
                     />
                     <p class="font-semibold text-sm p-3">Promotions</p>
                 </div>
-                <q-img class="w-2" src="/_nuxt/assets/imgs/sidebar/accordion_icon.svg" />
+                <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
             <SideBarGameCategory />
         </button>
@@ -70,7 +70,7 @@
                     />
                     <p class="font-semibold text-sm p-3">Referral</p>
                 </div>
-                <q-img class="w-2" src="/_nuxt/assets/imgs/sidebar/accordion_icon.svg" />
+                <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
             <SideBarGameCategory />
         </button>

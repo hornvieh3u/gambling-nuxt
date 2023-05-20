@@ -20,7 +20,7 @@ defineProps({
     :class="{ 'bg-slate-400': active }"
     :style="{ color: 'white' , backgroundColor: active ? '#0072FF' : '' }"
   >
-    <q-img class="w-4" :src="`/_nuxt/assets/imgs/${icon}.png`" alt="icon" />
+    <q-img class="w-4" :src="`/imgs/${icon}.png`" alt="icon" />
     <p class="pl-1 text-base font-medium">{{ name }}</p> <!-- Use a utility class for font size -->
   </div>
 </template>

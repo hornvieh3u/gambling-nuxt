@@ -1,162 +1,162 @@
 [
     {
         "title": "Hot New Games",
-        "icon": "/_nuxt/assets/imgs/sidebar/hot.png",
+        "icon": "/imgs/sidebar/hot.png",
         "list": [
             {
-                "link": "/_nuxt/assets/tmp/1.png",
+                "link": "/tmp/1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/2.png",
+                "link": "/tmp/2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/3.png",
+                "link": "/tmp/3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/4.png",
+                "link": "/tmp/4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/5.png",
+                "link": "/tmp/5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/6.png",
+                "link": "/tmp/6.png",
                 "name": "Tiny Gods"
             },
             {
-                "link": "/_nuxt/assets/tmp/1.png",
+                "link": "/tmp/1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/2.png",
+                "link": "/tmp/2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/3.png",
+                "link": "/tmp/3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/4.png",
+                "link": "/tmp/4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/5.png",
+                "link": "/tmp/5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/6.png",
+                "link": "/tmp/6.png",
                 "name": "Tiny Gods"
             }
         ]
     },
     {
         "title": "Best Table Games",
-        "icon": "/_nuxt/assets/imgs/sidebar/table.png",
+        "icon": "/imgs/sidebar/table.png",
         "list": [
             {
-                "link": "/_nuxt/assets/tmp/1.png",
+                "link": "/tmp/1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/2.png",
+                "link": "/tmp/2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/3.png",
+                "link": "/tmp/3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/4.png",
+                "link": "/tmp/4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/5.png",
+                "link": "/tmp/5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/6.png",
+                "link": "/tmp/6.png",
                 "name": "Tiny Gods"
             },
             {
-                "link": "/_nuxt/assets/tmp/1.png",
+                "link": "/tmp/1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/2.png",
+                "link": "/tmp/2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/3.png",
+                "link": "/tmp/3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/4.png",
+                "link": "/tmp/4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/5.png",
+                "link": "/tmp/5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/6.png",
+                "link": "/tmp/6.png",
                 "name": "Tiny Gods"
             }
         ]
     },
     {
         "title": "Live Casino",
-        "icon": "/_nuxt/assets/imgs/sidebar/live_casino.png",
+        "icon": "/imgs/sidebar/live_casino.png",
         "list": [
             {
-                "link": "/_nuxt/assets/tmp/1.png",
+                "link": "/tmp/1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/2.png",
+                "link": "/tmp/2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/3.png",
+                "link": "/tmp/3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/4.png",
+                "link": "/tmp/4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/5.png",
+                "link": "/tmp/5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/6.png",
+                "link": "/tmp/6.png",
                 "name": "Tiny Gods"
             },
             {
-                "link": "/_nuxt/assets/tmp/1.png",
+                "link": "/tmp/1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/2.png",
+                "link": "/tmp/2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/3.png",
+                "link": "/tmp/3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/4.png",
+                "link": "/tmp/4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/5.png",
+                "link": "/tmp/5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/6.png",
+                "link": "/tmp/6.png",
                 "name": "Tiny Gods"
             }
         ]

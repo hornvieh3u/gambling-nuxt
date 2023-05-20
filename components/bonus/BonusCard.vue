@@ -24,13 +24,13 @@ const props = defineProps({
             <div class="flex items-center justify-between relative">
                 <slot :name="props?.slotName"></slot>
                 <q-img
-                    :src="`/_nuxt/assets/imgs/bonus/${background}.png`"
+                    :src="`/imgs/bonus/${background}.png`"
                     spinner-color="primary"
                     alt="title"
                 />
                 <q-img
                     class="w-1/2 absolute right-0 bottom-0"
-                    :src="`/_nuxt/assets/imgs/${img}.png`"
+                    :src="`/imgs/${img}.png`"
                     spinner-color="primary"
                     alt="title"
                 />

@@ -1,38 +1,38 @@
 [
             {
-                "link": "/_nuxt/assets/tmp/p1.png",
+                "link": "/tmp/p1.png",
                 "name": "Crazy Time"
             },
             {
-                "link": "/_nuxt/assets/tmp/p2.png",
+                "link": "/tmp/p2.png",
                 "name": "Gladiator Legends"
             },
             {
-                "link": "/_nuxt/assets/tmp/p3.png",
+                "link": "/tmp/p3.png",
                 "name": "Bigger Bass Bonanza"
             },
             {
-                "link": "/_nuxt/assets/tmp/p4.png",
+                "link": "/tmp/p4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/p5.png",
+                "link": "/tmp/p5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/p6.png",
+                "link": "/tmp/p6.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/p4.png",
+                "link": "/tmp/p4.png",
                 "name": "Zelis The Thunder"
             },
             {
-                "link": "/_nuxt/assets/tmp/p5.png",
+                "link": "/tmp/p5.png",
                 "name": "Fruits of Luxor"
             },
             {
-                "link": "/_nuxt/assets/tmp/p6.png",
+                "link": "/tmp/p6.png",
                 "name": "Fruits of Luxor"
             }
         ]

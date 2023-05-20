@@ -29,7 +29,7 @@
                         >
                             <img
                                 style="max-height: 50%"
-                                :src="`/_nuxt/assets/imgs/payment/${payment?.icon}.png`"
+                                :src="`/imgs/payment/${payment?.icon}.png`"
                                 spinner-color="primary"
                             />
                             <p class="text-xs" style="color: #535559">
