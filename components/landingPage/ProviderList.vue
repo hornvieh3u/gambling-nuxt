@@ -27,7 +27,7 @@ const onSlideChange = () => {
         <div style="background: #282b34" class="mx-4 p-4 rounded-lg">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center">
-                    <q-img
+                    <img
                         class="w-4"
                         src="@/assets/imgs/sidebar/provider.png"
                         alt="hot"
@@ -41,7 +41,7 @@ const onSlideChange = () => {
                         size="sm"
                         style="background: #3f4655"
                     >
-                        <q-img
+                        <img
                             class="w-2"
                             src="@/assets/imgs/left.png"
                             alt="left"
@@ -54,7 +54,7 @@ const onSlideChange = () => {
                         size="sm"
                         style="background: #3f4655"
                     >
-                        <q-img
+                        <img
                             class="w-2"
                             src="@/assets/imgs/right.png"
                             alt="right"

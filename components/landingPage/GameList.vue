@@ -22,7 +22,7 @@ const onSlideChange = () => {
         <div class="px-4">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center">
-                    <q-img class="w-4" :src="game?.icon" alt="hot" />
+                    <img class="w-4" :src="game?.icon" alt="hot" />
                     <p class="font-bold text-lg pl-2">{{ game?.title }}</p>
                 </div>
                 <div>
@@ -32,7 +32,7 @@ const onSlideChange = () => {
                         size="sm"
                         style="background: #3f4655"
                     >
-                        <q-img
+                        <img
                             class="w-2"
                             src="@/assets/imgs/left.png"
                             alt="left"
@@ -45,7 +45,7 @@ const onSlideChange = () => {
                         size="sm"
                         style="background: #3f4655"
                     >
-                        <q-img
+                        <img
                             class="w-2"
                             src="@/assets/imgs/right.png"
                             alt="right"
