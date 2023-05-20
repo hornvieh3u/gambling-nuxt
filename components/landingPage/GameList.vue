@@ -34,7 +34,7 @@ const onSlideChange = () => {
                     >
                         <img
                             class="w-2"
-                            src="@/assets/imgs/left.png"
+                            src="/imgs/left.png"
                             alt="left"
                         />
                     </q-btn>
@@ -47,7 +47,7 @@ const onSlideChange = () => {
                     >
                         <img
                             class="w-2"
-                            src="@/assets/imgs/right.png"
+                            src="/imgs/right.png"
                             alt="right"
                         />
                     </q-btn>

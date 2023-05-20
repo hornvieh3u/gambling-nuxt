@@ -33,25 +33,25 @@ const sideBarLinks: SideBarItemInterFace[] = [
         title: 'Daily Cash Back',
         backUrl: 'side_1.png',
         iconUrl: 'cash_back.png',
-        link: '#',
+        link: '/wallet',
     },
     {
         title: 'BONUS WHEEl',
         backUrl: 'side_2.png',
         iconUrl: 'wheel.png',
-        link: '#',
+        link: '/wheel',
     },
     {
         title: 'BONUS PROMOTIONS',
         backUrl: 'side_3.png',
         iconUrl: 'promotion.png',
-        link: '#',
+        link: '/bonus',
     },
     {
         title: 'TOURNAMENTS',
         backUrl: 'side_4.png',
         iconUrl: 'tournament.png',
-        link: '#',
+        link: '/tournament',
     },
 ];
 </script>

@@ -9,7 +9,7 @@
             <q-img
                 class="q-mr-sm"
                 style="max-width: 22px"
-                src="@/assets/imgs/header/search.png"
+                src="/imgs/header/search.png"
                 alt="sports"
             />
         </span>

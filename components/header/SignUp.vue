@@ -23,7 +23,7 @@ watch(props, (newValue) => {
 });
 </script>
 <template>
-    <q-dialog v-model="open" @hide="props.toggleState('isSignUp', false)">
+    <q-dialog v-model="open" @hide="props.toggleState('onSignUp', false)">
         <q-card style="width: 700px; max-width: 60vw">
             <div style="background: #0072ff 90%">
                 <div class="grid grid-cols-2 p-6">
@@ -31,12 +31,12 @@ watch(props, (newValue) => {
                         <q-img
                             class="-mb-16"
                             style="max-width: 221px"
-                            src="@/assets/imgs/new.png"
+                            src="/imgs/new.png"
                             alt="man"
                         />
                         <q-img
                             style="max-width: 221px"
-                            src="@/assets/imgs/casino_offers.png"
+                            src="/imgs/casino_offers.png"
                             alt="man"
                         />
                     </div>
@@ -154,7 +154,7 @@ watch(props, (newValue) => {
                                             'isVerifyEmail',
                                             true
                                         );
-                                        props.toggleState('isSignUp', false);
+                                        props.toggleState('onSignUp', false);
                                     }
                                 "
                                 class="mt-4 font-bold"

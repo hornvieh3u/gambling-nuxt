@@ -65,7 +65,7 @@
   }
   
   .ruleta {
-    background-image: url('@/assets/imgs/wheel/wheel_current.png');
+    background-image: url('/imgs/wheel/wheel_current.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

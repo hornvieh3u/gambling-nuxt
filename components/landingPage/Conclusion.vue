@@ -3,7 +3,7 @@
 <template>
     <div class="grid grid-cols-10 m-4 gap-2">
         <div class="col-span-10 md:col-span-4 relative">
-            <q-img class="w-full h-full" src="@/assets/imgs/back_daily_b.png" />
+            <q-img class="w-full h-full" src="/imgs/back_daily_b.png" />
             <div class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8">
                 <p class="font-bold text-xl text-shadow-lg">
                     DAILY<br />CASHBACK
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="col-span-10 md:col-span-6 relative">
-            <q-img class="w-full h-full" src="@/assets/imgs/back_bonus_b.png" />
+            <q-img class="w-full h-full" src="/imgs/back_bonus_b.png" />
             <div class="absolute top-4 z-10 left-1/4 text-center">
                 <p class="font-bold text-xl text-shadow-lg">WELCOME BONUS</p>
                 <div class="flex justify-center items-center">

@@ -37,40 +37,40 @@ body {
 }
 
 .main {
-    background-image: url('@/assets/imgs/main.png');
+    background-image: url('/imgs/main.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .welcome {
-    background-image: url('@/assets/imgs/welcome.png');
+    background-image: url('/imgs/welcome.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .bonus_baner {
-    background-image: url('@/assets/imgs/banner_bonus.png');
+    background-image: url('/imgs/banner_bonus.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .wallet_baner {
-    background-image: url('@/assets/imgs/banner_wallet.png');
+    background-image: url('/imgs/banner_wallet.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .tournament_card {
-    background-image: url('@/assets/imgs/tournament_card.png');
+    background-image: url('/imgs/tournament_card.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .vip_banner {
-    background-image: url('@/assets/imgs/vip.png');
+    background-image: url('/imgs/vip.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -128,5 +128,9 @@ body {
 .q-table__container{
     background: transparent;
     box-shadow: none;
+}
+
+.btn-none::before {
+    box-shadow: none!important;
 }
 

@@ -50,7 +50,7 @@ function selectCategory(val: string) {
                     class="wallet_baner w-full h-40 font-bold text-xl flex justify-center flex-col text-center"
                 >
                     <div>
-                        <img class="w-40 m-auto" src="@/assets/imgs/logo_full.png" alt="logo" />
+                        <img class="w-40 m-auto" src="/imgs/logo_full.png" alt="logo" />
                         <p style="color: #ffff03" class="font-black text-5xl">
                             Europe #1
                         </p>

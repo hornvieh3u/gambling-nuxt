@@ -11,7 +11,7 @@ import Activity from '~~/components/landingPage/Activity.vue';
                 <div class="relative">
                     <img
                         class="w-12 absolute top-0 left-1/2 transform -translate-x-1/2 z-10"
-                        src="@/assets/imgs/wheel/wheel_spin.png"
+                        src="/imgs/wheel/wheel_spin.png"
                         alt="spin"
                     />
                     <LuckyWheel />

@@ -21,7 +21,7 @@ function toggleCasinoSport(val: string) {
             <q-img
                 class="q-mr-sm"
                 style="max-width: 22px"
-                src="@/assets/imgs/header/wallet-icon.png"
+                src="/imgs/header/wallet-icon.png"
                 alt="sports"
             />
             Wallet

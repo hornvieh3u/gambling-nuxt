@@ -20,7 +20,7 @@ import { computed, ref } from 'vue';
                 <p style="color: #7b8193" class="text-xs">
                     jeffo@canada777.com
                 </p>
-                <q-img class="w-5" src="@/assets/imgs/logout.png" />
+                <q-img class="w-5" src="/imgs/logout.png" />
             </div>
         </div>
     </div>

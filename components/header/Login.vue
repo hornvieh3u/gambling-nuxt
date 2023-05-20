@@ -18,19 +18,19 @@ const props = defineProps({
 let open = ref(props.open);
 watch(props, (newValue) => {
     console.log(newValue.open);
-    
+
     open.value = newValue.open;
 });
 </script>
 <template>
-    <q-dialog v-model="open" @hide="props.toggleState( 'isLogin', false )">
+    <q-dialog v-model="open" @hide="props.toggleState('onLogin', false)">
         <q-card style="width: 700px; max-width: 60vw">
             <div style="background: #0072ff 90%">
                 <div class="grid grid-cols-2 p-6">
                     <div class="p-1">
                         <q-img
                             style="max-width: 221px"
-                            src="@/assets/imgs/man_right.png"
+                            src="/imgs/man_right.png"
                             alt="man"
                         />
                     </div>
@@ -102,6 +102,12 @@ watch(props, (newValue) => {
                                     background-color: #fff004;
                                     color: black;
                                     font-size: 20px;
+                                "
+                                @click="
+                                    () => {
+                                        props.toggleState('onLogin', false);
+                                        props.toggleState('isLogin', true);
+                                    }
                                 "
                                 label="LOG IN"
                             />

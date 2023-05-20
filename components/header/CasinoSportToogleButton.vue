@@ -21,7 +21,7 @@ function toggleCasinoSport(val: string) {
             <img
                 class="q-mr-sm"
                 style="max-width: 22px"
-                src="@/assets/imgs/header/casino-icon.png"
+                src="/imgs/header/casino-icon.png"
                 alt="casino"
             />
             Casino
@@ -36,7 +36,7 @@ function toggleCasinoSport(val: string) {
             <img
                 class="q-mr-sm"
                 style="max-width: 22px"
-                src="@/assets/imgs/header/sports-icon.png"
+                src="/imgs/header/sports-icon.png"
                 alt="sports"
             />
             Sport

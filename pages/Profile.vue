@@ -62,7 +62,9 @@ function selectCategory(val: string) {
                             v-if="selectedItem === 'Responsible Gambling'"
                         />
                         <History v-if="selectedItem === 'Game History'" />
-                        <PersonalInfo v-if="selectedItem === 'General Information'" />
+                        <PersonalInfo
+                            v-if="selectedItem === 'General Information'"
+                        />
                         <Verification v-if="selectedItem === 'Verification'" />
                     </div>
                 </div>

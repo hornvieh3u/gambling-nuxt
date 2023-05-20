@@ -14,7 +14,7 @@
                         step = 1;
                     }
                 "
-                >STEP 1 <q-img class="w-2 mx-3" src="@/assets/imgs/right.png"
+                >STEP 1 <q-img class="w-2 mx-3" src="/imgs/right.png"
             /></span>
             <span
                 class="font-medium text-xs cursor-pointer"
@@ -23,7 +23,7 @@
                         step = 2;
                     }
                 "
-                >STEP 2 <q-img class="w-2 mx-3" src="@/assets/imgs/right.png"
+                >STEP 2 <q-img class="w-2 mx-3" src="/imgs/right.png"
             /></span>
             <span
                 class="font-medium text-xs cursor-pointer"

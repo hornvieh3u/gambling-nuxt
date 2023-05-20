@@ -4,7 +4,7 @@
             <div class="flex justify-start items-center">
                 <q-img
                     class="w-4"
-                    src="@/assets/imgs/sidebar/slot.png"
+                    src="/imgs/sidebar/slot.png"
                     alt="slot"
                 />
                 <p
@@ -19,7 +19,7 @@
             ><div class="flex justify-start items-center">
                 <q-img
                     class="w-4"
-                    src="@/assets/imgs/sidebar/live_casino.png"
+                    src="/imgs/sidebar/live_casino.png"
                     alt="slot"
                 />
                 <p
@@ -34,7 +34,7 @@
             ><div class="flex justify-start items-center">
                 <q-img
                     class="w-4"
-                    src="@/assets/imgs/sidebar/table.png"
+                    src="/imgs/sidebar/table.png"
                     alt="table"
                 />
                 <p
@@ -49,7 +49,7 @@
             ><div class="flex justify-start items-center">
                 <q-img
                     class="w-4"
-                    src="@/assets/imgs/sidebar/roulette.png"
+                    src="/imgs/sidebar/roulette.png"
                     alt="roulette"
                 />
                 <p

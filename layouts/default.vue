@@ -14,7 +14,8 @@ interface State {
 
 const state: State = {
     isLogin: ref(false),
-    isSignUp: ref(false),
+    onLogin: ref(false),
+    onSignUp: ref(false),
     leftDrawerOpen: ref(false),
     isVerifyEmail: ref(false),
     isWelcome: ref(true),
@@ -30,6 +31,7 @@ function toggleState(name: string, val: boolean) {
         <!-- Header -->
         <HeaderComponent
             :leftDrawerOpen="state?.leftDrawerOpen.value"
+            :isLogin="state?.isLogin.value"
             :toggleState="(name: string, val: boolean)=>toggleState(name, val)"
         />
 
@@ -48,8 +50,8 @@ function toggleState(name: string, val: boolean) {
             style="background-color: #151515; color: #7d8396; padding: 10px"
             >Copyright 2023 Europa777 All Right Reserved.</q-footer
         >
-        <Login :open.sync="state?.isLogin.value" :toggleState="toggleState" />
-        <SignUp :open.sync="state?.isSignUp.value" :toggleState="toggleState" />
+        <Login :open.sync="state?.onLogin.value" :toggleState="toggleState" />
+        <SignUp :open.sync="state?.onSignUp.value" :toggleState="toggleState" />
         <VerifyEmail
             :open.sync="state?.isVerifyEmail.value"
             :toggleState="toggleState"

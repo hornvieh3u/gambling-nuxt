@@ -10,7 +10,7 @@
                 <div class="text-center">
                     <img
                         class="w-7 m-auto"
-                        src="@/assets/imgs/add_currency.png"
+                        src="/imgs/add_currency.png"
                         alt="asdasd"
                     />
                     <p>Add Currency</p>

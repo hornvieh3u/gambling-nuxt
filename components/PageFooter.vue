@@ -18,7 +18,7 @@
             <div class="hidden lg:!block" style="max-width: 196px">
                 <q-img
                     style="max-width: 163px"
-                    src="@/assets/imgs/logo_full.png"
+                    src="/imgs/logo_full.png"
                     alt="logo"
                 />
                 <p class="pt-4" style="font-size: 9px; font-weight: 500">
@@ -111,7 +111,7 @@
                 <div class="lg:hidden" style="max-width: 196px">
                     <q-img
                         style="max-width: 163px"
-                        src="@/assets/imgs/logo_full.png"
+                        src="/imgs/logo_full.png"
                         alt="logo"
                     />
                     <p class="pt-4" style="font-size: 9px; font-weight: 500">
@@ -127,39 +127,39 @@
                     <p class="text-base font-semibold pb-2">Payment Methods</p>
                     <q-img
                         class="w-full"
-                        src="@/assets/imgs/footer/payment.png"
+                        src="/imgs/footer/payment.png"
                         alt="logo"
                     />
                     <p class="text-base font-semibold pt-4 pb-2">Follow Us</p>
                     <div class="flex justify-between items-center">
                         <q-img
                             style="max-width: 17px"
-                            src="@/assets/imgs/footer/telegram.png"
+                            src="/imgs/footer/telegram.png"
                             alt="logo"
                         />
                         <q-img
                             style="max-width: 17px"
-                            src="@/assets/imgs/footer/youtube.png"
+                            src="/imgs/footer/youtube.png"
                             alt="logo"
                         />
                         <q-img
                             style="max-width: 17px"
-                            src="@/assets/imgs/footer/twitter.png"
+                            src="/imgs/footer/twitter.png"
                             alt="logo"
                         />
                         <q-img
                             style="max-width: 17px"
-                            src="@/assets/imgs/footer/instagram.png"
+                            src="/imgs/footer/instagram.png"
                             alt="logo"
                         />
                         <q-img
                             style="max-width: 17px"
-                            src="@/assets/imgs/footer/linkdin.png"
+                            src="/imgs/footer/linkdin.png"
                             alt="logo"
                         />
                         <img
                             style="max-height: 17px;"
-                            src="@/assets/imgs/footer/facebook.png"
+                            src="/imgs/footer/facebook.png"
                             alt="logo"
                         />
                     </div>

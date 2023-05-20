@@ -17,13 +17,13 @@
                         <q-btn class="mt-4" size="xs" label="Free Spin" />
                     </div>
                     <q-img
-                        src="@/assets/imgs/back_bonus.png"
+                        src="/imgs/back_bonus.png"
                         spinner-color="primary"
                         alt="title"
                     />
                     <q-img
                         class="w-1/2 absolute right-0 -bottom-3"
-                        src="@/assets/imgs/wheel.png"
+                        src="/imgs/wheel.png"
                         spinner-color="primary"
                         spinner-size="24px"
                         alt="title"
@@ -48,13 +48,13 @@
                         </div>
                     </div>
                     <q-img
-                        src="@/assets/imgs/back_daily.png"
+                        src="/imgs/back_daily.png"
                         spinner-color="primary"
                         alt="title"
                     />
                     <q-img
                         class="w-1/2 absolute right-0 -bottom-3"
-                        src="@/assets/imgs/cash_back.png"
+                        src="/imgs/cash_back.png"
                         spinner-color="primary"
                         alt="title"
                     />

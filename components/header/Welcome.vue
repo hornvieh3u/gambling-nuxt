@@ -29,7 +29,7 @@ watch(props, (newValue) => {
                         <q-img
                             class="absolute bottom-0 left-0"
                             style="max-width: 221px"
-                            src="@/assets/imgs/man_thumb.png"
+                            src="/imgs/man_thumb.png"
                             alt="man"
                         />
                     </div>
