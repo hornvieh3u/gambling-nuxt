@@ -125,7 +125,7 @@ const torunamentList = [
                                 </div>
                                     <img
                                         class="w-2/3 m-auto"
-                                        :src="`/_nuxt/assets/imgs/${torunament?.img}`"
+                                        :src="`/imgs/${torunament?.img}`"
                                         alt="turnaments"
                                     />
                             </div>
