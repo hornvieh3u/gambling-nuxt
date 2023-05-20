@@ -13,10 +13,9 @@ const props = withDefaults(defineProps<SideBarItemInterFace>(), {
     link: '',
 });
 
-function getUrl (img: string)  {
-  return `/imgs/sidebar/${img}`;
+function getUrl(img: string) {
+    return `/imgs/sidebar/${img}`;
 }
-
 </script>
 <template>
     <nuxt-link :to="link">
@@ -32,9 +31,14 @@ function getUrl (img: string)  {
                     {{ title }}
                 </p>
             </div>
-            <q-img :src="getUrl(backUrl)" spinner-color="primary" spinner-size="24px" :alt="title" />
-            <q-img
-                style="width: 108px;"
+            <img
+                :src="getUrl(backUrl)"
+                spinner-color="primary"
+                spinner-size="24px"
+                :alt="title"
+            />
+            <img
+                style="width: 108px"
                 class="absolute right-0 bottom-0"
                 :src="getUrl(iconUrl)"
                 spinner-color="primary"
