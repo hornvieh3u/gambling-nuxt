@@ -1,7 +1,7 @@
 import * as path from 'path';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    ssr: false,
+    // ssr: false,
     // add tailwindcss to the modules
     modules: ['@nuxtjs/tailwindcss', 'nuxt-quasar-ui'],
 

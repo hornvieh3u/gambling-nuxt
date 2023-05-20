@@ -14,8 +14,7 @@ const props = withDefaults(defineProps<SideBarItemInterFace>(), {
 });
 
 function getUrl (img: string)  {
-  return `/_nuxt/assets/imgs/sidebar/${img}`;
-//   return require(`@/assets/imgs/sidebar/${img}.png`);
+  return `/imgs/sidebar/${img}`;
 }
 
 </script>
