@@ -125,12 +125,21 @@ body {
     background: #fff;
 }
 
-.q-table__container{
+.q-table__container {
     background: transparent;
     box-shadow: none;
 }
 
 .btn-none::before {
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
+.border-x {
+    border-left: 1px solid #FFFFFF 30%;
+    border-right: 1px solid #FFFFFF 30%;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+}

@@ -2,11 +2,13 @@
 import { ref, computed } from 'vue';
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import SideBarComponent from '@/components/sidebar/SideBarComponent.vue';
-import PageFooter from '@/components/PageFooter.vue';
+import PageFooter from '@/components/footer/PageFooter.vue';
 import Login from '~~/components/header/Login.vue';
 import SignUp from '~~/components/header/SignUp.vue';
 import VerifyEmail from '~~/components/header/VerifyEmail.vue';
 import Welcome from '~~/components/header/Welcome.vue';
+import MobileFooter from '~~/components/footer/MobileFooter.vue';
+import MobilePageFooter from '~~/components/footer/MobilePageFooter.vue';
 
 interface State {
     [name: string]: Ref<boolean>;
@@ -42,12 +44,14 @@ function toggleState(name: string, val: boolean) {
         <q-page-container style="background-color: #151515">
             <NuxtPage />
             <PageFooter />
+            <MobilePageFooter />
+            <MobileFooter />
         </q-page-container>
 
         <!-- Footer -->
         <q-footer
-            class="text-sm font-normal text-center"
-            style="background-color: #151515; color: #7d8396; padding: 10px"
+            class="text-sm font-normal text-center z-0 pt-3 px-3 pb-40 sm:pb-3"
+            style="background-color: #151515; color: #7d8396"
             >Copyright 2023 Europa777 All Right Reserved.</q-footer
         >
         <Login :open.sync="state?.onLogin.value" :toggleState="toggleState" />

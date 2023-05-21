@@ -2,6 +2,7 @@
 
 <template>
     <div
+    class="hidden sm:!block"
         style="
             background: radial-gradient(
                 94.97% 94.97% at 50% 5.03%,
@@ -13,9 +14,9 @@
     >
         <div
             style="border-bottom: 1px solid rgba(123, 129, 147, 0.3)"
-            class="p-5 flex items-start justify-center"
+            class="p-5 grid grid-cols-4"
         >
-            <div class="hidden lg:!block" style="max-width: 196px">
+            <div class="hidden lg:!block lg:col-span-1" style="max-width: 196px">
                 <q-img
                     style="max-width: 163px"
                     src="/imgs/logo_full.png"
@@ -30,7 +31,7 @@
                 </p>
             </div>
             <div
-                class="px-10 grid grid-cols-2 sm:grid-cols-4 md:gap-4 w-full lg:w-auto"
+                class="px-10 grid grid-cols-2 sm:grid-cols-4 md:gap-4 w-full lg:w-auto md:col-span-2 col-span-4"
             >
                 <div class="col-span-1">
                     <p class="text-base font-semibold pb-2">iGaming</p>
@@ -106,7 +107,7 @@
                 </div>
             </div>
             <div
-                class="flex justify-around w-full lg:w-auto lg:block pt-4 lg:pt-0"
+                class="flex justify-around w-full lg:w-auto lg:block pt-4 lg:pt-0 lg:col-span-1 md:col-span-2 col-span-4"
             >
                 <div class="lg:hidden" style="max-width: 196px">
                     <q-img

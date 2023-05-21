@@ -11,7 +11,7 @@ import Activity from '~~/components/landingPage/Activity.vue';
     <q-page class="q-pl-lg">
         <div
             style="max-width: 1450px"
-            class="w-full px-6 md:px-10 lg:px-14 py-8 m-auto"
+            class="w-full px-1 sm:px-6 md:px-10 lg:px-14 py-8 m-auto"
         >
             <section class="main h-full px-4">
                 <landing-page-overview />

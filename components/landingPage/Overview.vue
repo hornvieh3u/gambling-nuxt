@@ -2,7 +2,9 @@
 <template>
     <div class="relative pb-11 w-full">
         <div>
-            <p class="font-bold text-3xl pl-3">Welcome Back Jeff on</p>
+            <p class="font-bold text-3xl pl-3 hidden md:!block">
+                Welcome Back Jeff on
+            </p>
             <img
                 class="md:max-w-sm sm:max-w-xs w-auto"
                 src="/imgs/logo_full.png"
@@ -11,25 +13,25 @@
             <p class="font-bold text-3xl pl-3"># 1 Online casino</p>
             <p
                 style="font-family: Montserrat-Italic"
-                class="font-medium text-lg pl-3 pt-1"
+                class="font-medium text-lg pl-3 pt-1 hidden md:!block"
             >
                 Enjoy 3500+ games, fast payouts and 24/7 live support.
             </p>
-            <div class="pt-3 pl-3">
+            <div class="pt-3 pl-3 flex items-center justify-start">
                 <q-btn
-                    class="font-bold text-lg md:text-xl lg:text-2xl lg:px-6"
+                    class="font-bold text-lg md:text-xl lg:text-2xl !leading-loose lg:px-6 hidden md:!block"
                     outline
                     color="white"
                     label="play slots"
                 />
                 <q-btn
-                    class="font-bold text-lg md:text-xl lg:text-2xl lg:px-6 ml-4"
+                    class="font-bold text-lg md:text-xl lg:text-2xl lg:px-6 md:ml-4"
                     unelevated
                     color="primary"
                     label="Deposit"
                 />
             </div>
-            <div class="flex items-center justify-start pt-3 pl-3">
+            <div class="items-center justify-start pt-3 pl-3 hidden md:!block">
                 <q-img
                     class="w-9 md:w-10 lg:w-12"
                     src="/imgs/visa.png"
@@ -59,7 +61,7 @@
         </div>
 
         <img
-            class="absolute right-0 -bottom-24 z-0 hidden lg:!block sm:max-w-sm md:max-w-md lg:max-w-lg"
+            class="absolute right-0 -bottom-24 z-0 hidden md:!block sm:max-w-sm md:max-w-md lg:max-w-lg"
             src="/imgs/new.png"
             alt="new"
         />
