@@ -97,7 +97,7 @@ const list = [
             class="p-5 grid grid-cols-1"
         >
             <button
-            style="border-bottom: 1px solid rgba(123, 129, 147, 0.3)"
+                style="border-bottom: 1px solid rgba(123, 129, 147, 0.3)"
                 v-for="item in list"
                 class="group focus:outline-none p-1 rounded-sm relative"
             >
@@ -108,7 +108,7 @@ const list = [
                         class="w-full h-full absolute left-0 top-0 opacity-80 rounded-sm"
                     ></div>
                     <div class="relative flex justify-start items-center">
-                        <p style="font-size: 11px;" class="font-medium p-3">
+                        <p style="font-size: 11px" class="font-medium p-3">
                             {{ item?.title }}
                         </p>
                     </div>
@@ -120,10 +120,12 @@ const list = [
                 <div
                     class="relative max-h-0 overflow-hidden duration-300 group-focus:max-h-32"
                 >
-                    <p class="py-2 px-6 text-xs text-left">
-                        <p v-for="topic in item?.content" class="pb-1" style="font-size: 9px; font-weight: 400">
-                            {{ topic?.name }}
-                        </p>
+                    <p
+                        v-for="topic in item?.content"
+                        class="pb-1 py-2 px-6 text-xs text-left"
+                        style="font-size: 9px; font-weight: 400"
+                    >
+                        {{ topic?.name }}
                     </p>
                 </div>
             </button>
@@ -135,12 +137,11 @@ const list = [
                     alt="logo"
                 />
                 <p class="pt-4" style="font-size: 9px; font-weight: 500">
-                    You’re in luck! You have landed on the best online
-                    casino in Canada. But that is not all, Europa777
-                    welcomes not only Canadian players, but players from
-                    around the world too. Try your luck on our extraordinary
-                    selection of games and become one of the luckiest
-                    players out there.
+                    You’re in luck! You have landed on the best online casino in
+                    Canada. But that is not all, Europa777 welcomes not only
+                    Canadian players, but players from around the world too. Try
+                    your luck on our extraordinary selection of games and become
+                    one of the luckiest players out there.
                 </p>
             </div>
 
@@ -179,7 +180,7 @@ const list = [
                         alt="logo"
                     />
                     <img
-                        style="max-height: 17px;"
+                        style="max-height: 17px"
                         src="/imgs/footer/facebook.png"
                         alt="logo"
                     />

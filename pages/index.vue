@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useStore } from 'vuex';
 import Conclusion from '~~/components/landingPage/Conclusion.vue';
 import GameList from '~~/components/landingPage/GameList.vue';
 import ProviderList from '~~/components/landingPage/ProviderList.vue';
@@ -6,6 +7,10 @@ import ProviderList from '~~/components/landingPage/ProviderList.vue';
 import games from './games.tmp.json';
 import providers from './providers.tmp.json';
 import Activity from '~~/components/landingPage/Activity.vue';
+
+
+const store = useStore();
+console.log(store.state.count);
 </script>
 <template>
     <q-page class="q-pl-lg">
