@@ -118,7 +118,7 @@ const list = [
                     />
                 </div>
                 <div
-                    class="relative max-h-0 overflow-hidden duration-300 group-focus:max-h-32"
+                    class="relative max-h-0 overflow-hidden duration-300 group-focus:max-h-28"
                 >
                     <p
                         v-for="topic in item?.content"

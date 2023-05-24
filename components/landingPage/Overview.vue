@@ -28,7 +28,7 @@ const isDrawer = computed(() => {
                 <p class="font-bold text-xl pl-3 pb-8">UP TO $600</p>
                 <div class="flex items-center justify-between">
                     <q-btn
-                        class="font-bold text-xl sm:text-2xl px-6 !py-0"
+                        class="font-bold text-lg sm:text-2xl px-6 !py-0"
                         unelevated
                         color="primary"
                         label="SIGN UP"

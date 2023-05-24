@@ -11,7 +11,7 @@ import { computed, ref } from 'vue';
             >
                 <q-img
                     class="w-full transform -rotate-45"
-                    src="@/assets/tmp/avatar.png"
+                    src="/imgs/tmp/avatar.png"
                 />
             </div>
 
