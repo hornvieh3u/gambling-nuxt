@@ -2,7 +2,7 @@
 <template>
     <div>
         <div class="relative mt-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-6">
                 <div class="flex items-center justify-between relative">
                     <div
                         class="w-1/2 absolute top-1/2 -translate-y-1/2 z-10 left-8"
@@ -101,9 +101,7 @@
                         </p>
                     </div>
                     <div class="absolute z-10 right-8">
-                        <p
-                            class="gradiant font-black text-3xl text-shadow-lg"
-                        >
+                        <p class="gradiant font-black text-3xl text-shadow-lg">
                             200%
                         </p>
                         <div class="flex items-center">

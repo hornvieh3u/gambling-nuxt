@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import SideBarComponent from '@/components/sidebar/SideBarComponent.vue';
 import PageFooter from '@/components/footer/PageFooter.vue';
@@ -23,9 +24,20 @@ const state: State = {
     isWelcome: ref(true),
 };
 
+const store = useStore();
+
 function toggleState(name: string, val: boolean) {
+    if (name === 'leftDrawerOpen') {
+        store.dispatch('handleDrawer', val);
+    }
     state[name].value = val;
 }
+watch(
+    () => store.state.isDrawer,
+    (newVal, oldVal) => {
+        console.log(newVal);
+    }
+);
 </script>
 
 <template>

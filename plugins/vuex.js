@@ -6,8 +6,13 @@ const store = createStore({
         };
     },
     mutations: {
-        handleDrawer(state) {
-            state.isDrawer = !isDrawer.isDrawer;
+        handleDrawer(state, payload) {
+            state.isDrawer = payload;
+        },
+    },
+    actions: {
+        handleDrawer({ commit }, payload) {
+            commit('handleDrawer', payload);
         },
     },
 });

@@ -153,5 +153,8 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
+@media (max-width: 371px) {
+    .sm_hidden {
+        display: none!important;
+    }
 }
