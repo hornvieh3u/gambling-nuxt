@@ -39,7 +39,12 @@ function getUrl(img: string) {
             />
             <img
                 style="width: 108px"
-                class="absolute right-0 bottom-0"
+                :class="[
+                    'absolute',
+                    'right-0',
+                    'bottom-0',
+                    title === 'BONUS WHEEl' ? 'rotate' : '',
+                ]"
                 :src="getUrl(iconUrl)"
                 spinner-color="primary"
                 spinner-size="24px"

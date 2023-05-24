@@ -19,8 +19,8 @@
                         alt="title"
                     />
                     <q-img
-                        class="w-1/2 absolute right-0 -bottom-3"
-                        src="/imgs/wheel.png"
+                        class="w-1/2 absolute right-0 -bottom-3 rotate"
+                        src="/imgs/sidebar/wheel.png"
                         spinner-color="primary"
                         spinner-size="24px"
                         alt="title"

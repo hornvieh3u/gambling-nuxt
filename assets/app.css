@@ -135,10 +135,22 @@ body {
 }
 
 .border-x {
-    border-left: 1px solid #FFFFFF 30%;
-    border-right: 1px solid #FFFFFF 30%;
+    border-left: 1px solid #ffffff 30%;
+    border-right: 1px solid #ffffff 30%;
 }
 
+.rotate {
+    animation: rotate-image 12s linear infinite;
+}
+
+@keyframes rotate-image {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
