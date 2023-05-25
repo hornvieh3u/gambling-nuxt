@@ -1,30 +1,60 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+const prifileList = [
+    {
+        name: '12350.58 CAD',
+    },
+    {
+        name: '331.64 USD',
+    },
+    {
+        name: '107.99 EUR',
+    },
+    {
+        name: '35.13 GBP',
+    },
+];
 
-function toggleCasinoSport(val: string) {
-    console.log(val);
+function onItemClick() {
+    console.log('Clicked on an Item');
 }
 </script>
 
 <template>
-    <q-btn-group rounded>
-        <q-btn
-            class="q-pl-md q-pt-sm q-pb-sm q-pr-md text-white !rounded-3xl bg-primary"
-            @click="toggleCasinoSport('casino')"
+    <q-btn-group style="background: #3e4455" rounded>
+        <q-btn-dropdown
+            class="btn-none !rounded-3xl"
+            label-class="d-flex align-items-center"
         >
-            Log In
-        </q-btn>
+            <template v-slot:label> 12350.58 CAD </template>
+
+            <q-list>
+                <q-item
+                    v-for="profile in prifileList"
+                    clickable
+                    v-close-popup
+                    @click="onItemClick"
+                >
+                    <q-item-section>
+                        <q-item-label>
+                            <div class="flex items-center justify-start">
+                                <p class="text-xs pl-1">{{ profile.name }}</p>
+                            </div>
+                        </q-item-label>
+                    </q-item-section>
+                </q-item>
+            </q-list>
+        </q-btn-dropdown>
         <div
+            style="border: 1px solid #4D5160"
             class="q-pl-md q-pt-sm q-pb-sm q-pr-md !rounded-3xl flex items-center justify-start"
-            @click="toggleCasinoSport('sport')"
         >
-            <q-img
+            <img
                 class="q-mr-sm"
                 style="max-width: 22px"
                 src="/imgs/header/wallet-icon.png"
-                alt="sports"
+                alt="wallet"
             />
             Wallet
-    </div>
+        </div>
     </q-btn-group>
 </template>

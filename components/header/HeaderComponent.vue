@@ -5,6 +5,7 @@ import LoginRegisterButton from '~~/components/header/LoginRegisterButton.vue';
 import SearchInput from '~~/components/header/SearchInput.vue';
 import SelectLanguageBox from '~~/components/header/SelectLanguageBox.vue';
 import ProfileButton from './ProfileButton.vue';
+import WalletButton from './WalletButton.vue';
 const props = defineProps({
     toggleState: {
         type: Function,
@@ -71,6 +72,9 @@ dark.set(true);
                 />
             </div>
             <template v-if="isLogin">
+                <div class="pr-5 hidden md:!block">
+                    <WalletButton />
+                </div>
                 <div class="pr-5">
                     <ProfileButton />
                 </div>
