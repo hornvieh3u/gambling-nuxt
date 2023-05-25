@@ -5,7 +5,6 @@ import LoginRegisterButton from '~~/components/header/LoginRegisterButton.vue';
 import SearchInput from '~~/components/header/SearchInput.vue';
 import SelectLanguageBox from '~~/components/header/SelectLanguageBox.vue';
 import ProfileButton from './ProfileButton.vue';
-
 const props = defineProps({
     toggleState: {
         type: Function,
@@ -33,7 +32,11 @@ dark.set(true);
             <QImg
                 class="cursor-pointer"
                 style="max-width: 30px"
-                src="/imgs/header/menu.png"
+                :src="
+                    leftDrawerOpen
+                        ? `${'/imgs/header/menu_left.png'}`
+                        : `${'/imgs/header/menu_right.png'}`
+                "
                 alt="menu"
                 @click="
                     () => props.toggleState('leftDrawerOpen', !leftDrawerOpen)
