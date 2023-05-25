@@ -32,12 +32,7 @@ function toggleState(name: string, val: boolean) {
     }
     state[name].value = val;
 }
-watch(
-    () => store.state.isDrawer,
-    (newVal, oldVal) => {
-        console.log(newVal);
-    }
-);
+
 </script>
 
 <template>

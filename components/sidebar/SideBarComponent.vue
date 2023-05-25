@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import CasinoSportToogleButton from '~~/components/header/CasinoSportToogleButton.vue';
-import LoginRegisterButton from '~~/components/header/LoginRegisterButton.vue';
+// import LoginRegisterButton from '~~/components/header/LoginRegisterButton.vue';
 import SearchInput from '~~/components/header/SearchInput.vue';
 import SideBarItem from '~~/components/sidebar/SideBarItem.vue';
 import SideBarMenu from '~~/components/sidebar/SideBarMenu.vue';
@@ -28,11 +28,12 @@ interface SideBarItemInterFace {
     iconUrl: string;
     link: string;
 }
+
 const sideBarLinks: SideBarItemInterFace[] = [
     {
         title: 'Daily Cash Back',
         backUrl: 'side_1.png',
-        iconUrl: 'cash_back.png',
+        iconUrl: 'cash_back.gif',
         link: '/wallet',
     },
     {
@@ -44,16 +45,17 @@ const sideBarLinks: SideBarItemInterFace[] = [
     {
         title: 'BONUS PROMOTIONS',
         backUrl: 'side_3.png',
-        iconUrl: 'promotion.png',
+        iconUrl: 'promotion.gif',
         link: '/bonus',
     },
     {
         title: 'TOURNAMENTS',
         backUrl: 'side_4.png',
-        iconUrl: 'tournament.png',
+        iconUrl: 'tournament.gif',
         link: '/tournament',
     },
 ];
+
 </script>
 <template>
     <!-- SideBar -->

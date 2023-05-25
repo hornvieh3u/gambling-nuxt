@@ -1,4 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useStore } from 'vuex';
+const store = useStore();
+const isDrawer = ref(false);
+// const isDrawer = computed(() => {
+//     return ref(store.state.isDrawer);
+// });
+watch(
+    () => store.state.isDrawer,
+    (newVal, oldVal) => {console.log(newVal, "SSSS");
+        isDrawer.value = newVal;
+    }
+);
+
+
+</script>
 <template>
     <div>
         <div class="relative mt-4">
@@ -7,11 +22,23 @@
                     <div
                         class="w-1/2 absolute top-1/2 -translate-y-1/2 z-10 left-8"
                     >
-                        <p class="font-bold text-xl text-shadow-lg">
+                        <p
+                            :class="[
+                                'font-bold text-xl xl:text-2xl text-shadow-lg',
+                                isDrawer ? 'lg:text-md' : 'lg:text-xl',
+                            ]"
+                        >
                             BONUS WHEEL
                         </p>
-                        <p class="text-xs">Get free spin every 2 hours!</p>
-                        <q-btn class="mt-4" size="xs" label="Free Spin" />
+                        <p
+                            :class="[
+                                'text-xs xl:text-sm pb-2',
+                                isDrawer ? '' : 'pb-4',
+                            ]"
+                        >
+                            Get free spin every 2 hours!
+                        </p>
+                        <q-btn size="xs" label="Free Spin" />
                     </div>
                     <q-img
                         src="/imgs/back_bonus.png"
@@ -31,14 +58,14 @@
                     <div
                         class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8"
                     >
-                        <p class="font-bold text-xl text-shadow-lg">
+                        <p class="font-bold text-xl xl:text-2xl text-shadow-lg">
                             DAILY CASHBACK
                         </p>
                         <div class="flex items-center justify-start">
-                            <p class="text-xs">UP TO</p>
+                            <p class="text-xs xl:text-sm">UP TO</p>
                             <p
                                 style="color: #ffd62f"
-                                class="text-5xl font-black pl-1"
+                                class="text-5xl xl:text-6xl font-black pl-1"
                             >
                                 20%
                             </p>
