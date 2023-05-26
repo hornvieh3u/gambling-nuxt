@@ -1,4 +1,10 @@
-.
+<script setup lang="ts">
+import { useStore } from 'vuex';
+const store = useStore();
+const isDrawer = computed(() => {
+    return ref(store.state.isDrawer);
+});
+</script>
 <template>
     <div class="inset-0 rounded-md w-full px-6 pt-6 pb-10 relative">
         <div
@@ -16,94 +22,165 @@
                     <p>Add Currency</p>
                 </div>
             </q-btn>
-            <div class="grid grid-cols-4 gap-6 mt-8">
-                <div style="background: #1E1B1B" class="rounded p-4">
+            <div
+                :class="[
+                    'grid grid-cols-1 md:grid-cols-2  gap-6 mt-8',
+                    isDrawer.value ? 'lg:grid-cols-2' : 'lg:grid-cols-4',
+                ]"
+            >
+                <div style="background: #1e1b1b" class="rounded p-4">
                     <p class="text-base font-bold">22.50 CAD</p>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Withdrawable</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Lock by Bonus</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
-                        <p>Cash Back </p>
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
+                        <p>Cash Back</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Total</p>
                         <p>0.00</p>
                     </div>
-                    <q-btn style="background: #11A449;" class="w-full mt-2" label="Deposit" />
-                    <q-btn class="w-full mt-2" color="primary" label="Withdrawl" disable />
+                    <q-btn
+                        style="background: #11a449"
+                        class="w-full mt-2"
+                        label="Deposit"
+                    />
+                    <q-btn
+                        class="w-full mt-2"
+                        color="primary"
+                        label="Withdrawl"
+                        disable
+                    />
                 </div>
-                <div style="background: #1E1B1B" class="rounded p-4">
+                <div style="background: #1e1b1b" class="rounded p-4">
                     <p class="text-base font-bold">22.50 CAD</p>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Withdrawable</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Lock by Bonus</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
-                        <p>Cash Back </p>
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
+                        <p>Cash Back</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Total</p>
                         <p>0.00</p>
                     </div>
-                    <q-btn style="background: #11A449;" class="w-full mt-2" label="Deposit" />
-                    <q-btn class="w-full mt-2" color="primary" label="Withdrawl" disable />
+                    <q-btn
+                        style="background: #11a449"
+                        class="w-full mt-2"
+                        label="Deposit"
+                    />
+                    <q-btn
+                        class="w-full mt-2"
+                        color="primary"
+                        label="Withdrawl"
+                        disable
+                    />
                 </div>
-                <div style="background: #1E1B1B" class="rounded p-4">
+                <div style="background: #1e1b1b" class="rounded p-4">
                     <p class="text-base font-bold">22.50 CAD</p>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Withdrawable</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Lock by Bonus</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
-                        <p>Cash Back </p>
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
+                        <p>Cash Back</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Total</p>
                         <p>0.00</p>
                     </div>
-                    <q-btn style="background: #11A449;" class="w-full mt-2" label="Deposit" />
-                    <q-btn class="w-full mt-2" color="primary" label="Withdrawl" disable />
+                    <q-btn
+                        style="background: #11a449"
+                        class="w-full mt-2"
+                        label="Deposit"
+                    />
+                    <q-btn
+                        class="w-full mt-2"
+                        color="primary"
+                        label="Withdrawl"
+                        disable
+                    />
                 </div>
-                <div style="background: #1E1B1B" class="rounded p-4">
+                <div style="background: #1e1b1b" class="rounded p-4">
                     <p class="text-base font-bold">22.50 CAD</p>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Withdrawable</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Lock by Bonus</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
-                        <p>Cash Back </p>
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
+                        <p>Cash Back</p>
                         <p>0.00</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs font-medium">
+                    <div
+                        class="flex items-center justify-between text-xs font-medium"
+                    >
                         <p>Total</p>
                         <p>0.00</p>
                     </div>
-                    <q-btn style="background: #11A449;" class="w-full mt-2" label="Deposit" />
-                    <q-btn class="w-full mt-2" color="primary" label="Withdrawl" disable />
+                    <q-btn
+                        style="background: #11a449"
+                        class="w-full mt-2"
+                        label="Deposit"
+                    />
+                    <q-btn
+                        class="w-full mt-2"
+                        color="primary"
+                        label="Withdrawl"
+                        disable
+                    />
                 </div>
             </div>
         </div>
     </div>
 </template>
-
-<script setup lang="ts"></script>

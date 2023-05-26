@@ -24,11 +24,10 @@ watch(props, (newValue) => {
 </script>
 <template>
     <q-dialog v-model="open" @hide="props.toggleState('onLogin', false)">
-        asdfasdazsdfasdfasd
         <q-card style="width: 700px; max-width: 60vw">
             <div style="background: #0072ff 90%">
-                <div class="grid grid-cols-2 p-6">
-                    <div class="p-1">
+                <div class="sm:grid sm:grid-cols-2 p-6">
+                    <div class="p-1 hidden sm:!block">
                         <q-img
                             style="max-width: 221px"
                             src="/imgs/man_right.png"

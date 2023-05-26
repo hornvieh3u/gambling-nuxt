@@ -26,8 +26,8 @@ watch(props, (newValue) => {
     <q-dialog v-model="open" @hide="props.toggleState('onSignUp', false)">
         <q-card style="width: 700px; max-width: 60vw">
             <div style="background: #0072ff 90%">
-                <div class="grid grid-cols-2 p-6">
-                    <div class="p-1">
+                <div class="sm:grid sm:grid-cols-2 p-6">
+                    <div class="p-1 hidden sm:!block">
                         <q-img
                             class="-mb-16"
                             style="max-width: 221px"
@@ -55,8 +55,8 @@ watch(props, (newValue) => {
                                 />
                                 <q-input
                                     class="text-shadow-lg w-full"
-                                    type="email"
-                                    placeholder="Email address"
+                                    type="text"
+                                    placeholder="Username"
                                     standout
                                     v-model="loginInfo.email.value"
                                     :dense="true"
@@ -66,12 +66,12 @@ watch(props, (newValue) => {
                                 <q-icon
                                     class="opacity-50"
                                     size="sm"
-                                    name="lock"
+                                    name="mail"
                                 />
                                 <q-input
                                     class="pt-2 text-shadow-lg w-full"
-                                    type="password"
-                                    placeholder="Password"
+                                    type="email"
+                                    placeholder="Email address"
                                     standout
                                     v-model="loginInfo.password.value"
                                     :dense="true"
@@ -96,21 +96,21 @@ watch(props, (newValue) => {
                                 <q-icon
                                     class="opacity-50"
                                     size="sm"
-                                    name="lock"
+                                    name="flag"
                                 />
                                 <q-input
                                     class="pt-2 text-shadow-lg w-full pr-2"
-                                    type="password"
-                                    placeholder="Password"
+                                    type="text"
+                                    placeholder="Country"
                                     standout
                                     v-model="loginInfo.password.value"
                                     :dense="true"
                                 />
                                 <q-input
                                     class="pt-2 text-shadow-lg w-full"
-                                    type="password"
-                                    placeholder="Password"
+                                    placeholder="CAD"
                                     standout
+                                    disable
                                     v-model="loginInfo.password.value"
                                     :dense="true"
                                 />
@@ -119,20 +119,20 @@ watch(props, (newValue) => {
                                 <q-icon
                                     class="opacity-50"
                                     size="sm"
-                                    name="lock"
+                                    name="phone"
                                 />
                                 <q-input
-                                    class="pt-2 text-shadow-lg w-full pr-2"
-                                    type="password"
-                                    placeholder="Password"
+                                    class="pt-2 text-shadow-lg w-1/4 pr-2"
+                                    type="number"
+                                    placeholder="+1"
                                     standout
                                     v-model="loginInfo.password.value"
                                     :dense="true"
                                 />
                                 <q-input
                                     class="pt-2 text-shadow-lg w-full"
-                                    type="password"
-                                    placeholder="Password"
+                                    type="number"
+                                    placeholder="Mobile Number"
                                     standout
                                     v-model="loginInfo.password.value"
                                     :dense="true"

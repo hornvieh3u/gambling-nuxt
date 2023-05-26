@@ -24,8 +24,8 @@ watch(props, (newValue) => {
     >
         <q-card style="width: ; max-width: 60vw">
             <div class="relative" style="background: #0072ff 90%">
-                <div class="grid grid-cols-10 p-6">
-                    <div class="p-1 col-span-4">
+                <div class="sm:grid sm:grid-cols-10 p-6">
+                    <div class="p-1 col-span-4 hidden sm:!block">
                         <q-img
                             class="absolute bottom-0 left-0"
                             style="max-width: 221px"
@@ -37,7 +37,7 @@ watch(props, (newValue) => {
                         <p class="font-medium text-base text-shadow-lg">
                             Welcome to
                         </p>
-                        <p class="font-black text-3xl text-shadow-lg">
+                        <p class="font-black text-xl sm:text-3xl text-shadow-lg">
                             EUROPE #1
                         </p>
                         <p class="font-medium text-base text-shadow-lg">
@@ -54,10 +54,10 @@ watch(props, (newValue) => {
                             Enjoy 3500+ games, fast payouts and 24/7 live
                             support.
                         </span>
-                        <div class="flex items-center justify-center pt-2">
+                        <div class="sm:flex items-center justify-center pt-2">
                             <div>
                                 <span
-                                    class="font-bold text-3xl"
+                                    class="font-bold text-xl sm:text-2xl md:text-3xl"
                                     style="color: #fff004"
                                     >200%</span
                                 >
@@ -73,7 +73,7 @@ watch(props, (newValue) => {
                             ></div>
                             <div>
                                 <span
-                                    class="font-bold text-3xl"
+                                    class="font-bold text-xl sm:text-2xl md:text-3xl"
                                     style="color: #fff004"
                                     >+100</span
                                 >

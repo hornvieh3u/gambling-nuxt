@@ -108,7 +108,7 @@
                 :dense="true"
             >
                 <template v-slot:prepend>
-                    <q-icon name="location" />
+                    <q-icon name="position" />
                 </template>
             </q-input>
             <q-input
