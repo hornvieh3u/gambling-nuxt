@@ -12,7 +12,7 @@
                 class="absolute w-16 h-24 text-center py-3 -top-7 rounded-full left-1/2 transform -translate-x-1/2"
             >
                 <q-btn round color="primary" icon="person" />
-                <p class="pt-4" style="font-size: 9px">Administrator</p>
+                <p class="pt-4" style="font-size: 9px">My Account</p>
             </div>
         </div>
         <div class="grid grid-cols-5">

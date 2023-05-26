@@ -24,6 +24,7 @@ watch(props, (newValue) => {
 </script>
 <template>
     <q-dialog v-model="open" @hide="props.toggleState('onLogin', false)">
+        asdfasdazsdfasdfasd
         <q-card style="width: 700px; max-width: 60vw">
             <div style="background: #0072ff 90%">
                 <div class="grid grid-cols-2 p-6">
