@@ -2,17 +2,14 @@
 import { useStore } from 'vuex';
 const store = useStore();
 const isDrawer = ref(false);
-// const isDrawer = computed(() => {
-//     return ref(store.state.isDrawer);
-// });
+
 watch(
     () => store.state.isDrawer,
-    (newVal, oldVal) => {console.log(newVal, "SSSS");
+    (newVal, oldVal) => {
+        console.log(newVal, 'SSSS');
         isDrawer.value = newVal;
     }
 );
-
-
 </script>
 <template>
     <div>
@@ -24,16 +21,16 @@ watch(
                     >
                         <p
                             :class="[
-                                'font-bold text-xl xl:text-2xl text-shadow-lg',
-                                isDrawer ? 'lg:text-md' : 'lg:text-xl',
+                                'font-bold text-sm sm:text-sm md:text-xl xl:text-2xl text-shadow-lg',
+                                isDrawer ? 'lg:text-xs' : 'lg:text-xl',
                             ]"
                         >
                             BONUS WHEEL
                         </p>
                         <p
                             :class="[
-                                'text-xs xl:text-sm pb-2',
-                                isDrawer ? '' : 'pb-4',
+                                'text-xxs sm:text-xxs md:text-xs xl:text-sm pb-2',
+                                isDrawer ? 'lg:text-xxs' : 'pb-4',
                             ]"
                         >
                             Get free spin every 2 hours!
@@ -58,14 +55,29 @@ watch(
                     <div
                         class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8"
                     >
-                        <p class="font-bold text-xl xl:text-2xl text-shadow-lg">
+                        <p
+                            :class="[
+                                'font-bold text-sm md:text-xl  xl:text-2xl text-shadow-lg',
+                                isDrawer ? 'lg:text-xs' : 'lg:text-xl',
+                            ]"
+                        >
                             DAILY CASHBACK
                         </p>
                         <div class="flex items-center justify-start">
-                            <p class="text-xs xl:text-sm">UP TO</p>
+                            <p
+                                :class="[
+                                    'text-xxs md:text-xs  xl:text-sm pb-2',
+                                    isDrawer ? 'lg:text-xxs' : 'pb-4 text-xs',
+                                ]"
+                            >
+                                UP TO
+                            </p>
                             <p
                                 style="color: #ffd62f"
-                                class="text-5xl xl:text-6xl font-black pl-1"
+                                :class="[
+                                    'text-3xl md:text-5xl xl:text-6xl font-black pl-1',
+                                    isDrawer ? 'lg:text-3xl' : 'lg:text-5xl',
+                                ]"
                             >
                                 20%
                             </p>
@@ -92,18 +104,38 @@ watch(
                     >
                         <p
                             style="line-height: 19px"
-                            class="font-bold text-base text-shadow-lg"
+                            :class="[
+                                'font-bold text-base xl:text-base text-shadow-lg',
+                                isDrawer ? 'lg:text-xs' : '',
+                            ]"
                         >
                             2nd/3rd
                         </p>
                         <p
                             style="line-height: 19px"
-                            class="font-bold text-base text-shadow-lg"
+                            :class="[
+                                'font-bold text-base xl:text-base text-shadow-lg',
+                                isDrawer ? 'lg:text-md' : '',
+                            ]"
                         >
                             deposit
                         </p>
-                        <p class="gradiant text-2xl font-black">100%</p>
-                        <p class="gradiant text-2xl font-black">bonus</p>
+                        <p
+                            :class="[
+                                'gradiant text-2xl xl:text-2xl font-black',
+                                isDrawer ? 'lg:text-base' : '',
+                            ]"
+                        >
+                            100%
+                        </p>
+                        <p
+                            :class="[
+                                'gradiant text-2xl xl:text-2xl font-black',
+                                isDrawer ? 'lg:text-base' : '',
+                            ]"
+                        >
+                            bonus
+                        </p>
                     </div>
                     <q-img
                         src="/imgs/back_dark.png"
@@ -121,24 +153,39 @@ watch(
 
                 <div class="flex items-center justify-around relative">
                     <div
-                        class="w-full absolute left-8 top-8 lg:left-3 lg:top-3 z-10"
+                        class="w-full absolute left-8 top-8 md:top-3 md:left-3 lg:left-3 lg:top-3 z-10"
                     >
-                        <p class="gradiant font-black text-2xl text-shadow-lg">
+                        <p
+                            :class="[
+                                'gradiant text-2xl md:text-lg xl:text-2xl font-black',
+                                isDrawer ? 'lg:text-base' : 'lg:text-2xl',
+                            ]"
+                        >
                             WELCOME BONUS
                         </p>
                     </div>
-                    <div class="absolute z-10 right-8">
-                        <p class="gradiant font-black text-3xl text-shadow-lg">
+                    <div class="absolute z-10 right-8 lg:right-3">
+                        <p
+                            :class="[
+                                'gradiant text-2xl md:text-lg  xl:text-2xl font-black',
+                                isDrawer ? 'lg:text-base lg:pt-2' : 'lg:text-2xl',
+                            ]"
+                        >
                             200%
                         </p>
                         <div class="flex items-center">
                             <p
                                 style="line-height: 19px"
-                                class="gradiant font-bold text-base text-shadow-lg"
+                                :class="[
+                                    'gradiant text-2xl md:text-lg xl:text-2xl font-black',
+                                    isDrawer ? 'lg:text-base' : 'lg:text-2xl',
+                                ]"
                             >
                                 +100
                             </p>
-                            <p>Free spins</p>
+                            <p :class="[
+                                    isDrawer ? 'lg:text-xxs' : '',
+                                ]">Free spins</p>
                         </div>
                     </div>
                     <q-img

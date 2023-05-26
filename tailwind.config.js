@@ -15,7 +15,7 @@ module.exports = {
                 selectPlaceholder: '#A0AEC0',
             },
             width: {
-                '462': '669px'
+                462: '669px',
             },
             maxWidth: {
                 lg: '489px',
@@ -32,6 +32,9 @@ module.exports = {
             },
             textShadow: {
                 lg: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            },
+            fontSize: {
+                'xxs': '9px',
             },
         },
     },
