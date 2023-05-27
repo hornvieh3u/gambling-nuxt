@@ -16,7 +16,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'font-bold text-sm sm:text-sm md:text-xl xl:text-2xl text-shadow-lg',
-                                isDrawer ? 'lg:text-xs' : 'lg:text-xl',
+                                isDrawer.value ? 'lg:text-xs' : 'lg:text-xl',
                             ]"
                         >
                             BONUS WHEEL
@@ -24,7 +24,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'text-xxs sm:text-xxs md:text-xs xl:text-sm pb-2',
-                                isDrawer ? 'lg:text-xxs' : 'pb-4',
+                                isDrawer.value ? 'lg:text-xxs' : 'pb-4',
                             ]"
                         >
                             Get free spin every 2 hours!
@@ -52,7 +52,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'font-bold text-sm md:text-xl  xl:text-2xl text-shadow-lg',
-                                isDrawer ? 'lg:text-xs' : 'lg:text-xl',
+                                isDrawer.value ? 'lg:text-xs' : 'lg:text-xl',
                             ]"
                         >
                             DAILY CASHBACK
@@ -61,7 +61,7 @@ const isDrawer = computed(() => {
                             <p
                                 :class="[
                                     'text-xxs md:text-xs  xl:text-sm pb-2',
-                                    isDrawer ? 'lg:text-xxs' : 'pb-4 text-xs',
+                                    isDrawer.value ? 'lg:text-xxs' : 'pb-4 text-xs',
                                 ]"
                             >
                                 UP TO
@@ -70,7 +70,7 @@ const isDrawer = computed(() => {
                                 style="color: #ffd62f"
                                 :class="[
                                     'text-3xl md:text-5xl xl:text-6xl font-black pl-1',
-                                    isDrawer ? 'lg:text-3xl' : 'lg:text-5xl',
+                                    isDrawer.value ? 'lg:text-3xl' : 'lg:text-5xl',
                                 ]"
                             >
                                 20%
@@ -100,7 +100,7 @@ const isDrawer = computed(() => {
                             style="line-height: 19px"
                             :class="[
                                 'font-bold text-base xl:text-base text-shadow-lg',
-                                isDrawer ? 'lg:text-xs' : '',
+                                isDrawer.value ? 'lg:text-xs' : '',
                             ]"
                         >
                             2nd/3rd
@@ -109,7 +109,7 @@ const isDrawer = computed(() => {
                             style="line-height: 19px"
                             :class="[
                                 'font-bold text-base xl:text-base text-shadow-lg',
-                                isDrawer ? 'lg:text-md' : '',
+                                isDrawer.value ? 'lg:text-md' : '',
                             ]"
                         >
                             deposit
@@ -117,7 +117,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'gradiant text-2xl xl:text-2xl font-black',
-                                isDrawer ? 'lg:text-base' : '',
+                                isDrawer.value ? 'lg:text-base' : '',
                             ]"
                         >
                             100%
@@ -125,7 +125,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'gradiant text-2xl xl:text-2xl font-black',
-                                isDrawer ? 'lg:text-base' : '',
+                                isDrawer.value ? 'lg:text-base' : '',
                             ]"
                         >
                             bonus
@@ -152,7 +152,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'gradiant text-2xl md:text-lg xl:text-2xl font-black',
-                                isDrawer ? 'lg:text-base' : 'lg:text-2xl',
+                                isDrawer.value ? 'lg:text-base' : 'lg:text-2xl',
                             ]"
                         >
                             WELCOME BONUS
@@ -162,7 +162,7 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'gradiant text-2xl md:text-lg  xl:text-2xl font-black',
-                                isDrawer ? 'lg:text-base lg:pt-2' : 'lg:text-2xl',
+                                isDrawer.value ? 'lg:text-base lg:pt-2' : 'lg:text-2xl',
                             ]"
                         >
                             200%
@@ -172,13 +172,13 @@ const isDrawer = computed(() => {
                                 style="line-height: 19px"
                                 :class="[
                                     'gradiant text-2xl md:text-lg xl:text-2xl font-black',
-                                    isDrawer ? 'lg:text-base' : 'lg:text-2xl',
+                                    isDrawer.value ? 'lg:text-base' : 'lg:text-2xl',
                                 ]"
                             >
                                 +100
                             </p>
                             <p :class="[
-                                    isDrawer ? 'lg:text-xxs' : '',
+                                    isDrawer.value ? 'lg:text-xxs' : '',
                                 ]">Free spins</p>
                         </div>
                     </div>

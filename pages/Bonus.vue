@@ -3,6 +3,11 @@ import ActiveBonus from '~~/components/bonus/ActiveBonus.vue';
 import AvailableBonus from '~~/components/bonus/AvailableBonus.vue';
 import FreeSpins from '~~/components/bonus/FreeSpins.vue';
 import Activity from '~~/components/landingPage/Activity.vue';
+import { useStore } from 'vuex';
+const store = useStore();
+const isDrawer = computed(() => {
+    return ref(store.state.isDrawer);
+});
 
 const selectedItem = ref('Available Bonus');
 
@@ -48,7 +53,7 @@ function selectCategory(val: string) {
                 <div
                     class="bonus_baner w-full h-40 font-bold text-xl flex justify-center flex-col text-right"
                 >
-                    <div class="pr-12 md:pr-24 lg:pr-36">
+                    <div :class="['pr-12 md:pr-24 xl:pr-36', isDrawer.value?'lg:pr-6':'lg:pr-36']">
                         <p>
                             <span>DAILY CASHBACK OF UP TO</span>&nbsp;<span
                                 style="color: #ffff03"
