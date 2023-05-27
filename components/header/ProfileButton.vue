@@ -42,7 +42,7 @@ const prifileList = [
 </script>
 
 <template>
-    <q-btn-dropdown class="btn-none" label="Jeff O.">
+    <q-btn-dropdown class="btn-none hidden md:!block" label="Jeff O.">
         <q-list>
             <q-item
                 v-for="profile in prifileList"

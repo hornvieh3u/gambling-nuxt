@@ -25,11 +25,8 @@ const { dark } = useQuasar();
 dark.set(true);
 </script>
 <template>
-    <QHeader
-        class="px-1 py-1 sm:px-3"
-        style="background-color: #292c35"
-    >
-        <QToolbar>
+    <QHeader class="px-1 py-1 sm:px-3" style="background-color: #292c35">
+        <QToolbar class="pt-2">
             <QImg
                 class="cursor-pointer"
                 style="max-width: 30px"
@@ -56,7 +53,7 @@ dark.set(true);
                         <div class="hidden lg:!block my-quto">
                             <CasinoSportToogleButton />
                         </div>
-                        <div class="hidden md:!block pl-5">
+                        <div class="hidden lg:!block pl-5">
                             <SearchInput />
                         </div>
                     </div>
