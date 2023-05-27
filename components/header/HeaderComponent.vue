@@ -26,7 +26,7 @@ dark.set(true);
 </script>
 <template>
     <QHeader
-        class="q-pl-md q-pt-sm q-pb-sm q-pr-md"
+        class="px-1 py-1 sm:px-3"
         style="background-color: #292c35"
     >
         <QToolbar>
@@ -45,15 +45,15 @@ dark.set(true);
             />
             <QImg
                 @click="$router.push('/')"
-                class="q-pl-md hidden sm:!block cursor-pointer"
+                class="q-pl-md cursor-pointer"
                 style="max-width: 190px"
                 src="/imgs/header/logo_full.png"
                 alt="logo-full"
             />
-            <QToolbar class="q-pl-lg q-pr-lg">
+            <QToolbar class="q-pl-lg q-pr-lg hidden md:!block">
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center justify-start">
-                        <div class="hidden lg:!block">
+                    <div class="flex items-center justify-start pt-1">
+                        <div class="hidden lg:!block my-quto">
                             <CasinoSportToogleButton />
                         </div>
                         <div class="hidden md:!block pl-5">
@@ -62,7 +62,7 @@ dark.set(true);
                     </div>
                 </div>
             </QToolbar>
-            <div class="hidden sm:!block pr-5">
+            <div class="sm:pr-5">
                 <LoginRegisterButton
                     v-if="isLogin === false"
                     :toggleState="

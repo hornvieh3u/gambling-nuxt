@@ -28,14 +28,16 @@ const prifileList = [
 </script>
 
 <template>
-    <q-btn-dropdown class="btn-none" label-class="d-flex align-items-center">
+    <q-btn-dropdown class="btn-none p-1 sm:p-2 float-right" label-class="d-flex align-items-center">
         <template v-slot:label>
-            <img
-                class="w-8 pr-3"
-                :src="`/imgs/header/en_large.png`"
-                alt="profile"
-            />
-            en
+            <div class="flex items-center justify-start text-xxs sm:text-sm sm:pr-3">
+                <img
+                    class="w-8 pr-3"
+                    :src="`/imgs/header/en_large.png`"
+                    alt="profile"
+                />
+                en
+            </div>
         </template>
 
         <q-list>
