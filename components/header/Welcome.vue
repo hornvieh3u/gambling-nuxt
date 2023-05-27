@@ -22,7 +22,7 @@ watch(props, (newValue) => {
         v-model="open"
         @hide="props.toggleState('isWelcome', false)"
     >
-        <q-card style="width: ; max-width: 60vw">
+        <q-card class="w-full sm:w-3/5 md:w-1/2" style="width: 700px">
             <div class="relative" style="background: #0072ff 90%">
                 <div class="sm:grid sm:grid-cols-10 p-6">
                     <div class="p-1 col-span-4 hidden sm:!block">
@@ -33,7 +33,7 @@ watch(props, (newValue) => {
                             alt="man"
                         />
                     </div>
-                    <div class="p-1 col-span-6">
+                    <div class="p-1 col-span-6 text-center">
                         <p class="font-medium text-base text-shadow-lg">
                             Welcome to
                         </p>
@@ -54,7 +54,7 @@ watch(props, (newValue) => {
                             Enjoy 3500+ games, fast payouts and 24/7 live
                             support.
                         </span>
-                        <div class="sm:flex items-center justify-center pt-2">
+                        <div class="flex items-center justify-center pt-2">
                             <div>
                                 <span
                                     class="font-bold text-xl sm:text-2xl md:text-3xl"
