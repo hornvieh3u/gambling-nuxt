@@ -26,7 +26,7 @@ dark.set(true);
 </script>
 <template>
     <QHeader class="px-1 py-1 sm:px-3" style="background-color: #292c35">
-        <QToolbar class="pt-2">
+        <QToolbar class="py-1">
             <QImg
                 class="cursor-pointer"
                 style="max-width: 30px"
@@ -47,7 +47,7 @@ dark.set(true);
                 src="/imgs/header/logo_full.png"
                 alt="logo-full"
             />
-            <QToolbar class="q-pl-lg q-pr-lg hidden md:!block">
+            <QToolbar class="q-pl-lg q-pr-lg hidden lg:!block">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center justify-start pt-1">
                         <div class="hidden lg:!block my-quto">
@@ -68,35 +68,32 @@ dark.set(true);
                     "
                 />
             </div>
-            <template v-if="isLogin">
-                <div class="pr-5 hidden md:!block">
-                    <WalletButton />
-                </div>
-                <div class="pr-5">
-                    <ProfileButton />
-                </div>
-                <div class="pr-5 text-center">
-                    <div
-                        class="relative bg-gray-600 rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden"
-                    >
-                        <img
-                            style="margin-left: 1px"
-                            class="absolute -rotate-45 w-full h-auto"
-                            src="/tmp/avatar.png"
-                            alt="user"
-                        />
+            <div class="w-full flex items-center justify-end">
+                <template v-if="isLogin">
+                    <div class="pr-5 hidden md:!block">
+                        <WalletButton />
                     </div>
-                </div>
-                <div>
+                    <div class="pr-5">
+                        <ProfileButton />
+                    </div>
+                    <div class="pr-5 text-center">
+                        <div
+                            class="relative bg-gray-600 rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden"
+                        >
+                            <img
+                                style="margin-left: 1px"
+                                class="absolute -rotate-45 w-full h-auto"
+                                src="/tmp/avatar.png"
+                                alt="user"
+                            />
+                        </div>
+                    </div>
                     <QBtn dense round flat icon="notifications">
                         <QBadge rounded color="red" floating transparent>
                             4
                         </QBadge>
                     </QBtn>
-                </div>
-            </template>
-
-            <div>
+                </template>
                 <SelectLanguageBox />
             </div>
         </QToolbar>
