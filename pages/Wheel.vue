@@ -2,10 +2,10 @@
 import Activity from '~~/components/landingPage/Activity.vue';
 </script>
 <template>
-    <q-page class="q-pl-lg">
+    <q-page>
         <div
             style="max-width: 1450px"
-            class="w-full px-6 md:px-10 lg:px-14 py-8 m-auto"
+            class="w-full px-0 md:px-6 lg:px-14 py-8 m-auto"
         >
             <section class="h-full py-12 px-4 flex justify-center flex-col">
                 <div class="relative">

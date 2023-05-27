@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
 const store = useStore();
-const isDrawer = ref(false);
-
-watch(
-    () => store.state.isDrawer,
-    (newVal, oldVal) => {
-        console.log(newVal, 'SSSS');
-        isDrawer.value = newVal;
-    }
-);
+const isDrawer = computed(() => {
+    return ref(store.state.isDrawer);
+});
 </script>
 <template>
     <div>

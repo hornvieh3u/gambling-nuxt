@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import BonusCard from './BonusCard.vue';
+import { useStore } from 'vuex';
+const store = useStore();
+const isDrawer = computed(() => {
+    return ref(store.state.isDrawer);
+});
 const categories = [
     {
         background: '1',
@@ -64,22 +68,55 @@ const categories = [
                         <div
                             class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8 text-shadow-lg"
                         >
-                            <p class="font-bold text-2xl">WELCOME</p>
-                            <p>
-                                <span
-                                    style="color: #ffd62f"
-                                    class="font-black text-3xl"
-                                    >200%</span
-                                >&nbsp;
-                                <span class="font-black text-xl">BONUS</span>
+                            <p
+                                :class="[
+                                    'font-bold text-sm sm:text-xl xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
+                            >
+                                WELCOME
                             </p>
                             <p>
                                 <span
                                     style="color: #ffd62f"
-                                    class="font-black text-3xl"
+                                    :class="[
+                                        'font-black text-sm sm:text-2xl xl:text-3xl',
+                                        isDrawer.value
+                                            ? 'lg:text-sm'
+                                            : 'lg:text-3xl',
+                                    ]"
+                                    >200%</span
+                                >&nbsp;
+                                <span
+                                    :class="[
+                                        'font-black text-sm sm:text-lg xl:text-xl',
+                                        isDrawer.value
+                                            ? 'lg:text-sm'
+                                            : 'lg:text-xl',
+                                    ]"
+                                    >BONUS</span
+                                >
+                            </p>
+                            <p>
+                                <span
+                                    style="color: #ffd62f"
+                                    :class="[
+                                        'font-black text-sm sm:text-2xl xl:text-3xl',
+                                        isDrawer.value
+                                            ? 'lg:text-sm'
+                                            : 'lg:text-3xl',
+                                    ]"
                                     >+100</span
                                 >&nbsp;
-                                <span class="font-black text-xl"
+                                <span
+                                    :class="[
+                                        'font-black text-sm sm:text-lg xl:text-xl',
+                                        isDrawer.value
+                                            ? 'lg:text-sm'
+                                            : 'lg:text-xl',
+                                    ]"
                                     >FREE SPINS</span
                                 >
                             </p>
@@ -90,17 +127,34 @@ const categories = [
                             class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8"
                         >
                             <p
-                                class="font-medium sm:text-3xl md:text-xl lg:text-2xl text-shadow-lg"
+                                :class="[
+                                    'font-medium text-sm md:text-xl xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
                             >
                                 DAILY CASHBACK
                             </p>
                             <div class="flex items-center justify-start">
-                                <p class="font-medium md:text-xl lg:text-2xl">
+                                <p
+                                    :class="[
+                                        'font-medium text-sm md:text-xl xl:text-2xl',
+                                        isDrawer.value
+                                            ? 'lg:text-sm'
+                                            : 'lg:text-2xl',
+                                    ]"
+                                >
                                     UP TO
                                 </p>
                                 <p
                                     style="color: #ffd62f"
-                                    class="text-3xl md:text-4xl lg:text-5xl font-black pl-1"
+                                    :class="[
+                                        'text-3xl md:text-4xl xl:text-5xl font-black pl-1',
+                                        isDrawer.value
+                                            ? 'lg:text-xl'
+                                            : 'lg:text-5xl',
+                                    ]"
                                 >
                                     20%
                                 </p>
@@ -111,15 +165,38 @@ const categories = [
                         <div
                             class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8 text-shadow-lg"
                         >
-                            <p class="font-medium text-2xl">2ND/3RD DEPOSIT</p>
                             <p
-                                class="font-black text-3xl"
+                                :class="[
+                                    'font-medium text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
+                            >
+                                2ND/3RD DEPOSIT
+                            </p>
+                            <p
+                                :class="[
+                                    'font-black text-sm md:text-lg xl:text-3xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-3xl',
+                                ]"
                                 style="color: #ffd62f"
                             >
                                 <span>100%</span>&nbsp;
                                 <span>BONUS</span>
                             </p>
-                            <p class="font-medium text-2xl">UP TO $600</p>
+                            <p
+                                :class="[
+                                    'font-medium text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
+                            >
+                                UP TO $600
+                            </p>
                         </div>
                     </template>
                     <template v-slot:4>
@@ -127,9 +204,23 @@ const categories = [
                             class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8 text-shadow-lg"
                         >
                             <p class="text-xs">Get a special</p>
-                            <p class="font-bold text-2xl">BONUS ON</p>
                             <p
-                                class="font-black text-3xl"
+                                :class="[
+                                    'font-bold text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
+                            >
+                                BONUS ON
+                            </p>
+                            <p
+                                :class="[
+                                    'font-black text-md md:text-lg xl:text-3xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-3xl',
+                                ]"
                                 style="color: #ffd62f"
                             >
                                 SPORTBOOK
@@ -140,24 +231,54 @@ const categories = [
                         <div
                             class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8 text-shadow-lg"
                         >
-                            <p class="font-bold text-2xl">HAPPY MONDAY</p>
                             <p
-                                class="font-black text-2xl"
+                                :class="[
+                                    'font-bold text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
+                            >
+                                HAPPY MONDAY
+                            </p>
+                            <p
+                                :class="[
+                                    'font-black text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
                                 style="color: #ffd62f"
                             >
                                 100 FREE SPINS
                             </p>
-                            <p class="text-xs">WHEN YOU MAKE A DEPOSIT</p>
+                            <p class="text-xxs sm:text-xs">
+                                WHEN YOU MAKE A DEPOSIT
+                            </p>
                         </div>
                     </template>
                     <template v-slot:6>
                         <div
                             class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8 text-shadow-lg"
                         >
-                            <p class="text-xs">FRIDAY</p>
-                            <p class="font-bold text-2xl">50% UP TO 250.00</p>
+                            <p class="sm:text-xxs text-xs">FRIDAY</p>
                             <p
-                                class="font-black text-2xl"
+                                :class="[
+                                    'font-bold text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
+                            >
+                                50% UP TO 250.00
+                            </p>
+                            <p
+                                :class="[
+                                    'font-black text-sm md:text-lg xl:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-sm'
+                                        : 'lg:text-2xl',
+                                ]"
                                 style="color: #ffd62f"
                             >
                                 +50 FREE SPINS
