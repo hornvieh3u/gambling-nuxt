@@ -119,8 +119,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { QInput } from 'quasar';
+import { ref } from 'vue';
 
 const options = ['Doc1', 'Doc2', 'Doc3', 'Doc4', 'Doc5'];
 const model = ref(null);
