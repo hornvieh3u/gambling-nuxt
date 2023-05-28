@@ -6,6 +6,8 @@ import SearchInput from '~~/components/header/SearchInput.vue';
 import SelectLanguageBox from '~~/components/header/SelectLanguageBox.vue';
 import ProfileButton from './ProfileButton.vue';
 import WalletButton from './WalletButton.vue';
+import ProfileButtonMobile from './ProfileButtonMobile.vue';
+import { ref } from 'vue';
 const props = defineProps({
     toggleState: {
         type: Function,
@@ -20,9 +22,12 @@ const props = defineProps({
         required: true,
     },
 });
-
 const { dark } = useQuasar();
 dark.set(true);
+let isProfile = ref(false);
+function handleProfile(on: boolean) {
+    isProfile.value = on;
+}
 </script>
 <template>
     <QHeader class="px-1 py-1 sm:px-3" style="background-color: #292c35">
@@ -78,7 +83,8 @@ dark.set(true);
                     </div>
                     <div class="pr-5 text-center">
                         <div
-                            class="relative bg-gray-600 rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden"
+                            @click="handleProfile(true)"
+                            class="relative bg-gray-600 rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden cursor-pointer"
                         >
                             <img
                                 style="margin-left: 1px"
@@ -96,6 +102,10 @@ dark.set(true);
                 </template>
                 <SelectLanguageBox />
             </div>
+            <ProfileButtonMobile
+                :open.sync="isProfile"
+                :handleProfile="handleProfile"
+            />
         </QToolbar>
     </QHeader>
 </template>

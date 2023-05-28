@@ -25,7 +25,7 @@ function onItemClick() {
             class="btn-none !rounded-3xl"
             label-class="d-flex align-items-center"
         >
-            <template v-slot:label> 12350.58 CAD </template>
+            <template v-slot:label> <p class="text-xxs sm:text-xs pl-1">12350.58 CAD</p> </template>
 
             <q-list>
                 <q-item
@@ -37,7 +37,7 @@ function onItemClick() {
                     <q-item-section>
                         <q-item-label>
                             <div class="flex items-center justify-start">
-                                <p class="text-xs pl-1">{{ profile.name }}</p>
+                                <p class="text-xxs sm:text-xs pl-1">{{ profile.name }}</p>
                             </div>
                         </q-item-label>
                     </q-item-section>
@@ -54,7 +54,7 @@ function onItemClick() {
                 src="/imgs/header/wallet-icon.png"
                 alt="wallet"
             />
-            Wallet
+            <p class="text-xxs sm:text-xs pl-1">Wallet</p>
         </div>
     </q-btn-group>
 </template>

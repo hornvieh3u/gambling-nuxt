@@ -11,6 +11,10 @@ const props = defineProps({
         type: Boolean,
         required: true,
     },
+    toggleState: {
+        type: Function,
+        required: true,
+    },
 });
 
 const isOpen = ref(props.leftDrawerOpen);
@@ -19,8 +23,7 @@ watch(props, (newValue) => {
     isOpen.value = newValue.leftDrawerOpen;
 });
 
-function handleMenu() {
-}
+function handleMenu() {}
 
 interface SideBarItemInterFace {
     title: string;
@@ -55,7 +58,6 @@ const sideBarLinks: SideBarItemInterFace[] = [
         link: '/tournament',
     },
 ];
-
 </script>
 <template>
     <!-- SideBar -->
@@ -64,7 +66,7 @@ const sideBarLinks: SideBarItemInterFace[] = [
         show-if-above
         class="px-6 py-3"
         style="background-color: #181a25"
-        :on-hide="handleMenu"
+        @before-hide="props.toggleState('leftDrawerOpen', false)"
     >
         <div>
             <div class="md:!hidden mt-5">

@@ -45,7 +45,7 @@ function toggleState(name: string, val: boolean) {
         />
 
         <!-- SideBar -->
-        <SideBarComponent :leftDrawerOpen.sync="state?.leftDrawerOpen.value" />
+        <SideBarComponent :leftDrawerOpen.sync="state?.leftDrawerOpen.value" :toggleState = "toggleState" />
 
         <!-- Container -->
         <q-page-container style="background-color: #151515">
