@@ -43,7 +43,7 @@ const langs = [
                     :src="`/imgs/header/${lang}_large.png`"
                     alt="lang"
                 />
-                en
+                {{ lang }}
             </div>
         </template>
 
