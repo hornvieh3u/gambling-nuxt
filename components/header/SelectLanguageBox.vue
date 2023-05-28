@@ -1,9 +1,11 @@
 <script setup lang="ts">
-function onItemClick() {
+let lang = 'en';
+function onItemClick(item: any) {
+    lang = item?.icon
     console.log('Clicked on an Item');
 }
 
-const prifileList = [
+const langs = [
     {
         name: 'English',
         icon: 'en',
@@ -38,8 +40,8 @@ const prifileList = [
             >
                 <img
                     class="w-8 pr-3"
-                    :src="`/imgs/header/en_large.png`"
-                    alt="profile"
+                    :src="`/imgs/header/${lang}_large.png`"
+                    alt="lang"
                 />
                 en
             </div>
@@ -47,20 +49,20 @@ const prifileList = [
 
         <q-list>
             <q-item
-                v-for="profile in prifileList"
+                v-for="lang in langs"
                 clickable
                 v-close-popup
-                @click="onItemClick"
+                @click="onItemClick(lang)"
             >
                 <q-item-section>
                     <q-item-label>
                         <div class="flex items-center justify-start">
                             <img
                                 class="w-3"
-                                :src="`/imgs/header/${profile.icon}.png`"
-                                alt="profile"
+                                :src="`/imgs/header/${lang.icon}.png`"
+                                alt="lang"
                             />
-                            <p class="text-xs pl-1">{{ profile.name }}</p>
+                            <p class="text-xs pl-1">{{ lang.name }}</p>
                         </div>
                     </q-item-label>
                 </q-item-section>
