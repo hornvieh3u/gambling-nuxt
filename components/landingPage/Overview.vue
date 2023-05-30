@@ -9,7 +9,7 @@ const isLogin = computed(() => {
 });
 </script>
 <template>
-    <div class="relative pb-16 w-full">
+    <div class="relative pb-0 sm:pb-16 w-full">
         <div>
             <p
                 v-if="isLogin.value === true"
@@ -32,7 +32,7 @@ const isLogin = computed(() => {
                     200%
                 </p>
                 <p class="font-bold text-2xl pl-3 pb-8">UP TO $600</p>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between pt-10">
                     <q-btn
                         v-if="isLogin.value === false"
                         class="font-bold text-2xl sm:px-6 !py-0"
@@ -143,7 +143,7 @@ const isLogin = computed(() => {
         <img
             :class="[
                 isDrawer.value ? 'lg:w-72 lg:top-0 lg:-right-3' : 'lg:w-full',
-                'absolute right-0 -bottom-24 z-0 w-56 top-0 md:w-96 md:!block sm:max-w-sm md:max-w-md xl:max-w-lg xl:w-auto sm_hidden',
+                'absolute -right-3 -bottom-24 z-0 w-56 top-14 sm:top-0 md:w-96 md:!block sm:max-w-sm md:max-w-md xl:max-w-lg xl:w-auto sm_hidden',
             ]"
             src="/imgs/new.png"
             alt="new"

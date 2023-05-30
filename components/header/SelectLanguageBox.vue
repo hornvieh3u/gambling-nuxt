@@ -39,7 +39,7 @@ const langs = [
                 class="flex items-center justify-start text-xxs sm:text-sm sm:pr-3"
             >
                 <img
-                    class="w-8 pr-3"
+                    class="w-8 pr-1"
                     :src="`/imgs/header/${lang}_large.png`"
                     alt="lang"
                 />
