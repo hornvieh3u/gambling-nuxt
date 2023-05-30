@@ -18,7 +18,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="rounded-lg w-full lg:flex items-center justify-start">
+    <div :class="[`rounded-lg w-full sm:grid grid-cols-${categories?.length} items-center justify-start`]">
         <CategoryBarItem
             v-for="category in categories"
             :key="category.icon"

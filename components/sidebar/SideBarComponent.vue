@@ -88,7 +88,7 @@ const prifileList = [
     >
         <div
             style="border-bottom: 1px solid #7d8396"
-            class="w-full text-center py-3"
+            class="w-full text-center py-3 md:hidden"
         >
             <q-btn-dropdown
                 class="btn-none !rounded-3xl"
@@ -122,7 +122,7 @@ const prifileList = [
             </p>
         </div>
         <div
-            class="py-3 w-full text-center"
+            class="py-3 w-full text-center md:hidden"
             style="border-bottom: 1px solid #7d8396"
         >
             <q-btn @click="$router.push('/wallet')" color="primary">
