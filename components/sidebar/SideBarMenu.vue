@@ -35,7 +35,6 @@
                 </div>
                 <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
-            <SideBarGameCategory />
         </button>
         <button class="group focus:outline-none">
             <div class="flex items-center justify-between h-12 font-semibold">
@@ -49,7 +48,6 @@
                 </div>
                 <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
-            <SideBarGameCategory />
         </button>
         <button class="group focus:outline-none">
             <div class="flex items-center justify-between h-12 font-semibold">
@@ -63,7 +61,6 @@
                 </div>
                 <q-img class="w-2" src="/imgs/sidebar/accordion_icon.svg" />
             </div>
-            <SideBarGameCategory />
         </button>
     </div>
     <!-- Component End  -->
@@ -95,7 +92,11 @@
     <p style="font-size: 11px; color: #7b8193" class="font-medium pt-2">
         Europa777 Docs
     </p>
-    <p @click="$router.push('/faq')" style="font-size: 11px; color: #7b8193" class="font-medium pt-2 cursor-pointer">
+    <p
+        @click="$router.push('/faq')"
+        style="font-size: 11px; color: #7b8193"
+        class="font-medium pt-2 cursor-pointer"
+    >
         Contact Us
     </p>
 </template>

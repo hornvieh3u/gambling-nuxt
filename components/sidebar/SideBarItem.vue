@@ -19,7 +19,7 @@ function getUrl(img: string) {
 </script>
 <template>
     <nuxt-link :to="link">
-        <div class="relative mt-7">
+        <div @click="" class="relative mt-7">
             <div
                 style="max-width: 109px"
                 class="absolute top-1/2 -translate-y-1/2 z-10 left-2"

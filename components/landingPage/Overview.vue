@@ -4,11 +4,17 @@ const store = useStore();
 const isDrawer = computed(() => {
     return ref(store.state.isDrawer);
 });
+const isLogin = computed(() => {
+    return ref(store.state.isLogin);
+});
 </script>
 <template>
     <div class="relative pb-16 w-full">
         <div>
-            <p class="font-bold text-3xl pl-3 hidden md:!block">
+            <p
+                v-if="isLogin.value === true"
+                class="font-bold text-3xl pl-3 hidden md:!block"
+            >
                 Welcome Back Jeff on
             </p>
             <img
@@ -18,20 +24,31 @@ const isDrawer = computed(() => {
             />
             <p class="font-bold md:text-3xl text-2xl pl-3"># 1 Online casino</p>
             <div class="sm:hidden">
-                <p class="font-bold text-xl pl-3">welcome bonus</p>
+                <p class="font-bold text-2xl pl-3">welcome bonus</p>
                 <p
                     style="color: #fff004"
-                    class="font-black text-5xl text- pl-3"
+                    class="font-black text-6xl pl-3"
                 >
                     200%
                 </p>
-                <p class="font-bold text-xl pl-3 pb-8">UP TO $600</p>
+                <p class="font-bold text-2xl pl-3 pb-8">UP TO $600</p>
                 <div class="flex items-center justify-between">
                     <q-btn
-                        class="font-bold text-lg sm:text-2xl px-6 !py-0"
+                        v-if="isLogin.value === false"
+                        class="font-bold text-2xl sm:px-6 !py-0"
                         unelevated
                         color="primary"
                         label="SIGN UP"
+                    />
+                    <q-btn
+                        v-if="isLogin.value === true"
+                        :class="[
+                            'font-bold text-lg md:text-xl lg:text-2xl lg:px-6 md:ml-4',
+                            isDrawer.value ? 'lg:hidden' : '',
+                        ]"
+                        unelevated
+                        color="primary"
+                        label="Deposit"
                     />
                     <div class="flex items-center flex-col justify-between">
                         <p class="font-bold text-lg pl-3">2ND/3RD DEPOSIT</p>
@@ -46,27 +63,50 @@ const isDrawer = computed(() => {
                 <p
                     style="font-family: Montserrat-Italic"
                     :class="[
-                        'font-medium text-lg pl-3 pt-1',
+                        'font-medium text-lg xl:block pl-3 pt-1',
                         isDrawer.value ? 'lg:hidden' : '',
                     ]"
                 >
                     Enjoy 3500+ games, fast payouts and 24/7 live support.
                 </p>
+                <p v-if="isLogin.value === false">
+                    <span style="color: #fff004" class="text-4xl font-bold"
+                        >200%</span
+                    >
+                    <span class="text-base">BONUS</span>
+                    <br class="md: hidden" />
+                    <span style="color: #fff004" class="text-4xl font-bold"
+                        >+100</span
+                    >
+                    <span class="text-base">FREE SPINS</span>
+                </p>
+
                 <div class="pt-3 pl-3 flex items-center justify-start">
                     <q-btn
+                        v-if="isLogin.value === true"
                         class="font-bold text-lg md:text-xl lg:text-2xl !leading-loose lg:px-6"
                         outline
                         color="white"
                         label="play slots"
                     />
                     <q-btn
+                        v-if="isLogin.value === true"
                         :class="[
-                            'font-bold text-lg md:text-xl lg:text-2xl lg:px-6 md:ml-4',
+                            'font-bold text-2xl lg:px-6 md:ml-4',
                             isDrawer.value ? 'lg:hidden' : '',
                         ]"
                         unelevated
                         color="primary"
                         label="Deposit"
+                    />
+                    <q-btn
+                        v-if="isLogin.value === false"
+                        :class="[
+                            'font-bold text-2xl lg:px-6',
+                        ]"
+                        unelevated
+                        color="primary"
+                        label="SIGN UP"
                     />
                 </div>
             </div>

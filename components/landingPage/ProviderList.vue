@@ -98,7 +98,7 @@ const onSlideChange = () => {
                         class="h-14 w-full text-center rounded-2xl p-2"
                     >
                         <img
-                            class="w-full h-full object-contain object-center"
+                            class="w-full h-full object-fill object-center"
                             alt="provider"
                             :src="provider?.link ?? ''"
                         />

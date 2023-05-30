@@ -30,9 +30,12 @@ function toggleState(name: string, val: boolean) {
     if (name === 'leftDrawerOpen') {
         store.dispatch('handleDrawer', val);
     }
+    if (name === 'isLogin') {
+        console.log( name, val, "SS" )
+        store.dispatch('handleLogin', val);
+    }
     state[name].value = val;
 }
-
 </script>
 
 <template>
@@ -45,7 +48,11 @@ function toggleState(name: string, val: boolean) {
         />
 
         <!-- SideBar -->
-        <SideBarComponent :leftDrawerOpen.sync="state?.leftDrawerOpen.value" :toggleState = "toggleState" />
+        <SideBarComponent
+            :leftDrawerOpen.sync="state?.leftDrawerOpen.value"
+            :isLogin="state?.isLogin?.value"
+            :toggleState="toggleState"
+        />
 
         <!-- Container -->
         <q-page-container style="background-color: #151515">

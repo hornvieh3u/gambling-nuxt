@@ -52,28 +52,29 @@ function handleProfile(on: boolean) {
                 src="/imgs/header/logo_full.png"
                 alt="logo-full"
             />
-            <QToolbar class="q-pl-lg q-pr-lg hidden lg:!block">
+            <div class="flex items-center justify-center w-full">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center justify-start pt-1">
                         <div class="hidden lg:!block my-quto">
                             <CasinoSportToogleButton />
                         </div>
+                        
                         <div class="hidden lg:!block pl-5">
                             <SearchInput />
                         </div>
                     </div>
                 </div>
-            </QToolbar>
-            <div class="sm:pr-5">
-                <LoginRegisterButton
-                    v-if="isLogin === false"
-                    :toggleState="
-                        (name:string, val:boolean) =>
-                            props.toggleState(name, val)
-                    "
-                />
+                <div class="sm:pl-5">
+                    <LoginRegisterButton
+                        v-if="isLogin === false"
+                        :toggleState="
+                            (name:string, val:boolean) =>
+                                props.toggleState(name, val)
+                        "
+                    />
+                </div>
             </div>
-            <div class="w-full flex items-center justify-end">
+            <!-- <div class="w-full flex items-center justify-end"> -->
                 <template v-if="isLogin">
                     <div class="pr-5 hidden md:!block">
                         <WalletButton />
@@ -101,11 +102,11 @@ function handleProfile(on: boolean) {
                     </QBtn>
                 </template>
                 <SelectLanguageBox />
-            </div>
-            <ProfileButtonMobile
-                :open.sync="isProfile"
-                :handleProfile="handleProfile"
-            />
+            <!-- </div> -->
         </QToolbar>
     </QHeader>
+    <ProfileButtonMobile
+        :open.sync="isProfile"
+        :handleProfile="handleProfile"
+    />
 </template>

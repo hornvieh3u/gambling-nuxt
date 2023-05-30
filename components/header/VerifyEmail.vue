@@ -20,7 +20,7 @@ watch(props, (newValue) => {
 <template>
     <q-dialog v-model="open" @hide="props.toggleState('isVerifyEmail', false)">
         <q-card style="width: 420px; max-width: 60vw">
-            <div class="py-12 px-8 text-center" style="background: #0072ff 90%">
+            <div class="py-12 px-8 text-center" style="background: rgb(0 90 201)">
                 <p class="font-bold text-xl text-shadow-lg">verify your email address</p>
                 <p class="font-normal text-xs pt-5">
                     In the next few minutes, You will receive an email from us

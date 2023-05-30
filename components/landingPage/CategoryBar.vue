@@ -48,15 +48,17 @@ const provider = {
 
 <template>
     <div
-        class="rounded-lg w-full py-2 px-3 md:flex items-center justify-start"
+        class="rounded-lg w-full py-2 px-3  overflow-x-auto"
         style="background: #282b34"
     >
-        <CategoryBarItem
-            v-for="category in categories"
-            :key="category.icon"
-            v-bind="category"
-        />
-        <HeaderSearchInput />
-        <CategoryBarItem v-bind="provider" />
+        <div style="min-width: 768px;" class="w-full flex items-center justify-start">
+            <CategoryBarItem
+                v-for="category in categories"
+                :key="category.icon"
+                v-bind="category"
+            />
+            <HeaderSearchInput />
+            <CategoryBarItem v-bind="provider" />
+        </div>
     </div>
 </template>

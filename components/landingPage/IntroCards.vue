@@ -8,14 +8,16 @@ const isDrawer = computed(() => {
 <template>
     <div>
         <div class="relative mt-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-6">
-                <div class="flex items-center justify-between relative">
+            <div class="grid grid-cols-2 gap-1 sm:gap-3 md:gap-4 lg:gap-6">
+                <div
+                    class="flex items-center justify-between relative h-24 sm:h-auto"
+                >
                     <div
-                        class="w-1/2 absolute top-1/2 -translate-y-1/2 z-10 left-8"
+                        class="w-1/2 absolute top-1/2 -translate-y-1/2 z-10 left-2 sm:left-8"
                     >
                         <p
                             :class="[
-                                'font-bold text-sm sm:text-sm md:text-xl xl:text-2xl text-shadow-lg',
+                                'font-bold text-sm leading-4 sm:text-sm md:text-xl xl:text-2xl text-shadow-lg',
                                 isDrawer.value ? 'lg:text-xs' : 'lg:text-xl',
                             ]"
                         >
@@ -23,8 +25,8 @@ const isDrawer = computed(() => {
                         </p>
                         <p
                             :class="[
-                                'text-xxs sm:text-xxs md:text-xs xl:text-sm pb-2',
-                                isDrawer.value ? 'lg:text-xxs' : 'pb-4',
+                                'text-xxs sm:text-xxs md:text-xs xl:text-sm pb-0 sm:pb-2',
+                                isDrawer.value ? 'lg:text-xxs' : 'lg:pb-4',
                             ]"
                         >
                             Get free spin every 2 hours!
@@ -32,12 +34,13 @@ const isDrawer = computed(() => {
                         <q-btn size="xs" label="Free Spin" />
                     </div>
                     <q-img
+                        class="h-full rounded-md"
                         src="/imgs/back_bonus.png"
                         spinner-color="primary"
                         alt="title"
                     />
                     <q-img
-                        class="w-1/2 absolute right-0 -bottom-3 rotate"
+                        class="w-1/2 absolute right-0 sm:-bottom-3 rotate"
                         src="/imgs/sidebar/wheel.png"
                         spinner-color="primary"
                         spinner-size="24px"
@@ -45,13 +48,15 @@ const isDrawer = computed(() => {
                     />
                 </div>
 
-                <div class="flex items-center justify-between relative">
+                <div
+                    class="flex items-center justify-between relative h-24 sm:h-auto"
+                >
                     <div
-                        class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8"
+                        class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-2 sm:left-8"
                     >
                         <p
                             :class="[
-                                'font-bold text-sm md:text-xl  xl:text-2xl text-shadow-lg',
+                                'font-bold text-sm leading-4 md:text-xl  xl:text-2xl text-shadow-lg',
                                 isDrawer.value ? 'lg:text-xs' : 'lg:text-xl',
                             ]"
                         >
@@ -61,7 +66,9 @@ const isDrawer = computed(() => {
                             <p
                                 :class="[
                                     'text-xxs md:text-xs  xl:text-sm pb-2',
-                                    isDrawer.value ? 'lg:text-xxs' : 'pb-4 text-xs',
+                                    isDrawer.value
+                                        ? 'lg:text-xxs'
+                                        : 'pb-4 text-xs',
                                 ]"
                             >
                                 UP TO
@@ -70,7 +77,9 @@ const isDrawer = computed(() => {
                                 style="color: #ffd62f"
                                 :class="[
                                     'text-3xl md:text-5xl xl:text-6xl font-black pl-1',
-                                    isDrawer.value ? 'lg:text-3xl' : 'lg:text-5xl',
+                                    isDrawer.value
+                                        ? 'lg:text-3xl'
+                                        : 'lg:text-5xl',
                                 ]"
                             >
                                 20%
@@ -78,12 +87,13 @@ const isDrawer = computed(() => {
                         </div>
                     </div>
                     <q-img
+                        class="h-full rounded-md"
                         src="/imgs/back_daily.png"
                         spinner-color="primary"
                         alt="title"
                     />
                     <q-img
-                        class="w-1/2 absolute right-0 -bottom-3"
+                        class="w-1/2 absolute right-0 sm:-bottom-3"
                         src="/imgs/cash_back.png"
                         spinner-color="primary"
                         alt="title"
@@ -162,7 +172,9 @@ const isDrawer = computed(() => {
                         <p
                             :class="[
                                 'gradiant text-2xl md:text-lg  xl:text-2xl font-black',
-                                isDrawer.value ? 'lg:text-base lg:pt-2' : 'lg:text-2xl',
+                                isDrawer.value
+                                    ? 'lg:text-base lg:pt-2'
+                                    : 'lg:text-2xl',
                             ]"
                         >
                             200%
@@ -172,14 +184,16 @@ const isDrawer = computed(() => {
                                 style="line-height: 19px"
                                 :class="[
                                     'gradiant text-2xl md:text-lg xl:text-2xl font-black',
-                                    isDrawer.value ? 'lg:text-base' : 'lg:text-2xl',
+                                    isDrawer.value
+                                        ? 'lg:text-base'
+                                        : 'lg:text-2xl',
                                 ]"
                             >
                                 +100
                             </p>
-                            <p :class="[
-                                    isDrawer.value ? 'lg:text-xxs' : '',
-                                ]">Free spins</p>
+                            <p :class="[isDrawer.value ? 'lg:text-xxs' : '']">
+                                Free spins
+                            </p>
                         </div>
                     </div>
                     <q-img

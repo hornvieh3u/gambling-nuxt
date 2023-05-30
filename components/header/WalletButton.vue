@@ -26,7 +26,7 @@ function onItemClick() {
             label-class="d-flex align-items-center"
         >
             <template v-slot:label> <p class="text-xxs sm:text-xs pl-1">12350.58 CAD</p> </template>
-
+            
             <q-list>
                 <q-item
                     v-for="profile in prifileList"
@@ -54,7 +54,7 @@ function onItemClick() {
                 src="/imgs/header/wallet-icon.png"
                 alt="wallet"
             />
-            <p class="text-xxs sm:text-xs pl-1">Wallet</p>
+            <p @click="$router.push('/wallet')" class="text-xxs sm:text-xs pl-1">Deposit</p>
         </div>
     </q-btn-group>
 </template>
