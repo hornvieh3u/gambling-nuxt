@@ -20,7 +20,7 @@ const props = defineProps({
             class="sm:py-2 sm:px-3 px-2 py-1 text-xxs sm:text-sm !rounded-3xl flex items-center justify-start cursor-pointer"
             @click="props.toggleState('onSignUp', true)"
         >
-            Registeration
+            Registration
         </div>
     </q-btn-group>
 </template>
