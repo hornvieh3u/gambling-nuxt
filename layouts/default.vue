@@ -57,10 +57,10 @@ function toggleState(name: string, val: boolean) {
         <!-- Container -->
         <q-page-container style="background-color: #151515">
             <NuxtPage />
-            <PageFooter />
+            <PageFooter /> 
             <MobilePageFooter />
             <MobileFooter />
-        </q-page-container>
+        </q-page-container> 
 
         <!-- Footer -->
         <q-footer

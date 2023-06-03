@@ -1,26 +1,65 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+    import { ref } from 'vue';
+    import axios from 'axios';
+    import 'sweetalert2/dist/sweetalert2.css';
+    import swal from 'sweetalert2';
+    import  {SweetAlertOptions} from 'sweetalert2';
 
-const loginInfo = {
-    email: ref(''),
-    password: ref(''),
-};
-const props = defineProps({
-    open: {
-        type: Boolean,
-        required: true,
-    },
-    toggleState: {
-        type: Function,
-        required: true,
-    },
-});
-let open = ref(props.open);
-watch(props, (newValue) => {
-    console.log(newValue.open);
+    const LogIn = () => {
+        Object.keys(loginInfo).map(item => {
+            data = {...data, [item] : loginInfo[item].value};
+        });
+        axios.post(`https://beta.canada777.com/api/login`,data)
+        .then(res =>{
+            props.toggleState('onLogin', false);
+            props.toggleState('isLogin', true);
+            const sweetAlertOptions:SweetAlertOptions = {
+                text: "LogIn Successed",
+                icon: 'success',
+                position: 'top-start',
+                timer: 1500,
+                timerProgressBar: true,
+                heightAuto: true,
+                showConfirmButton: false,
+                background: 'light-red'
+            };
+            swal.fire(sweetAlertOptions);
+        })
+        .catch(err => {
+            const sweetAlertOptions:SweetAlertOptions = {
+                text: err.response.data.message,
+                icon: 'error',
+                position: 'top-start',
+                timer: 3000,
+                timerProgressBar: true,
+                heightAuto: true,
+                showConfirmButton: false,
+                background: 'light-red'
+            };
+            swal.fire(sweetAlertOptions);
+        });
+    }
+    const loginInfo = {
+        email: ref(''),
+        password: ref(''),
+    };
+    const props = defineProps({
+        open: {
+            type: Boolean,
+            required: true,
+        },
+        toggleState: {
+            type: Function,
+            required: true,
+        },
+    });
+    let open = ref(props.open);
+    let data = {};
+    watch(props, (newValue) => {
+        console.log(newValue.open);
 
-    open.value = newValue.open;
-});
+        open.value = newValue.open;
+    });
 </script>
 <template>
     <q-dialog v-model="open" @hide="props.toggleState('onLogin', false)">
@@ -105,8 +144,7 @@ watch(props, (newValue) => {
                                 "
                                 @click="
                                     () => {
-                                        props.toggleState('onLogin', false);
-                                        props.toggleState('isLogin', true);
+                                        LogIn()
                                     }
                                 "
                                 label="LOG IN"
@@ -117,6 +155,12 @@ watch(props, (newValue) => {
                             <q-btn
                                 style="font-size: 10px"
                                 class="mt-4 font-medium p-4"
+                                @click="
+                                    () => {
+                                        props.toggleState('onLogin', false);
+                                        props.toggleState('onSignUp', true);
+                                    }
+                                "
                                 label="Create account"
                             />
                         </div>

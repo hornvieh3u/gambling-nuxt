@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { useStore } from 'vuex';
-const store = useStore();
-const isDrawer = computed(() => {
-    return ref(store.state.isDrawer);
-});
-const isLogin = computed(() => {
-    return ref(store.state.isLogin);
-});
+    import { useStore } from 'vuex';
+    const store = useStore();
+    const isDrawer = computed(() => {
+        return ref(store.state.isDrawer);
+    });
+    const isLogin = computed(() => {
+        return ref(store.state.isLogin);
+    });
+
 </script>
+
 <template>
     <div class="relative pb-0 sm:pb-16 w-full">
         <div>
@@ -35,6 +37,7 @@ const isLogin = computed(() => {
                 <div class="flex items-center justify-between pt-10">
                     <q-btn
                         v-if="isLogin.value === false"
+                       
                         class="font-bold text-2xl sm:px-6 !py-0"
                         unelevated
                         color="primary"
