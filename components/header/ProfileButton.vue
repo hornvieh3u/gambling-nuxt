@@ -36,10 +36,11 @@ const prifileList = [
     {
         name: 'Log Out',
         icon: 'logout',
-        link: '/profile',
+        action: "logOut",
     },
 ];
 const dddf=ref("dfdsf");
+
 </script>
 
 <template>
@@ -51,7 +52,7 @@ const dddf=ref("dfdsf");
                 v-close-popup
             >
                 <q-item-section>
-                    <nuxt-link :to="profile?.link" class="my-button">
+                    <nuxt-link :to="profile?.link" class="my-button" >
                         <q-item-label>
                             <div class="flex items-center justify-start">
                                 <img

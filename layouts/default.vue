@@ -10,6 +10,10 @@ import VerifyEmail from '~~/components/header/VerifyEmail.vue';
 import Welcome from '~~/components/header/Welcome.vue';
 import MobileFooter from '~~/components/footer/MobileFooter.vue';
 import MobilePageFooter from '~~/components/footer/MobilePageFooter.vue';
+import axios from 'axios';
+import { useQuasar } from 'quasar'
+
+const not = useQuasar();
 
 interface State {
     [name: string]: Ref<boolean>;
@@ -19,7 +23,7 @@ const state: State = {
     isLogin: ref(false),
     onLogin: ref(false),
     onSignUp: ref(false),
-    leftDrawerOpen: ref(false),
+    leftDrawerOpen: ref(true),
     isVerifyEmail: ref(false),
     isWelcome: ref(true),
 };
@@ -39,6 +43,30 @@ function toggleState(name: string, val: boolean) {
 onBeforeMount(() => {
     if(localStorage.getItem("token")){
         store.dispatch('handleLogin', true);
+        axios({
+                method:'get',
+                url: 'https://beta.canada777.com/api/player/getProfile',
+                headers: {
+                    "Authorization" : "Bearer " + localStorage.getItem("token")
+                },
+            })
+        .then(res => {
+            store.dispatch('handleGetUser', res.data.Player);
+        })
+        .catch(err => {
+                    not.notify({
+                        color: 'white',
+                        textColor: 'dark',
+                        message: 'Error',
+                        caption: err.response.data.message,
+                        icon: 'info',
+                        iconColor: 'red',
+                        position: 'top-right',
+                        progress:true,
+                        multiLine: true,
+                        timeout: 1500,
+                        })
+        });
     }
 });
 </script>
