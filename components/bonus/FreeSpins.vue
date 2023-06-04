@@ -96,7 +96,7 @@
             </div>
 
             <q-page>
-                <q-table :rows="rows" :columns="cols">
+                <q-table :rows=rows :cols=cols>
                     <template v-slot:body="props">
                         <q-tr :props="props">
                             <q-td key="isComplete" :props="props">
@@ -151,112 +151,50 @@
     </div>
 </template>
 
-<script>
-import { useStore } from 'vuex';
+<script setup lang="ts">
+import {useStore} from 'vuex';
+import { onBeforeMount, ref } from 'vue';
+import axios from 'axios';
+import 'sweetalert2/dist/sweetalert2.css';
+import swal from 'sweetalert2';
+import  {SweetAlertOptions} from 'sweetalert2';
 
-export default {
-    setup() {
-        const store = useStore();
+const store = useStore();
+const isDrawer = computed(() => store.state.isDrawer);
 
-        const rows = [
-            {
-                title: 'Risk Free 110% Bonus upto 200 CAD',
-                freeSpin: 'No Free Spin',
-                game: 'No Free Spin',
-                bonus: '22.00 CAD',
-                wager: '811.80 CAD / 1470.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2023 - 08:26 AM',
+onBeforeMount(() => {
+    axios({
+            method:'get',
+            url: 'https://beta.canada777.com/api/player/getBonusHistory',
+            headers: {
+                "Authorization" : "Bearer " + localStorage.getItem("token")
             },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: -1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                title: 'Welcome Bonus upto 500 CAD',
-                freeSpin: '50 Free Spins',
-                game: 'Book of Dead',
-                bonus: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-        ];
+        })
+    .then(res => {
+        rows.value = res.data.bonusHistory.data
+    })
+    .catch(err => {
+        const sweetAlertOptions:SweetAlertOptions = {
+            text: err.response.data.message,
+            icon: 'error',
+            position: 'top-start',
+            timer: 3000,
+            timerProgressBar: true,
+            heightAuto: true,
+            showConfirmButton: false,
+            background: 'light-red'
+        };
+        swal.fire(sweetAlertOptions);
+    });
+});
 
-        const cols = [
+let rows = ref([]);
+const cols = [
             {
                 name: 'index',
                 align: 'left',
                 label: 'S.No',
-                field: (row) => this.rows.indexOf(row) + 1,
+                // field: (row) => this.rows.indexOf(row) + 1,
             },
             {
                 name: 'title',
@@ -301,14 +239,5 @@ export default {
                 label: 'Expire on',
                 field: 'expireOn',
             },
-        ];
-
-        const isDrawer = computed(() => store.state.isDrawer);
-        return {
-            rows,
-            cols,
-            isDrawer,
-        };
-    },
-};
+];
 </script>

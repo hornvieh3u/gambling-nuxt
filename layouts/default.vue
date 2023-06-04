@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed , onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import SideBarComponent from '@/components/sidebar/SideBarComponent.vue';
@@ -36,6 +36,11 @@ function toggleState(name: string, val: boolean) {
     }
     state[name].value = val;
 }
+onBeforeMount(() => {
+    if(localStorage.getItem("token")){
+        store.dispatch('handleLogin', true);
+    }
+});
 </script>
 
 <template>

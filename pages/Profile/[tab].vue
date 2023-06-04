@@ -4,7 +4,33 @@ import PersonalInfo from '~~/components/profile/PersonalInfo.vue';
 import Verification from '~~/components/profile/Verification.vue';
 import History from '~~/components/profile/History.vue';
 import ResponsibleGambling from '~~/components/profile/ResponsibleGambling.vue';
+// import { onMounted } from '@vue/runtime-core';
+import axios from 'axios';
+import { useStore } from 'vuex';
+import { computed, onBeforeMount ,onMounted} from 'vue';
+import { useRouter , useRoute } from 'vue-router';
 
+const route = useRoute();
+const router = useRouter();
+const store = useStore();
+onMounted(() => {
+    selectCategory(route.params.tab.toString()); 
+});
+onBeforeMount(() => {
+  axios({
+        method:'get',
+        url: 'https://beta.canada777.com/api/player/getProfile',
+        headers: {
+            "Authorization" : "Bearer " + localStorage.getItem("token")
+        },
+    })
+  .then(res => {
+    store.dispatch('handleGetUser', res.data.Player);
+  })
+  .catch(err => {
+    console.log(err.response.data.message);
+  });
+});
 const selectedItem = ref('General Information');
 
 const categories = computed(() => [
@@ -32,6 +58,7 @@ const categories = computed(() => [
 
 function selectCategory(val: string) {
     selectedItem.value = val;
+    router.push(`/Profile/${val}`);
 }
 </script>
 <template>

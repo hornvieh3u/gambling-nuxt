@@ -1,12 +1,12 @@
 <script setup lang="ts">
-function onItemClick() {
-    console.log('Clicked on an Item');
-}
+import {useStore} from 'vuex';
+const store = useStore();
+
 const prifileList = [
     {
         name: 'Profile',
         icon: 'user',
-        link: '/profile',
+        link: '/profile/General Information',
     },
     {
         name: 'Deposit',
@@ -39,16 +39,16 @@ const prifileList = [
         link: '/profile',
     },
 ];
+const dddf=ref("dfdsf");
 </script>
 
 <template>
-    <q-btn-dropdown class="btn-none hidden md:!block" label="Jeff O.">
+    <q-btn-dropdown class="btn-none hidden md:!block" no-caps :label=store.state.User.username >
         <q-list>
             <q-item
                 v-for="profile in prifileList"
                 clickable
                 v-close-popup
-                @click="onItemClick"
             >
                 <q-item-section>
                     <nuxt-link :to="profile?.link" class="my-button">

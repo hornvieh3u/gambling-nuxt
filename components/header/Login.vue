@@ -11,7 +11,8 @@
         });
         axios.post(`https://beta.canada777.com/api/login`,data)
         .then(res =>{
-            //save user profile and cookie to localStorage
+            const tokenStr=res.data["token"];
+            localStorage.setItem("token",tokenStr.split("|")[1]);
             props.toggleState('onLogin', false);
             props.toggleState('isLogin', true);
             const sweetAlertOptions:SweetAlertOptions = {

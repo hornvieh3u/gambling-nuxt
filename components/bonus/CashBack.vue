@@ -96,7 +96,7 @@
             </div>
 
             <q-page>
-                <q-table :rows="rows" :columns="cols">
+                <q-table :rows=rows :cols=cols>
                     <template v-slot:body="props">
                         <q-tr :props="props">
                             <q-td key="index" :props="props">
@@ -145,73 +145,45 @@
     </div>
 </template>
 
-<script>
-import { useStore } from 'vuex';
+<script setup lang="ts">
+import {useStore} from 'vuex';
+import { onBeforeMount, ref } from 'vue';
+import axios from 'axios';
+import 'sweetalert2/dist/sweetalert2.css';
+import swal from 'sweetalert2';
+import  {SweetAlertOptions} from 'sweetalert2';
 
-export default {
-    setup() {
-        const store = useStore();
+const store = useStore();
+const isDrawer = computed(() => store.state.isDrawer);
 
-        const rows = [
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
+onBeforeMount(() => {
+    axios({
+            method:'get',
+            url: 'https://beta.canada777.com/api/player/getCashbackHistory',
+            headers: {
+                "Authorization" : "Bearer " + localStorage.getItem("token")
             },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: -1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 0,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: -1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: -1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-            {
-                totalDeposit: '100.00 CAD',
-                cashBackAmount: '100.00 CAD',
-                wager: '3500.00 CAD / 7000.00 CAD',
-                isComplete: 1,
-                expireOn: '10-02-2022 - 12:00 PM',
-            },
-        ];
+        })
+    .then(res => {
+        rows.value = res.data.cashbacks.data
+    })
+    .catch(err => {
+        const sweetAlertOptions:SweetAlertOptions = {
+            text: err.response.data.message,
+            icon: 'error',
+            position: 'top-start',
+            timer: 3000,
+            timerProgressBar: true,
+            heightAuto: true,
+            showConfirmButton: false,
+            background: 'light-red'
+        };
+        swal.fire(sweetAlertOptions);
+    });
+});
 
-        const cols = [
+let rows = ref([]);
+const cols = [
             {
                 name: 'totalDeposit',
                 required: true,
@@ -243,14 +215,5 @@ export default {
                 label: 'Expire on',
                 field: 'expireOn',
             },
-        ];
-
-        const isDrawer = computed(() => store.state.isDrawer);
-        return {
-            rows,
-            cols,
-            isDrawer,
-        };
-    },
-};
+];
 </script>

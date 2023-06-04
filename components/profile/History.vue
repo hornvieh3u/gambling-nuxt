@@ -27,116 +27,47 @@
 </template>
 
 <script setup lang="ts">
-// Define any other variables or functions needed for this component
-const gameHistory = [
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
-    {
-        time: '19-02-2023 - 07:16 PM',
-        name: 'Fruit Zen',
-        betSum: '0.54 CAD',
-        win: '0 CAD',
-    },
+import {useStore} from 'vuex';
+import { onBeforeMount , ref } from 'vue';
+import axios from 'axios';
+import 'sweetalert2/dist/sweetalert2.css';
+import swal from 'sweetalert2';
+import  {SweetAlertOptions} from 'sweetalert2';
 
-];
+const store = useStore();
+
+onBeforeMount(() => {
+    //  if(store.state.gameHistory == {}){
+        axios({
+                method:'get',
+                url: 'https://beta.canada777.com/api/player/getGamePlayHistory',
+                headers: {
+                    "Authorization" : "Bearer " + localStorage.getItem("token")
+                },
+            })
+        .then(res => {
+            gameHistory = res.data.gamePlayHistory.data
+        })
+        .catch(err => {
+            const sweetAlertOptions:SweetAlertOptions = {
+                text: err.response.data.message,
+                icon: 'error',
+                position: 'top-start',
+                timer: 3000,
+                timerProgressBar: true,
+                heightAuto: true,
+                showConfirmButton: false,
+                background: 'light-red'
+            };
+            swal.fire(sweetAlertOptions);
+        });
+    // }
+});
+interface history {
+    time: Date,
+    name: string,
+    betSum: string,
+    win: string,
+}
+let gameHistory = ref<history[]>([]);
 </script>

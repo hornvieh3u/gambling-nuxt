@@ -4,6 +4,15 @@ import Deposit from '~~/components/withdraw/Deposit.vue';
 import DepositHistory from '~~/components/withdraw/DepositHistory.vue';
 import Withdrawal from '~~/components/withdraw/Withdrawal.vue';
 import Balances from '~~/components/withdraw/Balances.vue';
+import { computed , onBeforeMount } from 'vue';
+import { useRouter , useRoute } from 'vue-router';
+
+const route = useRoute();
+const router = useRouter();
+
+onBeforeMount(()=>{
+    selectCategory(route.params.tab.toString()); 
+});
 
 const selectedItem = ref('Balances');
 
@@ -37,6 +46,7 @@ const categories = computed(() => [
 
 function selectCategory(val: string) {
     selectedItem.value = val;
+    router.push(`/wallet/${val}`);
 }
 </script>
 <template>
@@ -72,8 +82,8 @@ function selectCategory(val: string) {
                     </div>
                 </div>
 
-                <DepositHistory v-if="selectedItem === 'Deposit History'" />
-                <WithdrawHistory v-if="selectedItem === 'Withdrawl History'" />
+                <DepositHistory v-if="selectedItem === 'DepositHistory'" />
+                <WithdrawHistory v-if="selectedItem === 'WithdrawlHistory'" />
                 <Deposit v-if="selectedItem === 'Deposit'" />
                 <Withdrawal v-if="selectedItem === 'Withdrawal'" />
                 <Balances v-if="selectedItem === 'Balances'" />

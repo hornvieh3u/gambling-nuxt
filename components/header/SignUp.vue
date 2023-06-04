@@ -6,7 +6,6 @@
     import  {SweetAlertOptions} from 'sweetalert2';
 
     let data = {};
-    let errorMsg="";
     let signupInfo = {
         first_name: ref(''),
         last_name: ref(''),
@@ -53,9 +52,8 @@
             props.toggleState('onSignUp' , false);
         })
         .catch(err=>{
-            errorMsg=err.response.data.message;
             const sweetAlertOptions:SweetAlertOptions = {
-                text: errorMsg,
+                text: err.response.data.message,
                 icon: 'error',
                 position: 'top-start',
                 timer: 3000,
