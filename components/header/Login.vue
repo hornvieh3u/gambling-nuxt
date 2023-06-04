@@ -1,9 +1,6 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import axios from 'axios';
-    import 'sweetalert2/dist/sweetalert2.css';
-    import swal from 'sweetalert2';
-    import  {SweetAlertOptions} from 'sweetalert2';
 
     const LogIn = () => {
         Object.keys(loginInfo).map(item => {
@@ -15,30 +12,8 @@
             localStorage.setItem("token",tokenStr.split("|")[1]);
             props.toggleState('onLogin', false);
             props.toggleState('isLogin', true);
-            const sweetAlertOptions:SweetAlertOptions = {
-                text: "LogIn Successed",
-                icon: 'success',
-                position: 'top-start',
-                timer: 1500,
-                timerProgressBar: true,
-                heightAuto: true,
-                showConfirmButton: false,
-                background: 'light-red'
-            };
-            swal.fire(sweetAlertOptions);
         })
         .catch(err => {
-            const sweetAlertOptions:SweetAlertOptions = {
-                text: err.response.data.message,
-                icon: 'error',
-                position: 'top-start',
-                timer: 3000,
-                timerProgressBar: true,
-                heightAuto: true,
-                showConfirmButton: false,
-                background: 'light-red'
-            };
-            swal.fire(sweetAlertOptions);
         });
     }
     const loginInfo = {

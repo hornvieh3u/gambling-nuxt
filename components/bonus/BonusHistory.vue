@@ -64,9 +64,6 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
 import axios from 'axios';
-import { useQuasar } from 'quasar';
-
-const noti = useQuasar()
 
 onBeforeMount(() => {
     axios({
@@ -80,14 +77,6 @@ onBeforeMount(() => {
         rows.value = res.data.bonusHistory.data
     })
     .catch(err => {
-        noti.notify({
-          progress: true,
-          position: "top",
-          message: err.response.data.message,
-          type: 'negative',
-          multiLine: true,
-          icon: 'warning'
-        });
     });
 });
 

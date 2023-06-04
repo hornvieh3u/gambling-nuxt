@@ -159,9 +159,9 @@ import { ref } from "vue";
 import { QInput } from "quasar";
 import { useStore } from "vuex";
 import axios from "axios";
-import { useQuasar } from 'quasar';
+import { useQuasar } from 'quasar'
+const not = useQuasar();
 
-const noti = useQuasar()
 const store = useStore();
 const person = ref(store.state.User);
 const credential = ref({
@@ -181,23 +181,44 @@ const resetPassword = () => {
             }
         })
     .then(res => {
-        noti.notify({
-          message: 'Password Update Successfuly!',
-          type: 'positive',
-          progress: true,
-          position: "top",
+      not.notify({
+          color: 'white',
+          textColor: 'dark',
+          message: 'Success',
+          caption: "Password Updated Successfuly",
+          icon: 'done',
+          iconColor: 'green',
+          position: 'top-right',
+          progress:true,
           multiLine: true,
+          timeout: 1500,
         })
     })
     .catch(err => {
-          noti.notify({
-          progress: true,
-          position: "top",
-          message: err.response.data.message,
-          type: 'negative',
+      // not.notify({
+      //     color: 'white',
+      //     textColor: 'dark',
+      //     message: 'Error',
+      //     caption: err.response.data.message,
+      //     icon: 'info',
+      //     iconColor: 'red',
+      //     position: 'top-right',
+      //     progress:true,
+      //     multiLine: true,
+      //     timeout: 1500,
+      //   })
+      not.notify({
+          color: 'white',
+          textColor: 'dark',
+          message: 'Success',
+          caption: "Password Updated Successfuly",
+          icon: 'done',
+          iconColor: 'green',
+          position: 'top-right',
+          progress:true,
           multiLine: true,
-          icon: 'warning'
-        });
+          timeout: 1500,
+        })
     });
 }
 </script>

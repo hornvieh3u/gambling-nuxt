@@ -7,6 +7,9 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss', 
         'nuxt-quasar-ui',
     ],
+    plugins: [
+        { src: '~/plugins/ant-design-vue.js' }
+    ],
     quasar: {
         plugins: [
             'BottomSheet',

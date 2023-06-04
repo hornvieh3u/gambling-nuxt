@@ -155,9 +155,6 @@
 import {useStore} from 'vuex';
 import { onBeforeMount, ref } from 'vue';
 import axios from 'axios';
-import 'sweetalert2/dist/sweetalert2.css';
-import swal from 'sweetalert2';
-import  {SweetAlertOptions} from 'sweetalert2';
 
 const store = useStore();
 const isDrawer = computed(() => store.state.isDrawer);
@@ -174,17 +171,6 @@ onBeforeMount(() => {
         rows.value = res.data.bonusHistory.data
     })
     .catch(err => {
-        const sweetAlertOptions:SweetAlertOptions = {
-            text: err.response.data.message,
-            icon: 'error',
-            position: 'top-start',
-            timer: 3000,
-            timerProgressBar: true,
-            heightAuto: true,
-            showConfirmButton: false,
-            background: 'light-red'
-        };
-        swal.fire(sweetAlertOptions);
     });
 });
 
