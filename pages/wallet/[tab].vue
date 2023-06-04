@@ -82,8 +82,8 @@ function selectCategory(val: string) {
                     </div>
                 </div>
 
-                <DepositHistory v-if="selectedItem === 'DepositHistory'" />
-                <WithdrawHistory v-if="selectedItem === 'WithdrawlHistory'" />
+                <DepositHistory v-if="selectedItem === 'Deposit History'" />
+                <WithdrawHistory v-if="selectedItem === 'Withdrawl History'" />
                 <Deposit v-if="selectedItem === 'Deposit'" />
                 <Withdrawal v-if="selectedItem === 'Withdrawal'" />
                 <Balances v-if="selectedItem === 'Balances'" />

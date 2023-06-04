@@ -30,11 +30,11 @@
 import {useStore} from 'vuex';
 import { onBeforeMount , ref } from 'vue';
 import axios from 'axios';
-
+import { useQuasar } from 'quasar'
+const not = useQuasar();
 const store = useStore();
 
 onBeforeMount(() => {
-    //  if(store.state.gameHistory == {}){
         axios({
                 method:'get',
                 url: 'https://beta.canada777.com/api/player/getGamePlayHistory',
@@ -46,8 +46,19 @@ onBeforeMount(() => {
             gameHistory = res.data.gamePlayHistory.data
         })
         .catch(err => {
+            not.notify({
+                color: 'white',
+                textColor: 'dark',
+                message: 'Error',
+                caption: err.response.data.message,
+                icon: 'info',
+                iconColor: 'red',
+                position: 'top-right',
+                progress:true,
+                multiLine: true,
+                timeout: 1500,
+                })
         });
-    // }
 });
 interface history {
     time: Date,

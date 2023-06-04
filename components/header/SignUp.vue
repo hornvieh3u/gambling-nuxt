@@ -1,6 +1,8 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import axios from 'axios';
+    import { useQuasar } from 'quasar'
+    const not = useQuasar();
 
     let data = {};
     let signupInfo = {
@@ -49,6 +51,18 @@
             props.toggleState('onSignUp' , false);
         })
         .catch(err=>{
+            not.notify({
+                color: 'white',
+                textColor: 'dark',
+                message: 'Error',
+                caption: err.response.data.message,
+                icon: 'info',
+                iconColor: 'red',
+                position: 'top-right',
+                progress:true,
+                multiLine: true,
+                timeout: 1500,
+                })
         });
     }      
     watch(props, (newValue) => {

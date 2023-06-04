@@ -195,25 +195,13 @@ const resetPassword = () => {
         })
     })
     .catch(err => {
-      // not.notify({
-      //     color: 'white',
-      //     textColor: 'dark',
-      //     message: 'Error',
-      //     caption: err.response.data.message,
-      //     icon: 'info',
-      //     iconColor: 'red',
-      //     position: 'top-right',
-      //     progress:true,
-      //     multiLine: true,
-      //     timeout: 1500,
-      //   })
       not.notify({
           color: 'white',
           textColor: 'dark',
-          message: 'Success',
-          caption: "Password Updated Successfuly",
-          icon: 'done',
-          iconColor: 'green',
+          message: 'Error',
+          caption: err.response.data.message,
+          icon: 'info',
+          iconColor: 'red',
           position: 'top-right',
           progress:true,
           multiLine: true,

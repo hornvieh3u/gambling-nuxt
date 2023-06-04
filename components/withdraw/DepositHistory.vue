@@ -66,8 +66,12 @@
 import {useStore} from 'vuex';
 import { onBeforeMount, ref } from 'vue';
 import axios from 'axios';
+import { useQuasar } from 'quasar'
+const not = useQuasar();
 
 onBeforeMount(() => {
+    console.log("deposit log");
+    
     axios({
             method:'get',
             url: 'https://beta.canada777.com/api/player/getDepositHistory',
@@ -79,6 +83,18 @@ onBeforeMount(() => {
         rows.value = res.data.deposits.data
     })
     .catch(err => {
+        not.notify({
+          color: 'white',
+          textColor: 'dark',
+          message: 'Error',
+          caption: err.response.data.message,
+          icon: 'info',
+          iconColor: 'red',
+          position: 'top-right',
+          progress:true,
+          multiLine: true,
+          timeout: 1500,
+        })
     });
 });
 

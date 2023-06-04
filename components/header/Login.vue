@@ -1,6 +1,8 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import axios from 'axios';
+    import { useQuasar } from 'quasar'
+    const not = useQuasar();
 
     const LogIn = () => {
         Object.keys(loginInfo).map(item => {
@@ -12,8 +14,32 @@
             localStorage.setItem("token",tokenStr.split("|")[1]);
             props.toggleState('onLogin', false);
             props.toggleState('isLogin', true);
+            not.notify({
+                color: 'white',
+                textColor: 'dark',
+                message: 'Success',
+                caption: "Password Updated Successfuly",
+                icon: 'done',
+                iconColor: 'green',
+                position: 'top-right',
+                progress:true,
+                multiLine: true,
+                timeout: 1500,
+                })
         })
         .catch(err => {
+            not.notify({
+                color: 'white',
+                textColor: 'dark',
+                message: 'Error',
+                caption: err.response.data.message,
+                icon: 'info',
+                iconColor: 'red',
+                position: 'top-right',
+                progress:true,
+                multiLine: true,
+                timeout: 1500,
+                })
         });
     }
     const loginInfo = {
