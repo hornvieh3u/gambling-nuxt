@@ -148,54 +148,6 @@ const torunamentList = [
                         </div>
                     </div>
                 </div>
-                <div class="vip_banner h-72 lg:w-11/12 mt-12 mx-auto flex">
-                    <div class="text-center w-full">
-                        <div class="grid lg:grid-cols-2 h-full">
-                            <div class="m-auto flex justify-center flex-col">
-                                <p class="text-3xl font-bold pt-4">DIAMOND</p>
-                                <div
-                                    class="flex items-center justify-center pb-2"
-                                    style="border-bottom: 1px solid white"
-                                >
-                                    <div
-                                        style="border-right: 1px solid white"
-                                        class="flex flex-col justify-center px-3"
-                                    >
-                                        <p class="text-3xl font-bold">500</p>
-                                        <p class="text-xs">Comp Points</p>
-                                    </div>
-                                    <div
-                                        style="border-right: 1px solid white"
-                                        class="flex flex-col justify-center px-3"
-                                    >
-                                        <p class="text-3xl font-bold">5%</p>
-                                        <p class="text-xs">Weekly Cashback</p>
-                                    </div>
-                                    <div
-                                        class="flex flex-col justify-center px-3"
-                                    >
-                                        <p class="text-3xl font-bold">X45</p>
-                                        <p class="text-xs">Wager</p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex items-center justify-center py-2"
-                                >
-                                    <p class="text-xs">Special Event</p>
-                                    <div
-                                        class="mx-2"
-                                        style="
-                                            width: 1px;
-                                            background: white;
-                                            height: 12px;
-                                        "
-                                    ></div>
-                                    <p class="text-xs">VIP Tournament</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
             <section class="pt-8">
                 <Activity />

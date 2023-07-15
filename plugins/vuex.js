@@ -49,6 +49,7 @@ const store = createStore({
         handleOnRegister(state, payload) { state.onRegister = payload; },
         handleOnSearchDialog(state, payload) { state.isSearchDiaolg = payload.a; state.selectedProvider = payload.b; },
         handleOnAvatarDialog(state, payload) { state.isAvatarDiaolg = payload; },
+        handleUpdateAvatar(state, payload) { state.User = {...state.User, avatar:payload}; },
 
         handleGetUser(state, payload) { state.User = payload; },
         handleNotification(state, payload) { state.notification = payload; },

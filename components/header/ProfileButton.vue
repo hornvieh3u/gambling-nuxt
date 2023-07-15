@@ -64,11 +64,13 @@ const handleClick = (name) => {
                 style="background-color: #3E4753;"
             >
                 <img
+                    v-if="!('avatar' in store.state.User)"
                     style="margin-left: 2px"
                     class="absolute -rotate-45 w-full h-auto"
                     src="/tmp/avatar.png"
                     alt="user"
                 />
+                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="'avatar' in store.state.User" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat"/>
             </div>
             {{ store.state.User.username }}
         </template>
