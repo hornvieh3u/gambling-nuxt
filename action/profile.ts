@@ -31,3 +31,18 @@ export const getGameHistory = (pagenum, store, router) => {
             store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
     });
 }
+
+export const updateAvatar = (data,store, router) => {
+    store.commit('handleUpdateAvatar', data);
+    // AxiosWithAuth('Post',`/api/player/getGamePlayHistory`,store, router, data)
+    // .then(res => {
+    //     store.commit('handleNotification',{type:'Success',message: "Profile Image Updated Successfully!"});
+    //     store.commit('handleUpdateAvatar', data);
+    // })
+    // .catch(err=>{
+    //     if(err.response)
+    //         store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+    //     else
+    //         store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    // });
+}
