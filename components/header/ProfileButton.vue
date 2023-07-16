@@ -63,14 +63,13 @@ const handleClick = (name) => {
                 class="relative rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden cursor-pointer mr-3"
                 style="background-color: #3E4753;"
             >
-                <img
+                <q-img
                     v-if="!('avatar' in store.state.User)"
-                    style="margin-left: 2px"
-                    class="absolute -rotate-45 w-full h-auto"
-                    src="/tmp/avatar.png"
-                    alt="user"
+                    class="w-full transform -rotate-45"
+                    alt="avatar"
+                    src="/imgs/header/avatarFemale.png"
                 />
-                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="'avatar' in store.state.User" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat"/>
+                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="'avatar' in store.state.User" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat" :gender.sync="store.state.User.avatar.gender"/>
             </div>
             {{ store.state.User.username }}
         </template>
