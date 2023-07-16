@@ -65,9 +65,11 @@
 <script setup lang="ts">
 import { ref, onBeforeMount } from "vue";
 import { colorTones} from './support';
-import avatarData from './avatar.json';
-const props = defineProps(["data","mat"]);
+import femaleData from './femaleAvatar.json';
+import maleData from './maleAvatar.json';
+const props = defineProps(["data","mat","gender"]);
 const drawData = ref();
+let avatarData;
 
 watch(() => props.data,() => init());
 watch(() => props.mat,() => init());
@@ -77,18 +79,21 @@ onBeforeMount(() => {
 });
 
 const init = () => {
+  avatarData=props.gender?femaleData:maleData;
   let data: Object[] = [];
     Object.keys(props.data).map(zone=>{
-      let zonePath = [];
-      let shape = avatarData[zone].shapes[props.data[zone].shapeIndex];
-      
-      Object.keys(shape).map(type=>{
-        if(zone!='hair' || type!='back'){
-          zonePath = [...zonePath, ...shape[type]];
-        }
-      });
-      let resultPathList = drawPathGradient(zonePath, props.data[zone].color, props.data.face.color);
-      data.push({path: resultPathList, mat: matrix(props.data[zone].mat, zone)});
+      if(props.gender!="female" || zone != "mustache" && zone != "beard"){
+        let zonePath = [];
+        let shape = avatarData[zone].shapes[props.data[zone].shapeIndex];
+        
+        Object.keys(shape).map(type=>{
+          if(zone!='hair' || type!='back'){
+            zonePath = [...zonePath, ...shape[type]];
+          }
+        });
+        let resultPathList = drawPathGradient(zonePath, props.data[zone].color, props.data.face.color);
+        data.push({path: resultPathList, mat: matrix(props.data[zone].mat, zone)});
+      }
     });
     data.splice(1,0,{path:drawPathGradient(avatarData.hair.shapes[props.data.hair.shapeIndex].back, props.data.hair.color, props.data.face.color), mat: matrix(props.mat.head, 'head')});
     drawData.value = data;
@@ -143,14 +148,14 @@ const drawPathGradient = (pathData, color, faceColor) => {
   return pathlist;
 };
 const matrix = (data, zone) =>{
-  let scaleX=0,scaleY=0,rotdeltaX=15, rotdeltaY=10;
+  let scaleX=0,scaleY=0,rotdeltaX=30, rotdeltaY=20;
   if(zone == 'backs'){
     return `matrix(1.5,0,0,1.5,-50,-40)`;
   }
   if(zone == 'head'){
     scaleX = 2.2; 
     scaleY = 0;
-    return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+    return `matrix(${1+data.scaleupdown*0.05},${-0.2*data.rotate},${0.2*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
   }
   if(zone == 'human'){
     scaleX = 5; 

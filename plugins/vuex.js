@@ -13,7 +13,7 @@ const store = createStore({
             isregister: false,          // register value(when user register swap to login)
             isSearchDiaolg: false,
             selectedProvider: '',
-            isAvatarDiaolg: true,
+            isAvatarDiaolg: false,
             
             User: {},                   // user profile
             notification: {},           // notification(type,message)

@@ -44,20 +44,7 @@ import { colorTones} from './support';
       fill: string,
       opacity: number,
     };
-const props = defineProps({
-  shape: {
-    type: Object,
-  },
-  type: {
-    type: String,
-  },
-  index: {
-    type: Number,
-  },
-  mat: {
-    type: String,
-  },
-});
+const props = defineProps(["shape","type","index","mat","gender"]);
 const pathList = ref<path[]>([]);
 const colorsStorage = {
   male: {
@@ -117,7 +104,7 @@ onBeforeMount(() => {
 });
 
 const drawPathGradient = (data) => {
-  const colorTheme = colorsStorage["male"];
+  let colorTheme = props.gender ? colorsStorage["female"] : colorsStorage["male"];
   
   let pathlist:path[] = [],
     colorZone;

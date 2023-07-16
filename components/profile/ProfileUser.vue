@@ -19,9 +19,9 @@ const router = useRouter();
                     v-if="!('avatar' in store.state.User)"
                     class="w-full transform -rotate-45"
                     alt="avatar"
-                    src="/tmp/avatar.png"
+                    src="/imgs/header/avatarFemale.png"
                 />
-                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="'avatar' in store.state.User" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat"/>
+                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="'avatar' in store.state.User" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat" :gender.sync="store.state.User.avatar.gender"/>
             </div>
             <div class="w-full text-center mt-24 sm:mt-40 md:mt-16 lg:mt-16">
                 <div class="flex justify-center pb-2">
