@@ -103,7 +103,7 @@ const imgurl = "/imgs/noGameImg.png";
 
       <q-card-section style="height: 50vh" class="scroll">
         <div class="">
-          <div class="flex flex-wrap justify-between">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-1">
             <div
               class="group hidden md:!block h-full p-1 w-[180px]"
               v-for="gameItem in store.state.gameListByType"
@@ -172,85 +172,6 @@ const imgurl = "/imgs/noGameImg.png";
                 </div>
               </div>
               <p class="text-center text-white text-[11px] group-hover:text-[12px] p-2">
-                {{ gameItem?.name }}
-              </p>
-            </div>
-            <div
-              class="md:hidden h-full w-[135px] p-1"
-              v-for="gameItem in store.state.gameListByType"
-              @click="handleFocusGame(gameItem.id)"
-            >
-              <div class="relative w-full h-[90px] rounded-lg">
-                <img
-                  :src="gameItem.image ? gameItem.image : imgurl"
-                  class="relative h-full w-full rounded-lg z-[1] bg-cover"
-                />
-                <div
-                  class="absolute w-full h-full top-0 left-0 z-[2] rounded-lg bg-gray-900 bg-opacity-80 opacity-0 duration-300"
-                  :class="focusgame == gameItem.id && 'opacity-100'"
-                >
-                  <div
-                    class="absolute w-full h-full flex flex-col justify-center items-center"
-                  >
-                    <q-btn
-                      text-color="white"
-                      style="
-                        border-radius: 50%;
-                        background-color: red;
-                        padding: 2px;
-                        margin-bottom: 7px;
-                      "
-                      @click="play(0, gameItem.slug)"
-                    >
-                      <q-icon name="play_arrow" size="lg" />
-                    </q-btn>
-                    <q-btn
-                      v-if="gameItem?.demo == 1"
-                      text-color="white"
-                      padding="1px 5px"
-                      label="Demo"
-                      style="
-                        font-size: x-small;
-                        border-radius: 10%;
-                        background-color: transparent;
-                        border: white 2px solid;
-                      "
-                      @click="play(1, gameItem.slug)"
-                    />
-                  </div>
-                  <q-btn
-                    text-color="yellow"
-                    padding="0px"
-                    class="absolute top-2 right-2"
-                    style="background-color: transparent"
-                    @click="onFavorite(gameItem.id, gameItem.slug)"
-                  >
-                    <q-icon
-                      v-if="
-                        store.state.favoriteGameSlugList.includes(
-                          gameItem?.slug
-                        )
-                      "
-                      name="star"
-                      size="xs"
-                    />
-                    <q-icon
-                      v-if="
-                        !store.state.favoriteGameSlugList.includes(
-                          gameItem?.slug
-                        )
-                      "
-                      name="star_border"
-                      size="xs"
-                    />
-                  </q-btn>
-                </div>
-                <div
-                  class="absolute z-[3] w-full h-full top-0 left-0 rounded-lg"
-                  v-if="focusgame != gameItem.id"
-                ></div>
-              </div>
-              <p class="text-center gametext p-2">
                 {{ gameItem?.name }}
               </p>
             </div>
