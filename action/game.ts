@@ -277,3 +277,27 @@ export const gamePlay = (demo, slug, store, router) => {
     });
 }
 
+export const searchGames = (name, provider, store) => {
+    let param="";
+    if(name!=""){
+        param +=`?search=${name}`;
+        if(provider!="" && provider!=null)
+            param +=`&provider=${provider}`;
+    }
+    else if(provider!="" && provider!=null){
+        param +=`?provider=${provider}`;
+    }
+    Axios('get',`/api/searchGames/${param}`)
+    .then(res => {
+        store.commit('handleSearchResult', res.data.games);
+    })
+    .catch(err=>{
+        if(err.response){
+            store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+            store.commit('handleSearchResult', []);
+        }
+        else
+            store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    });
+}
+

@@ -69,17 +69,14 @@ onBeforeMount(() => {
                 <PageFooter v-if="!route.path.toString().includes('play')"/> 
                 <MobilePageFooter />
                 <MobileFooter />
+                <!-- Footer -->
+                <div
+                    class="text-sm font-normal text-center p-3"
+                    :class="store.state.isLogin&&'sm:pb-3 pb-[120px]'"
+                    style="background-color: #151515; color: #7d8396;"
+                    >Copyright 2023 {{tran('Europa777 All Right Reserved.', store.state.lang)}}
+                </div>
         </q-page-container> 
-
-        <!-- Footer -->
-        <q-footer>
-            <div
-                class="text-sm font-normal text-center p-3 z-[3000]"
-                :class="store.state.isLogin&&'sm:pb-3 pb-[120px]'"
-                style="background-color: #151515; color: #7d8396;"
-                >Copyright 2023 {{tran('Europa777 All Right Reserved.', store.state.lang)}}
-            </div>
-        </q-footer>
         <Login />
         <SignUp />
         <SearchDialog />

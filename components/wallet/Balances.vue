@@ -20,7 +20,7 @@ const isDrawer = computed(() => {
                         src="/imgs/add_currency.png"
                         alt="asdasd"
                     />
-                    <p>{{tran('Add Currenc', store.state.lang)}}y</p>
+                    <p>{{tran('Add Currency', store.state.lang)}}</p>
                 </div>
             </q-btn>
             <div

@@ -1,6 +1,6 @@
 <template>
   <div style="background: #383d47" class="inset-0 rounded-md w-full px-7 py-6">
-    <p class="text-base font-bold pb-2">Personal</p>
+    <p class="text-base font-bold pb-2">{{tran('Personal', store.state.lang)}}</p>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <QInput
         class="w-full"

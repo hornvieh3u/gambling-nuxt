@@ -7,10 +7,10 @@
     <q-card style="width: 700px; max-width: 90vw" class="bg-gray-900 p-4">
         <q-card-section>
           <div class="relative">
-            <p class="text-center text-lg font-bold">Customize your profile Image</p>
-            <div class="md:absolute md:right-0 md:top-0 flex flex-row items-center justify-center">
+            <p class="text-center text-lg font-bold">{{tran('Customize your profile Image', store.state.lang)}}</p>
+            <div class="md:absolute md:right-0 md:top-5 flex flex-row items-center justify-center">
               <p class="text-sm font-semibold text-gray-500" :class="!genderToggle && 'text-blue'">{{tran('Male', store.state.lang)}}</p>
-              <q-toggle v-model="genderToggle"/>
+              <q-toggle class="p-0" v-model="genderToggle"/>
               <p class="text-sm font-semibold text-gray-500" :class="!!genderToggle && 'text-blue'">{{tran('Female', store.state.lang)}}</p>
             </div>
           </div>
@@ -72,11 +72,11 @@
                 text-color="white"
                 toggle-color="primary"
                 :options="[
-                  {label: 'Face', value: 'face'},
-                  {label: 'Eyes', value: 'eyes'},
-                  {label: 'Hair', value: 'hair'},
-                  {label: 'Cloth', value: 'clothes'},
-                  {label: 'Back', value: 'backs'}
+                  {label: tran('Face', store.state.lang), value: 'face'},
+                  {label: tran('Eyes', store.state.lang), value: 'eyes'},
+                  {label: tran('Hair', store.state.lang), value: 'hair'},
+                  {label: tran('Cloth', store.state.lang), value: 'clothes'},
+                  {label: tran('Back', store.state.lang), value: 'backs'}
                 ]"
               />
             </div>
@@ -89,10 +89,10 @@
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: 'Shape', value: 'face'},
-                  {label: 'Mouth', value: 'mouth'},
-                  {label: 'Nose', value: 'nose'},
-                  {label: 'Ears', value: 'ears'}
+                  {label: tran('Shape', store.state.lang), value: 'face'},
+                  {label: tran('Mouth', store.state.lang), value: 'mouth'},
+                  {label: tran('Nose', store.state.lang), value: 'nose'},
+                  {label: tran('Ears', store.state.lang), value: 'ears'}
                 ]"
               />
               <q-btn-toggle
@@ -103,10 +103,10 @@
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: 'Shape', value: 'eyes'},
-                  {label: 'Iris', value: 'iris'},
-                  {label: 'Brows', value: 'brows'},
-                  {label: 'Glasses', value: 'glasses'}
+                  {label: tran('Shape', store.state.lang), value: 'eyes'},
+                  {label: tran('Iris', store.state.lang), value: 'iris'},
+                  {label: tran('Brows', store.state.lang), value: 'brows'},
+                  {label: tran('Glasses', store.state.lang), value: 'glasses'}
                 ]"
               />
               <q-btn-toggle
@@ -117,9 +117,9 @@
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: 'Head', value: 'hair'},
-                  {label: 'Mustache', value: 'mustache'},
-                  {label: 'Beard', value: 'beard'}
+                  {label: tran('Head', store.state.lang), value: 'hair'},
+                  {label: tran('Mustache', store.state.lang), value: 'mustache'},
+                  {label: tran('Beard', store.state.lang), value: 'beard'}
                 ]"
               />
               <q-btn-toggle
@@ -130,7 +130,7 @@
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: 'Basic', value: 'hair'}
+                  {label: tran('Basic', store.state.lang), value: 'hair'}
                 ]"
               />
               <q-btn-toggle
@@ -141,7 +141,7 @@
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: 'Basic', value: 'clothes'}
+                  {label: tran('Basic', store.state.lang), value: 'clothes'}
                 ]"
               />
               <q-btn-toggle
@@ -152,7 +152,7 @@
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: 'Basic', value: 'backs'}
+                  {label: tran('Basic', store.state.lang), value: 'backs'}
                 ]"
               />
             </div>
