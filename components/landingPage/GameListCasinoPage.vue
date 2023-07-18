@@ -45,6 +45,10 @@ const imgurl = "/imgs/noGameImg.png";
           v-for="gameItem in store.state.gameListByType"
         >
           <div class="relative w-full rounded-lg">
+          class="group h-full p-1 w-full"
+          v-for="gameItem in store.state.gameListByType"
+        >
+          <div class="relative w-full h-fit rounded-lg">
             <img
               :src="gameItem?.image ? gameItem?.image : imgurl"
               class="relative h-full w-full rounded-lg z-[1] bg-cover"
@@ -107,7 +111,7 @@ const imgurl = "/imgs/noGameImg.png";
               </q-btn>
             </div>
           </div>
-          <p class="text-center text-white text-[11px] group-hover:text-[12px] p-2">
+          <p class="text-center gametext p-1">
             {{ gameItem?.name }}
           </p>
         </div>
@@ -186,7 +190,7 @@ const imgurl = "/imgs/noGameImg.png";
               v-if="focusgame != gameItem.id"
             ></div>
           </div>
-          <p class="text-center text-white text-[11px] group-hover:text-[12px] p-2">
+          <p class="text-center gametext p-1">
             {{ gameItem?.name }}
           </p>
         </div>

@@ -204,7 +204,7 @@ const imgurl = "/imgs/noGameImg.png";
               </div>
             </div>
             <p
-              class="text-center text-white text-[11px] group-hover:text-[12px] p-2"
+              class="text-center gametext p-1"
             >
               {{ gameItem?.name }}
             </p>
@@ -246,7 +246,7 @@ const imgurl = "/imgs/noGameImg.png";
               <div class="absolute z-[3] w-full h-full top-0 left-0 rounded-lg" v-if="focusgame!=gameItem.id"></div>
             </div>
             <p
-                class="text-center gametext p-2"
+                class="text-center gametext p-1"
             >
                 {{ gameItem?.name }}
             </p>

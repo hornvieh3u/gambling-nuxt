@@ -77,7 +77,6 @@ onBeforeMount(() => {
                     >Copyright 2023 {{tran('Europa777 All Right Reserved.', store.state.lang)}}
                 </div>
         </q-page-container> 
-
         <Login />
         <SignUp />
         <SearchDialog />
