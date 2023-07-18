@@ -204,7 +204,7 @@ const imgurl = "/imgs/noGameImg.png";
               </div>
             </div>
             <p
-              class="text-center gametext p-1"
+              class="text-center text-white text-[11px] group-hover:text-[12px] p-2"
             >
               {{ gameItem?.name }}
             </p>
