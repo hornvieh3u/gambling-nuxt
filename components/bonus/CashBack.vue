@@ -224,32 +224,32 @@ const cols:columnformat[] = [
             {
                 name: 'totalDeposit',
                 required: true,
-                label: 'Total Deposit',
+                label: tran('Total Deposit', store.state.lang),
                 align: 'left',
                 field: 'totalDeposit',
             },
             {
                 name: 'cashBackAmount',
                 align: 'left',
-                label: 'Cash Back Amount',
+                label: tran('Cash Back Amount', store.state.lang),
                 field: 'cashBackAmount',
             },
             {
                 name: 'wager',
                 align: 'left',
-                label: 'Wager Required',
+                label: tran('Wager Required', store.state.lang),
                 field: 'wager',
             },
             {
                 name: 'isComplete',
                 align: 'left',
-                label: 'Completed',
+                label: tran('Completed', store.state.lang),
                 field: 'isComplete',
             },
             {
                 name: 'expireOn',
                 align: 'left',
-                label: 'Expire on',
+                label: tran('Expire on', store.state.lang),
                 field: 'expireOn',
             },
 ];

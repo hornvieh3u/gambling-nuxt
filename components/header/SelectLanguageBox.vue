@@ -42,10 +42,10 @@ const langs = [
             >
                 <img
                     class="w-7 pr-1"
-                    :src="`/imgs/header/${lang}_large.png`"
+                    :src="`/imgs/header/${store.state.lang}_large.png`"
                     alt="lang"
                 />
-                {{ lang }}
+                {{ store.state.lang }}
             </div>
         </template>
 

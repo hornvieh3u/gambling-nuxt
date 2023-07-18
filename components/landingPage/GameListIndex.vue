@@ -134,7 +134,7 @@ const imgurl = "/imgs/noGameImg.png";
           },
         }"
       >
-        <swiper-slide v-for="gameItem in game?.list">
+        <swiper-slide class="hidden md:!block" v-for="gameItem in game?.list">
           <div class="group">
             <div class="relative rounded-lg">
               <img
@@ -210,116 +210,49 @@ const imgurl = "/imgs/noGameImg.png";
             </p>
           </div>
         </swiper-slide>
-      </Swiper>
-      <!-- <div class="sm:hidden">
-        <div class="flex flex-wrap justify-between">
-          <div
-            class="md:hidden h-full w-[120px] p-1"
-            v-for="gameItem in gameItems"
-            @click="handleFocusGame(gameItem.id)"
-          >
-            <div class="relative w-full h-[80px] rounded-lg">
-              <img
-                :src="gameItem.image ? gameItem.image : imgurl"
-                class="relative h-full w-full rounded-lg z-[1] bg-cover"
-              />
-              <div
-                class="absolute w-full h-full top-0 left-0 z-[2] rounded-lg bg-gray-900 bg-opacity-80 opacity-0 duration-300"
-                :class="focusgame == gameItem.id && 'opacity-100'"
-              >
-                <div
-                  class="absolute w-full h-full flex flex-col justify-center items-center"
-                >
+        <swiper-slide class="md:!hidden" v-for="gameItem in game?.list">
+          <div>
+            <div class="group relative rounded-lg" @click="handleFocusGame(gameItem.id)">
+              <img :src="gameItem?.image?gameItem?.image:imgurl" class="relative rounded-lg z-[1]"/>
+              <div class="absolute z-[2] w-full h-full top-0 left-0 rounded-lg bg-gray-900 bg-opacity-80 opacity-0 duration-300 " :class="(focusgame==gameItem.id)&&'opacity-100'" >
+                <div class="absolute w-full h-full flex flex-col justify-center items-center">
                   <q-btn
-                    text-color="white"
-                    style="
-                      border-radius: 50%;
-                      background-color: red;
-                      padding: 2px;
-                      margin-bottom: 7px;
-                    "
+                    text-color=white
+                    style="border-radius: 50%; background-color:red; padding: 5px; margin-bottom: 5px;"
                     @click="play(0, gameItem.slug)"
                   >
                     <q-icon name="play_arrow" size="lg" />
                   </q-btn>
                   <q-btn
                     v-if="gameItem?.demo == 1"
-                    text-color="white"
-                    padding="1px 5px"
+                    text-color=white
+                    padding="1px 10px"
                     label="Demo"
-                    style="
-                      font-size: x-small;
-                      border-radius: 10%;
-                      background-color: transparent;
-                      border: white 2px solid;
-                    "
+                    style="font-size: x-small; border-radius: 10%; background-color:transparent;border: white 2px solid;"
                     @click="play(1, gameItem.slug)"
                   />
                 </div>
                 <q-btn
-                  text-color="yellow"
+                  text-color=yellow
                   padding="0px"
                   class="absolute top-2 right-2"
-                  style="background-color: transparent"
-                  @click="onFavorite(gameItem.id, gameItem.slug)"
+                  style="background-color: transparent;"
+                  @click="onFavorite(gameItem?.id, gameItem.slug)"
                 >
-                  <q-icon
-                    v-if="
-                      store.state.favoriteGameSlugList.includes(gameItem?.slug)
-                    "
-                    name="star"
-                    size="xs"
-                  />
-                  <q-icon
-                    v-if="
-                      !store.state.favoriteGameSlugList.includes(gameItem?.slug)
-                    "
-                    name="star_border"
-                    size="xs"
-                  />
+                  <q-icon v-if="store.state.favoriteGameSlugList.includes(gameItem?.slug)" name="star" size="xs" />
+                  <q-icon v-if="!store.state.favoriteGameSlugList.includes(gameItem?.slug)" name="star_border" size="xs" />
                 </q-btn>
               </div>
-              <div
-                class="absolute z-[3] w-full h-full top-0 left-0 rounded-lg"
-                v-if="focusgame != gameItem.id"
-              ></div>
+              <div class="absolute z-[3] w-full h-full top-0 left-0 rounded-lg" v-if="focusgame!=gameItem.id"></div>
             </div>
             <p
-              class="text-center text-white text-[11px] group-hover:text-[12px] p-2"
+                class="text-center gametext p-2"
             >
-              {{ gameItem?.name }}
+                {{ gameItem?.name }}
             </p>
           </div>
-        </div>
-        <div class="flex flex-row justify-center items-center">
-            <div class="flex flex-col justify-center items-center mr-3 pt-2 pb-1">
-                <q-linear-progress
-                    class="w-32"
-                    rounded
-                    stripe
-                    size="7px"
-                    :value="
-                    props.game?.list.length > 0
-                        ? Number(gameItems.length / props.game?.list.length)
-                        : 0
-                    "
-                />
-                <p class="text-center text-md">
-                    Displaying {{ gameItems.length }} of {{ props.game?.list.length }}
-                </p>
-            </div>
-            <q-btn
-                v-if="gameItems.length < props.game?.list.length"
-                class="w-32 py-1"
-                size="sm"
-                text-color="white"
-                color="primary"
-                @click="showMore"
-            >
-                Show More
-            </q-btn>
-        </div>
-      </div> -->
+        </swiper-slide>
+      </Swiper>
     </div>
   </div>
 </template>

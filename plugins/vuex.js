@@ -27,9 +27,10 @@ const store = createStore({
 
             gameListByType:[],          // current game list(type)
             favoriteGameSlugList:[],      // favorite game list
+            allGameList:[],             // current game list
+            searchGameList:[],             // search game list
             gameAmountByType:0,         // game amount of type
             currentLoaded:0,            // current loaded game amount
-            allGameList:[],             // current game list
             gamePlayMode:2,             // game play mode(fun/play/none)
             currentPlayGameID: 0,    
             gameData:"",                // game data (html/dov)
@@ -61,6 +62,7 @@ const store = createStore({
         handleGetHistory(state, payload) { state.history = payload; },
         handleGetHistoryAccount(state, payload) { state.historyAmount = payload; },
 
+        handleSearchResult(state, payload) { state.searchGameList = payload; },
         handleGetAllGames(state, payload) { state.allGameList = payload; },
         handleGetGamesByType(state, payload) { state.gameListByType = payload; },
         handleFavoriteGameSlugList(state, payload) { state.favoriteGameSlugList = payload; },

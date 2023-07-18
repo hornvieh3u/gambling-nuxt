@@ -57,29 +57,27 @@ onBeforeMount(() => {
 </script>
 
 <template>
-    <q-layout class>
-        <div class="h-screen overflow-y-auto">
-            <!-- Header -->
-            <HeaderComponent />
-            <!-- SideBar -->
-            <SideBarComponent />
-            
-            <!-- Container -->
-            <q-page-container class="bg-gray-900 h-fit overflow-y-auto">
+    <q-layout view="hHh Lpp lff">
+        <!-- Header -->
+        <HeaderComponent />
+        <!-- SideBar -->
+        <SideBarComponent />
+        
+        <!-- Container -->
+        <q-page-container class="bg-gray-900">
                 <NuxtPage />
                 <PageFooter v-if="!route.path.toString().includes('play')"/> 
                 <MobilePageFooter />
                 <MobileFooter />
                 <!-- Footer -->
                 <div
-                    class="text-sm font-normal text-center p-3 z-[3000]"
+                    class="text-sm font-normal text-center p-3"
                     :class="store.state.isLogin&&'sm:pb-3 pb-[120px]'"
                     style="background-color: #151515; color: #7d8396;"
                     >Copyright 2023 {{tran('Europa777 All Right Reserved.', store.state.lang)}}
                 </div>
-            </q-page-container> 
-        </div>
-        
+        </q-page-container> 
+
         <Login />
         <SignUp />
         <SearchDialog />
