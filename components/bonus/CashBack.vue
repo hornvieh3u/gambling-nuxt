@@ -33,6 +33,7 @@
                             ]"
                             size="xs"
                             :label="tran('Free Spin', store.state.lang)"
+                            @click="$router.push(linkTo('/wheel'))"
                         />
                     </div>
                     <q-img
@@ -48,7 +49,6 @@
                         alt="title"
                     />
                 </div>
-
                 <div class="flex items-center justify-between relative">
                     <div
                         class="w-2/3 absolute top-1/2 -translate-y-1/2 z-10 left-8"
@@ -160,6 +160,59 @@
                     </template>
                 </q-table>
             </q-page>
+            <!-- <div v-if="!store.state.isLogin" class="mx-5">
+                <div class="flex">
+                    <p class="text-xl font-bold py-3 px-16 rounded-xl bg-gray-900">{{ tran("Everyday Cashback upto 20%", store.state.lang) }}</p>
+                </div>
+                <p class="pt-2 font-bold">{{ tran("Our cashback bonus has a very simple rule: the more you deposit, the more you get back! Enjoy up to 20% cashback that is credited every single day.", store.state.lang) }}</p>
+                <ul class="list-disc p-4">
+                    <li>
+                        <p class="pb-2 text-md font-semibold">{{ tran("Cashback is given on the deposit amount during the previous day from 00:00 to 23:59(UTC). The total amount of received cashback cannot exceed 20% of the total amount of all Players deposits.", store.state.lang) }}</p>
+                        <q-table class="" :pagination="{rowsPerPage: 5}" flat bordered :rows="infoRows" :columns ="infoCols">
+                            <template v-slot:body="props">
+                                <q-tr :props="props">
+                                    <q-td key="cashback" :props="props">
+                                        {{ props.row.cashback }}
+                                    </q-td>
+                                    <q-td key="depositAmount" :props="props">
+                                        {{ props.row.depositAmount }}
+                                    </q-td>
+                                </q-tr>
+                            </template>
+                        </q-table>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("Cashback is credited to the Player's account automatically every day at 02:00 AM (UTC).", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("The maximum amount of cashback that can be credited to the Player's account is 20% of the total amount of all deposits made by the Player during the previous day.", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("Wager requirement for cashback bonus is x3.", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("Validity of the cashback is 3 days from its receipt and 7 days after its activation.", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("Cashback will not be credited if the real money loss for the previous day was less than BTC 0.0008 / BCH 0.13 / DOGE 250 / ETH 0.013 / LTC 0.30 / USDT 20 / XRP 33 / TRX 250 / ADA 33 / BNB 0.067 / USDC 20 / BUSD 20.", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("You must have no pending withdrawals in order to claim Daily Cashback", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("Any abuse in order to obtain a cashback bonus is prohibited; in particular, the use of the opposite bets strategy in table games is prohibited (e.g. simultaneous betting on both red and black in roulette, or other similar bet types).", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("For successful withdrawal of funds gained with a cashback bonus, the Player must meet the wagering requirement for the total amount of deposits made during the day of at least three (3) times (i.e. total wager amount equals the amount of deposits for the day multiplied by 3) no later than 23:59 UTC of the day on which these deposits were made.", store.state.lang) }}</p>
+                    </li>
+                    <li>
+                        <p class="pt-2 text-md font-semibold">{{ tran("In the case of detection of the cashback bonus rules abuse or failure to comply with the wagering requirements specified in paragraph 8 of these rules, the Casino may cancel and seize all winnings gained with an active cashback bonus, as well as to confiscate an amount equal to the amount of cashback bonus received.", store.state.lang) }}</p>
+                    </li>
+                </ul>
+                <div class="flex">
+                    <p @click="router.push(linkTo('/bonus-terms-and-conditions'))" class="py-2 text-md font-semibold py-3 px-5 rounded-xl bg-gray-900 cursor-pointer">{{ tran("Read more about our Bonus Terms and Conditions", store.state.lang) }}</p>
+                </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -253,4 +306,64 @@ const cols:columnformat[] = [
                 field: 'expireOn',
             },
 ];
+const infoCols:columnformat[] = [
+            {
+                name: 'cashback',
+                label: tran('Cashback', store.state.lang),
+                align: 'left',
+                field: 'cashback',
+            },
+            {
+                name: 'depositAmount',
+                label: tran('Deposit Amount', store.state.lang),
+                align: 'left',
+                field: 'depositAmount',
+            }
+];
+const infoRows = [
+    {
+        cashback: "10%",
+        depositAmount: "USD 20 - USD 499"
+    },
+    {
+        cashback: "11%",
+        depositAmount: "USD 500 - USD 699"
+    },
+    {
+        cashback: "12%",
+        depositAmount: "USD 700 - USD 799"
+    },
+    {
+        cashback: "13%",
+        depositAmount: "USD 800 - USD 999"
+    },
+    {
+        cashback: "14%",
+        depositAmount: "USD 1000 - USD 1499"
+    },
+    {
+        cashback: "15%",
+        depositAmount: "USD 1500 - USD 1999"
+    },
+    {
+        cashback: "16%",
+        depositAmount: "USD 2000 - USD 2499"
+    },
+    {
+        cashback: "17%",
+        depositAmount: "USD 2500 - USD 3499"
+    },
+    {
+        cashback: "18%",
+        depositAmount: "USD 3500 - USD 3999"
+    },
+    {
+        cashback: "19%",
+        depositAmount: "USD 4000 - USD 4999"
+    },
+    {
+        cashback: "20%",
+        depositAmount: "USD 5000 or more"
+    }
+]
 </script>
