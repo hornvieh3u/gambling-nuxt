@@ -56,3 +56,36 @@ export const ResetPassword = (data: object, store: any) => {
             store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
     });
 }
+//forgot password
+export const forgotPassword = (email: string, store: any) => {
+    Axios('post','/api/forgotPassword', {email:email})
+    .then(res=>{  
+        store.commit('handleNotification',{type:'Success',message: 'Message Sent Successfully!\nPlease Check Your Email'});
+        store.commit('handleResetCode', true);
+    })
+    .catch(err=>{
+        if(err.response)
+            store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+        else
+            store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    });
+}
+//forgot password
+export const setNewPassword = (data: object, store: any, router:any) => {
+    Axios('post','/api/setPassword', data)
+    .then(res=>{  
+        const tokenStr=res.data["token"];
+        Cookies.set('token', tokenStr.split("|")[1] );
+        store.commit('handleLogin',true);
+        getBalances(store);
+        getProfile(store, router);
+        store.commit('handleNotification',{type:'Success',message: 'New Password Set'});
+        store.commit('handleResetCode', false);
+    })
+    .catch(err=>{
+        if(err.response)
+            store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+        else
+            store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    });
+}

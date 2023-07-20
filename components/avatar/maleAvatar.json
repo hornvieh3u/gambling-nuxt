@@ -1,5 +1,5 @@
 {
-  "backs": {
+  "bk": {
     "scaleFactor": 1,
     "mat":"matrix(1,0,0,1,0,0)",
     "block": "backs",
@@ -353,7 +353,7 @@
       }
     ]
   },
-  "humanbody": {
+  "hb": {
     "scaleFactor": 1,
     "mat":"matrix(1,0,0,1,0,0)",
     "block": "face",
@@ -423,7 +423,7 @@
       }
     ]
   },
-  "chinshadow": {
+  "cs": {
     "scaleFactor": 0.8,
     "mat":"matrix(1,0,0,1,0,0)",
     "block": "face",
@@ -912,7 +912,7 @@
       }
     ]
   },
-  "clothes": {
+  "c": {
     "scaleFactor": 0.9,
     "mat":"matrix(0.9,0,0,0.9,10.097083359956741,3.840642166137698)",
     "block": "clothes",
@@ -1687,7 +1687,7 @@
       }
     ]
   },
-  "earsLeft": {
+  "eaL": {
     "scaleFactor": 3,
     "mat":"matrix(3,0,0,3,-367.45347595214844,-191.00027465820312)",
     "block": "face",
@@ -1862,7 +1862,7 @@
       }
     ]
   },
-  "earsRight": {
+  "eaR": {
     "scaleFactor": 3,
     "mat":"matrix(3,0,0,3,-367.45347595214844,-191.00027465820312)",
     "block": "face",
@@ -2037,7 +2037,7 @@
       }
     ]
   },
-  "face": {
+  "f": {
     "scaleFactor": 0.8,
     "mat":"matrix(0.8,0,0,0.8,19.99839782714843,34.70723056793212)",
     "block": "face",
@@ -2490,7 +2490,7 @@
       }
     ]
   },
-  "mouth": {
+  "m": {
     "scaleFactor": 4,
     "mat": "matrix(4,0,0,4,-300,-448.999998807907104)",
     "block": "face",
@@ -3277,7 +3277,7 @@
       }
     ]
   },
-  "eyesbackLeft": {
+  "ebL": {
     "scaleFactor": 3,
     "mat":"matrix(1,0,0,1,0,0)",
     "block": "eyes",
@@ -4060,7 +4060,7 @@
       }
     ]
   },
-  "eyesbackRight": {
+  "ebR": {
     "scaleFactor": 3,
     "mat":"matrix(1,0,0,1,0,0)",
     "block": "eyes",
@@ -4836,7 +4836,7 @@
       }
     ]
   },
-  "irisLeft": {
+  "iL": {
     "scaleFactor": 5.4,
     "mat":"matrix(5.4,0,0,5.4,-580.4,-353.59460296630857)",
     "block": "eyes",
@@ -5588,7 +5588,7 @@
       }
     ]
   },
-  "irisRight": {
+  "iR": {
     "scaleFactor": 5.4,
     "mat":"matrix(5.4,0,0,5.4,-580.4,-353.59460296630857)",
     "block": "eyes",
@@ -6335,7 +6335,7 @@
       }
     ]
   },
-  "eyesLeft": {
+  "eL": {
     "scaleFactor": 3.4,
     "mat":"matrix(3.4,0,0,3.4,-326.7979232788086,-182.26434402465821)",
     "block": "eyes",
@@ -8515,7 +8515,7 @@
       }
     ]
   },
-  "eyesRight": {
+  "eR": {
     "scaleFactor": 3.4,
     "mat":"matrix(3.4,0,0,3.4,-326.7979232788086,-182.26434402465821)",
     "block": "eyes",
@@ -10689,7 +10689,7 @@
       }
     ]
   },
-  "facehighlight": {
+  "fh": {
     "scaleFactor": 0.8,
     "mat":"matrix(1,0,0,1,0,0)",
     "block": "face",
@@ -10775,7 +10775,7 @@
       }
     ]
   },
-  "browsLeft": {
+  "bL": {
     "scaleFactor": 3,
     "mat":"matrix(3,0,0,3,-281,-116.1354751586914)",
     "block": "eyes",
@@ -10997,7 +10997,7 @@
       }
     ]
   },
-  "browsRight": {
+  "bR": {
     "scaleFactor": 3,
     "mat":"matrix(3,0,0,3,-281,-116.1354751586914)",
     "block": "eyes",
@@ -11219,7 +11219,7 @@
       }
     ]
   },
-  "nose": {
+  "n": {
     "scaleFactor": 4,
     "mat":"matrix(4,0,0,4,-300.27589416503906,-311.86390686035156)",
     "block": "face",
@@ -11640,7 +11640,7 @@
       }
     ]
   },
-  "beard": {
+  "be": {
     "scaleFactor": 1,
     "mat":"matrix(1,0,0,1,0.13100290298461914,-13.93246078491211)",
     "block": "hair",
@@ -12103,7 +12103,7 @@
       }
     ]
   },
-  "mustache": {
+  "mu": {
     "scaleFactor": 2,
     "mat":"matrix(2,0,0,2,-100,-157.61573791503906)",
     "block": "hair",
@@ -12466,7 +12466,7 @@
       }
     ]
   },
-  "glasses": {
+  "g": {
     "scaleFactor": 1.2,
     "mat":"matrix(1.2,0,0,1.2,-19.988006591796868,-1.995408630371088)",
     "block": "eyes",
@@ -13329,7 +13329,7 @@
       }
     ]
   },
-  "hair": {
+  "h": {
     "scaleFactor": 1,
     "mat":"matrix(1,0,0,1,0,19.999998807907104)",
     "block": "hair",

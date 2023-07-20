@@ -4,7 +4,7 @@ const store = useStore();
 
 let lang = 'en';
 function onItemClick(item: any) {
-    lang = item?.icon
+    lang = item?.icon;
     store.commit('handleSetLanguage', lang);
 }
 

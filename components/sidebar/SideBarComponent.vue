@@ -47,7 +47,8 @@ let lang = {
     icon:'en',
 };
 function onItemClick(item: any) {
-    lang = item
+    lang = item?.icon;
+    store.commit('handleSetLanguage', lang);
 }
 
 const langs = [
@@ -104,7 +105,7 @@ const langs = [
                     <q-item-section>
                         <q-item-label>
                             <div class="flex justify-between">
-                                <p class="text-xs sm:text-xs pl-1">{{tran('', store.state.lang)}}Cash Balance: </p>
+                                <p class="text-xs sm:text-xs pl-1">{{tran('Cash Balance:', store.state.lang)}} </p>
                                 <p class="text-xs sm:text-xs pl-1">{{ store.state.balance.balance }} {{ store.state.balance.currency }}</p>
                             </div>
                         </q-item-label>
@@ -119,7 +120,7 @@ const langs = [
                     <q-item-section>
                         <q-item-label>
                             <div class="flex justify-between">
-                                <p class="text-xs sm:text-xs pl-1">{{tran('', store.state.lang)}}Bonus Balance: </p>
+                                <p class="text-xs sm:text-xs pl-1">{{tran('Bonus Balance:', store.state.lang)}} </p>
                                 <p class="text-xs sm:text-xs pl-1">{{ store.state.balance.bonus_balance }} {{ store.state.balance.currency }}</p>
                             </div>
                         </q-item-label>
@@ -133,7 +134,7 @@ const langs = [
                     <q-item-section>
                         <q-item-label>
                             <div class="flex justify-between ">
-                                <p class="text-xs sm:text-xs pl-1">{{tran('', store.state.lang)}}Total Balance: </p>
+                                <p class="text-xs sm:text-xs pl-1">{{tran('Total Balance:', store.state.lang)}} </p>
                                 <p class="text-xs sm:text-xs pl-1">{{ store.state.balance.total_balance }} {{ store.state.balance.currency }}</p>
                             </div>
                         </q-item-label>
@@ -182,10 +183,10 @@ const langs = [
                 >
                     <img
                         class="w-7 mr-3"
-                        :src="`/imgs/header/${lang.icon}_large.png`"
+                        :src="`/imgs/header/${store.state.lang}_large.png`"
                         alt="lang"
                     />
-                    {{ lang.name }}
+                    {{ store.state.lang }}
                 </div>
             </template>
 

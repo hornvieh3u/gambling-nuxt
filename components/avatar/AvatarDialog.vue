@@ -72,92 +72,92 @@
                 text-color="white"
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Face', store.state.lang), value: 'face'},
-                  {label: tran('Eyes', store.state.lang), value: 'eyes'},
-                  {label: tran('Hair', store.state.lang), value: 'hair'},
-                  {label: tran('Cloth', store.state.lang), value: 'clothes'},
-                  {label: tran('Back', store.state.lang), value: 'backs'}
+                  {label: tran('Face', store.state.lang), value: 'f'},
+                  {label: tran('Eyes', store.state.lang), value: 'e'},
+                  {label: tran('Hair', store.state.lang), value: 'h'},
+                  {label: tran('Cloth', store.state.lang), value: 'c'},
+                  {label: tran('Back', store.state.lang), value: 'bk'}
                 ]"
               />
             </div>
             <div class="w-full mb-2">
               <q-btn-toggle
-                v-if="title == 'face'"
+                v-if="title == 'f'"
                 class="w-full !grid grid-cols-4"
                 v-model="subTitle"
                 text-color="white"
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Shape', store.state.lang), value: 'face'},
-                  {label: tran('Mouth', store.state.lang), value: 'mouth'},
-                  {label: tran('Nose', store.state.lang), value: 'nose'},
-                  {label: tran('Ears', store.state.lang), value: 'ears'}
+                  {label: tran('Shape', store.state.lang), value: 'f'},
+                  {label: tran('Mouth', store.state.lang), value: 'm'},
+                  {label: tran('Nose', store.state.lang), value: 'n'},
+                  {label: tran('Ears', store.state.lang), value: 'ea'}
                 ]"
               />
               <q-btn-toggle
-                v-if="title == 'eyes'"
+                v-if="title == 'e'"
                 class="w-full !grid grid-cols-4"
                 v-model="subTitle"
                 text-color="white"
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Shape', store.state.lang), value: 'eyes'},
-                  {label: tran('Iris', store.state.lang), value: 'iris'},
-                  {label: tran('Brows', store.state.lang), value: 'brows'},
-                  {label: tran('Glasses', store.state.lang), value: 'glasses'}
+                  {label: tran('Shape', store.state.lang), value: 'e'},
+                  {label: tran('Iris', store.state.lang), value: 'i'},
+                  {label: tran('Brows', store.state.lang), value: 'b'},
+                  {label: tran('Glasses', store.state.lang), value: 'g'}
                 ]"
               />
               <q-btn-toggle
-                v-if="title == 'hair' && genderToggle != true"
+                v-if="title == 'h' && genderToggle != true"
                 class="w-full !grid grid-cols-3"
                 v-model="subTitle"
                 text-color="white"
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Head', store.state.lang), value: 'hair'},
-                  {label: tran('Mustache', store.state.lang), value: 'mustache'},
-                  {label: tran('Beard', store.state.lang), value: 'beard'}
+                  {label: tran('Head', store.state.lang), value: 'h'},
+                  {label: tran('Mustache', store.state.lang), value: 'mu'},
+                  {label: tran('Beard', store.state.lang), value: 'be'}
                 ]"
               />
               <q-btn-toggle
-                v-if="title == 'hair' && genderToggle == true"
+                v-if="title == 'h' && genderToggle == true"
                 class="w-full !grid grid-cols-1"
                 v-model="subTitle"
                 text-color="white"
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Basic', store.state.lang), value: 'hair'}
+                  {label: tran('Basic', store.state.lang), value: 'h'}
                 ]"
               />
               <q-btn-toggle
-                v-if="title == 'clothes'"
+                v-if="title == 'c'"
                 class="w-full !grid grid-cols-1"
                 v-model="subTitle"
                 text-color="white"
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Basic', store.state.lang), value: 'clothes'}
+                  {label: tran('Basic', store.state.lang), value: 'c'}
                 ]"
               />
               <q-btn-toggle
-                v-if="title == 'backs'"
+                v-if="title == 'bk'"
                 class="w-full !grid grid-cols-1"
                 v-model="subTitle"
                 text-color="white"
                 no-caps 
                 toggle-color="primary"
                 :options="[
-                  {label: tran('Basic', store.state.lang), value: 'backs'}
+                  {label: tran('Basic', store.state.lang), value: 'bk'}
                 ]"
               />
             </div>
             <div class="w-full flex flex-row flew-wrap mb-2">
-              <div class="!w-1/5 bg-white border-[2px] border-solid border-gray-900 square" @click="selectShape(index)" :class="(shapeIndex==index)&&'border-[3px] border-red-700'" v-for="(shape, index) in avatarData[shapeName(subTitle)].shapes">
+              <div class="!w-1/5 bg-white border-[2px] border-solid border-gray-900 square" @click="selectShape(index)" :class="(s==index)&&'border-[3px] border-red-700'" v-for="(shape, index) in avatarData[shapeName(subTitle)].shapes">
                 <ShapeItem :shape.sync="shape" :type.sync="subTitle" :index.sync="index" :mat.sync="avatarData[shapeName(subTitle)].mat"/>
               </div>
             </div>
@@ -201,111 +201,112 @@ import maleData from './maleAvatar.json';
 const store = useStore();
 const router = useRouter();
 
-let tabSet=['face','mouth','nose','ears','eyes','iris','brows','glasses','hair','clothes','backs'];
+let tabSet=['f','m','n','ea','e','i','b','g','h','c','bk'];
 const customColor=ref('#ffffff');
 const colorPickerhandle=ref(false);
-const title=ref('face');
-const subTitle=ref('face');
-const shapeIndex=ref(0);
+const title=ref('f');
+const subTitle=ref('f');
+const s=ref(0);
 const avatarProps=ref({});
 const avatarMat=ref({});
 const genderToggle = ref(true);
 let avatarData=ref();
-
-let avatarmat={
-  updown: 0,
-  leftright: 0,
-  scaleupdown: 0,
-  tightlywider:0,
-  rotate:0
-};
 let matProps={
-  updown: 0,
-  leftright: 0,
-  scaleupdown: 0,
-  tightlywider:0,
-  iris:0,
-  rotate:0
+  ud: 0,
+  lr: 0,
+  io: 0,
+  tw:0,
+  r:0
 };
 let props={};
 
 const init = () =>{
   props={};
-  title.value="face";
-  subTitle.value="face";
+  matProps={
+    ud: 0,
+    lr: 0,
+    io: 0,
+    tw:0,
+    r:0
+  };
+  title.value="f";
+  subTitle.value="f";
   avatarData.value = genderToggle.value ? {...femaleData} : {...maleData};
-  customColor.value=avatarData.value.face.colors[0];
+  customColor.value=avatarData.value.f.colors[0];
   Object.keys(avatarData.value).map(zone=>{
-    if(zone=='hair')
-      props = {...props, [zone]:{shapeIndex:1, color:avatarData.value[zone].colors[0], mat:matProps}};
+    if(zone=='h')
+      props = {...props, [zone]:{s:1, c:avatarData.value[zone].colors[0], m:matProps}};
     else
-      props = {...props, [zone]:{shapeIndex:0, color:avatarData.value[zone].colors[0], mat:matProps}};
+      props = {...props, [zone]:{s:0, c:avatarData.value[zone].colors[0], m:matProps}};
   });
   avatarProps.value=props;  
-  avatarMat.value = {human: {...avatarmat, scaleupdown:-4}, head: avatarmat};
+  avatarMat.value = {m: {...matProps, io:-4}, h: matProps};
 }
 const randomInit = () => {
+  matProps={
+    ud: 0,
+    lr: 0,
+    io: 0,
+    tw:0,
+    r:0
+  };
   tabSet.map(zone=>{
-      if(zone=='hair'){
-        props = {...props, hair:{shapeIndex: props['face'].shapeIndex, color:avatarData.value[shapeName(zone)].colors[0], mat: matProps}};
+      if(zone=='h'){
+        props = {...props, h:{s: props['f'].s, c:avatarData.value[shapeName(zone)].colors[0], m: matProps}};
       }
       else{
         let zoneShapeRandIndex = Math.floor(avatarData.value[shapeName(zone)].shapes.length*Math.random());
-        props = {...props, [shapeName(zone)]:{shapeIndex:zoneShapeRandIndex, color:avatarData.value[shapeName(zone)].colors[0], mat:matProps}};
-        if(["ears","eyes","iris","brows"].includes(zone)){
-          props = {...props, [`${zone}Left`]:{shapeIndex:zoneShapeRandIndex, color:avatarData.value[shapeName(zone)].colors[0], mat:matProps}};
+        props = {...props, [shapeName(zone)]:{s:zoneShapeRandIndex, c:avatarData.value[shapeName(zone)].colors[0], m:matProps}};
+        if(["ea","e","i","b"].includes(zone)){
+          props = {...props, [`${zone}L`]:{s:zoneShapeRandIndex, c:avatarData.value[shapeName(zone)].colors[0], m:matProps}};
         }
       }
   });
   avatarProps.value=props;  
-  avatarMat.value = {human: {...avatarmat, scaleupdown:-4}, head: avatarmat};
+  avatarMat.value = {m: {...matProps, io:-4}, h: matProps};
 }
-
 const save = () => {
-  updateAvatar({props: avatarProps.value, mat:avatarMat.value, gender:genderToggle.value}, store, router);
+  console.log(JSON.stringify({props: {...avatarProps.value}, mat:{...avatarMat.value}, gender:genderToggle.value}).length);
+  console.log(JSON.stringify({props: {...avatarProps.value}, mat:{...avatarMat.value}, gender:genderToggle.value}));
+  updateAvatar(JSON.stringify({props: {...avatarProps.value}, mat:{...avatarMat.value}, gender:genderToggle.value}), store, router);
+
   store.commit('handleOnAvatarDialog', false);
 };
-
 onBeforeMount(()=>{init()});
-
 watch(()=>title.value,()=>{
     subTitle.value = title.value;
 });
-
 watch(()=>subTitle.value,()=>{
   let subt = subTitle.value;
-  shapeIndex.value = props[shapeName(subt)].shapeIndex;
-  customColor.value = props[shapeName(subt)].color;
+  s.value = props[shapeName(subt)].s;
+  customColor.value = props[shapeName(subt)].c;
 });
-
 watch(()=>customColor.value,()=>{
   setColor(customColor.value);
 });
-
 watch(()=>genderToggle.value,()=>{
   if(genderToggle.value)
-    tabSet=['face','mouth','nose','ears','eyes','iris','brows','glasses','hair','clothes','backs'];
+    tabSet=['f','m','n','ea','e','i','b','g','h','c','bk'];
   else
-    tabSet=['face','mouth','nose','ears','eyes','iris','brows','glasses','hair','clothes','backs','beard','mustache'];
+    tabSet=['f','m','n','ea','e','i','b','g','h','c','bk','be','mu'];
   init();
 });
-
 const setColor = (color) => {  
-  if('facenoseears'.includes(subTitle.value)){
-    ['face','nose','ears','humanbody','chinshadow'].map(zone=>{
+  if(['f','n','ea'].includes(subTitle.value)){
+    ['f','n','ea','hb','cs'].map(zone=>{
       let data = props[shapeName(zone)];
-      data = {...data, color:color};
+      data = {...data, c:color};
       props = {...props, [shapeName(zone)]:data};
-      if(zone='ears'){
-        data = props[`${zone}Left`];
-        data = {...data, color:color};
-        props = {...props, [`${zone}Left`]:data};
+      if(zone=='ea'){
+        data = props[`${zone}L`];
+        data = {...data, c:color};
+        props = {...props, [`${zone}L`]:data};
       }
     });
   }
   else{
     let data = props[shapeName(subTitle.value)];
-    data = {...data, color:color};
+    data = {...data, c:color};
     props = {...props, [shapeName(subTitle.value)]:data};
   }
   avatarProps.value=props;
@@ -314,22 +315,22 @@ const selectColor = (color) => {
   customColor.value=color;
 };
 const selectShape = (index) => {
-  shapeIndex.value = index;
-  if(['ears','eyes','iris','brows'].includes(subTitle.value)){
-      if(subTitle.value == 'eyes'){
-        let data = props['eyesbackLeft'];
-        data = {...data, shapeIndex:index};
-        props = {...props, [`eyesbackLeft`]:data};
-        data = props['eyesbackRight'];
-        data = {...data, shapeIndex:index};
-        props = {...props, [`eyesbackRight`]:data};
+  s.value = index;
+  if(['ea','e','i','b'].includes(subTitle.value)){
+      if(subTitle.value == 'e'){
+        let data = props['ebL'];
+        data = {...data, s:index};
+        props = {...props, [`ebL`]:data};
+        data = props['ebR'];
+        data = {...data, s:index};
+        props = {...props, [`ebR`]:data};
       }
-      let data = props[`${subTitle.value}Left`];
-      data = {...data, shapeIndex:index};
-      props = {...props, [`${subTitle.value}Left`]:data};
+      let data = props[`${subTitle.value}L`];
+      data = {...data, s:index};
+      props = {...props, [`${subTitle.value}L`]:data};
   }
   let data = props[shapeName(subTitle.value)];
-  data = {...data, shapeIndex:index};
+  data = {...data, s:index};
   props = {...props, [shapeName(subTitle.value)]:data};
   avatarProps.value=props;
 };
@@ -338,366 +339,366 @@ const onColorPicker=()=>{
 }
 const transform = (action) => {
   if(action=='up'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.updown>-5){
-      matProps.updown -=1;
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.ud>-5){
+      matProps.ud -=1;
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: matProps};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: matProps};
+          props = {...props, [`${zone}L`]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat:matProps};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m:matProps};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='down'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.updown<5){
-      matProps.updown +=1;
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.ud<5){
+      matProps.ud +=1;
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: matProps};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: matProps};
+          props = {...props, [`${zone}L`]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat:matProps};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m:matProps};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='left'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.leftright>-5){
-      matProps.leftright -=1;      
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.lr>-5){
+      matProps.lr -=1;      
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: matProps};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: matProps};
+          props = {...props, [`${zone}L`]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat:matProps};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m:matProps};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='right'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.leftright<5){
-      matProps.leftright +=1;
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.lr<5){
+      matProps.lr +=1;
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: matProps};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: matProps};
+          props = {...props, [`${zone}L`]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat:matProps};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m:matProps};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='scaleup'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.scaleupdown>-3){
-      matProps.scaleupdown -=1;
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.io>-3){
+      matProps.io -=1;
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];  
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: {...matProps, rotate:matProps.rotate*-1, tightlywider: matProps.tightlywider*-1}};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: {...matProps, r:matProps.r*-1, tw: matProps.tw*-1}};
+          props = {...props, [`${zone}L`]:data};
         });
       }
-      if(subTitle.value=='face'){
-        ['face','hair'].map(zone=>{
+      if(subTitle.value=='f'){
+        ['f','h'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat: {...matProps, rotate:matProps.rotate*-1, tightlywider: matProps.tightlywider*-1}};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m: {...matProps, r:matProps.r*-1, tw: matProps.tw*-1}};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='scaledown'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.scaleupdown<3){
-      matProps.scaleupdown +=1;
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.io<3){
+      matProps.io +=1;
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: {...matProps, rotate:matProps.rotate*-1, tightlywider: matProps.tightlywider*-1}};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: {...matProps, r:matProps.r*-1, tw: matProps.tw*-1}};
+          props = {...props, [`${zone}L`]:data};
         });
       }
-      if(subTitle.value=='face'){
-        ['face','hair'].map(zone=>{
+      if(subTitle.value=='f'){
+        ['f','h'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat: {...matProps, rotate:matProps.rotate*-1, tightlywider: matProps.tightlywider*-1}};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m: {...matProps, r:matProps.r*-1, tw: matProps.tw*-1}};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='tightly'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.tightlywider>-3){
-      matProps.tightlywider -=1;      
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.tw>-3){
+      matProps.tw -=1;      
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = {...props[shapeName(zone)]};
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = {...props[`${zone}Left`]};
-          data = {...data, mat: {...matProps,tightlywider: matProps.tightlywider*-1}};
-          props = {...props, [`${zone}Left`]:data};
+          data = {...props[`${zone}L`]};
+          data = {...data, m: {...matProps,tw: matProps.tw*-1}};
+          props = {...props, [`${zone}L`]:data};
         });
       }
       else{
         let data = {...props[shapeName(subTitle.value)]};
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = {...props[`${subTitle.value}Left`]};
-          data = {...data, mat: {...matProps,tightlywider: matProps.tightlywider*-1, rotate:matProps.rotate*-1}};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = {...props[`${subTitle.value}L`]};
+          data = {...data, m: {...matProps,tw: matProps.tw*-1, r:matProps.r*-1}};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='wider'){
-    matProps = {...props[shapeName(subTitle.value)].mat};
-    if(matProps.tightlywider<3){
-      matProps.tightlywider +=1;      
-      if(subTitle.value=='eyes'){
-        ['eyes','iris','eyesback'].map(zone=>{
+    matProps = {...props[shapeName(subTitle.value)].m};
+    if(matProps.tw<3){
+      matProps.tw +=1;      
+      if(subTitle.value=='e'){
+        ['e','i','eb'].map(zone=>{
           let data = props[shapeName(zone)];
-          data = {...data, mat: matProps};
+          data = {...data, m: matProps};
           props = {...props, [shapeName(zone)]:data};
-          data = props[`${zone}Left`];
-          data = {...data, mat: {...matProps,tightlywider: matProps.tightlywider*-1}};
-          props = {...props, [`${zone}Left`]:data};
+          data = props[`${zone}L`];
+          data = {...data, m: {...matProps,tw: matProps.tw*-1}};
+          props = {...props, [`${zone}L`]:data};
         });
       }
       else{
         let data = props[shapeName(subTitle.value)];
-        data = {...data, mat:matProps};
+        data = {...data, m:matProps};
         props = {...props, [shapeName(subTitle.value)]:data};
-        if(["ears","eyes","iris","brows"].includes(subTitle.value)){
-          data = props[`${subTitle.value}Left`];
-          data = {...data, mat: {...matProps,tightlywider: matProps.tightlywider*-1, rotate:matProps.rotate*-1}};
-          props = {...props, [`${subTitle.value}Left`]:data};
+        if(["ea","e","i","b"].includes(subTitle.value)){
+          data = props[`${subTitle.value}L`];
+          data = {...data, m: {...matProps,tw: matProps.tw*-1, r:matProps.r*-1}};
+          props = {...props, [`${subTitle.value}L`]:data};
         }
       }
       avatarProps.value=props;
     }
   }
   else if(action=='eb1'){
-    matProps = {...props['browsLeft'].mat};
-    matProps.rotate=-1;
-    let data = props['browsLeft'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsLeft']:data};
+    matProps = {...props['bL'].m};
+    matProps.r=-1;
+    let data = props['bL'];
+    data = {...data, m: matProps};
+    props = {...props, ['bL']:data};
 
-    matProps = {...props['browsRight'].mat};
-    matProps.rotate=0;
-    data = props['browsRight'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsRight']:data};
+    matProps = {...props['bR'].m};
+    matProps.r=0;
+    data = props['bR'];
+    data = {...data, m: matProps};
+    props = {...props, ['bR']:data};
     avatarProps.value=props;    
   }
   else if(action=='eb2'){
-    matProps = {...props['browsRight'].mat};
-    matProps.rotate=1;
-    let data = props['browsRight'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsRight']:data};
+    matProps = {...props['bR'].m};
+    matProps.r=1;
+    let data = props['bR'];
+    data = {...data, m: matProps};
+    props = {...props, ['bR']:data};
 
-    matProps = {...props['browsLeft'].mat};
-    matProps.rotate=0;
-    data = props['browsLeft'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsLeft']:data};
+    matProps = {...props['bL'].m};
+    matProps.r=0;
+    data = props['bL'];
+    data = {...data, m: matProps};
+    props = {...props, ['bL']:data};
     avatarProps.value=props;
   }
   else if(action=='eb3'){
-    matProps = {...props['browsLeft'].mat};
-    matProps.rotate=-1;
-    let data = props['browsLeft'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsLeft']:data};
+    matProps = {...props['bL'].m};
+    matProps.r=-1;
+    let data = props['bL'];
+    data = {...data, m: matProps};
+    props = {...props, ['bL']:data};
 
-    matProps = {...props['browsRight'].mat};
-    matProps.rotate=1;
-    data = props['browsRight'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsRight']:data};
+    matProps = {...props['bR'].m};
+    matProps.r=1;
+    data = props['bR'];
+    data = {...data, m: matProps};
+    props = {...props, ['bR']:data};
     avatarProps.value=props;
   }
   else if(action=='eb4'){
-    matProps = {...props['browsLeft'].mat};
-    matProps.rotate=1;
-    let data = props['browsLeft'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsLeft']:data};
+    matProps = {...props['bL'].m};
+    matProps.r=1;
+    let data = props['bL'];
+    data = {...data, m: matProps};
+    props = {...props, ['bL']:data};
 
-    matProps = {...props['browsRight'].mat};
-    matProps.rotate=-1;
-    data = props['browsRight'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsRight']:data};
+    matProps = {...props['bR'].m};
+    matProps.r=-1;
+    data = props['bR'];
+    data = {...data, m: matProps};
+    props = {...props, ['bR']:data};
     avatarProps.value=props;
   }
   else if(action=='ebcancel'){
-    matProps = {...props['browsLeft'].mat};
-    matProps.rotate=0;
-    let data = props['browsLeft'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsLeft']:data};
+    matProps = {...props['bL'].m};
+    matProps.r=0;
+    let data = props['bL'];
+    data = {...data, m: matProps};
+    props = {...props, ['bL']:data};
 
-    matProps = {...props['browsRight'].mat};
-    matProps.rotate=0;
-    data = props['browsRight'];
-    data = {...data, mat: matProps};
-    props = {...props, ['browsRight']:data};
+    matProps = {...props['bR'].m};
+    matProps.r=0;
+    data = props['bR'];
+    data = {...data, m: matProps};
+    props = {...props, ['bR']:data};
     avatarProps.value=props;
   }
   else if(action=='moveup'){
-    let mat = {...avatarMat.value['human']};
-    if(mat.updown>-5){
-      mat = {...mat,updown: mat.updown-1};
-      avatarMat.value = {...avatarMat.value, human: mat};
+    let mat = {...avatarMat.value['m']};
+    if(mat.ud>-5){
+      mat = {...mat,ud: mat.ud-1};
+      avatarMat.value = {...avatarMat.value, m: mat};
     }    
   }
   else if(action=='movedown'){
-    let mat = {...avatarMat.value['human']};
-    if(mat.updown<5){
-      mat = {...mat,updown: mat.updown+1};
-      avatarMat.value = {...avatarMat.value, human: mat};
+    let mat = {...avatarMat.value['m']};
+    if(mat.ud<5){
+      mat = {...mat,ud: mat.ud+1};
+      avatarMat.value = {...avatarMat.value, m: mat};
     }
   }
   else if(action=='moveleft'){
-    let mat = {...avatarMat.value['human']};
-    if(mat.leftright>-5){
-      mat = {...mat,leftright: mat.leftright-1};
-      avatarMat.value = {...avatarMat.value, human: mat};
+    let mat = {...avatarMat.value['m']};
+    if(mat.lr>-5){
+      mat = {...mat,lr: mat.lr-1};
+      avatarMat.value = {...avatarMat.value, m: mat};
     }
   }
   else if(action=='moveright'){
-    let mat = {...avatarMat.value['human']};
-    if(mat.leftright<5){
-      mat = {...mat,leftright: mat.leftright+1};
-      avatarMat.value = {...avatarMat.value, human: mat};
+    let mat = {...avatarMat.value['m']};
+    if(mat.lr<5){
+      mat = {...mat,lr: mat.lr+1};
+      avatarMat.value = {...avatarMat.value, m: mat};
     }
   }
   else if(action=='zoomout'){
-    let mat = {...avatarMat.value['human']};
-    if(mat.scaleupdown<-1){
-      mat = {...mat,scaleupdown: mat.scaleupdown+1};
-      avatarMat.value = {...avatarMat.value, human: mat};
+    let mat = {...avatarMat.value['m']};
+    if(mat.io<-1){
+      mat = {...mat,io: mat.io+1};
+      avatarMat.value = {...avatarMat.value, m: mat};
     }
   }
   else if(action=='zoomin'){
-    let mat = {...avatarMat.value['human']};
+    let mat = {...avatarMat.value['m']};
     
-    if(mat.scaleupdown>-7){
-      mat = {...mat,scaleupdown: mat.scaleupdown-1};
-      avatarMat.value = {...avatarMat.value, human: mat};
+    if(mat.io>-7){
+      mat = {...mat,io: mat.io-1};
+      avatarMat.value = {...avatarMat.value, m: mat};
     }
   }
   else if(action=='rotateleft'){
-    let mat = {...avatarMat.value['head']};
-    if(mat.rotate<1){
-      mat = {...mat,rotate: mat.rotate+1};
-      avatarMat.value = {...avatarMat.value, head: mat};
+    let mat = {...avatarMat.value['h']};
+    if(mat.r<1){
+      mat = {...mat,r: mat.r+1};
+      avatarMat.value = {...avatarMat.value, h: mat};
     }
   }
   else if(action=='rotateright'){
-    let mat = {...avatarMat.value['head']};
-    if(mat.rotate>-1){
-      mat = {...mat,rotate: mat.rotate-1};
-      avatarMat.value = {...avatarMat.value, head: mat};
+    let mat = {...avatarMat.value['h']};
+    if(mat.r>-1){
+      mat = {...mat,r: mat.r-1};
+      avatarMat.value = {...avatarMat.value, h: mat};
     }
   }
 }
 const shapeName = (name:string) => {
-  if(["ears","eyes","iris","brows","eyesback"].includes(name))
-    return name+"Right";
+  if(["ea","e","i","b","eb"].includes(name))
+    return name+"R";
   else
     return name;
 }

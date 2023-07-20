@@ -11,7 +11,6 @@
     <defs>
     </defs>
     <g :transform="calcMat()">
-      {{ calcMat() }}
       <path
         v-for="item in pathList"
         :d="item.d"
@@ -48,38 +47,38 @@ const props = defineProps(["shape","type","index","mat","gender"]);
 const pathList = ref<path[]>([]);
 const colorsStorage = {
   male: {
-    backs: "#ecf0f1",
-    humanbody: "#f0c7b1",
-    clothes: "#386e77",
-    hair: "#2a232b",
-    ears: "#f0c7b1",
-    face: "#f0c7b1",
-    chinshadow: "#f0c7b1",
-    facehighlight: "#f0c7b1",
-    brows: "#2a232b",
-    eyesback: "#000000",
-    eyes: "#000000",
-    iris: "#4e60a3",
-    glasses: "#26120B",
-    mustache: "#2a232b",
-    beard: "#2a232b",
-    mouth: "#da7c87",
+    bk: "#ecf0f1",
+    hb: "#f0c7b1",
+    c: "#386e77",
+    h: "#2a232b",
+    ea: "#f0c7b1",
+    f: "#f0c7b1",
+    cs: "#f0c7b1",
+    fh: "#f0c7b1",
+    b: "#2a232b",
+    eb: "#000000",
+    e: "#000000",
+    i: "#4e60a3",
+    g: "#26120B",
+    mu: "#2a232b",
+    be: "#2a232b",
+    m: "#da7c87",
   },
   female: {
-    backs: "#ecf0f1",
-    humanbody: "#F3D4CF",
-    clothes: "#09aac5",
-    hair: "#2a232b",
-    ears: "#F3D4CF",
-    face: "#F3D4CF",
-    chinshadow: "#F3D4CF",
-    facehighlight: "#F3D4CF",
-    brows: "#2a232b",
-    eyesback: "#000000",
-    eyes: "#000000",
-    iris: "#4e60a3",
-    glasses: "#26120B",
-    mouth: "#f771a9",
+    bk: "#ecf0f1",
+    hb: "#F3D4CF",
+    c: "#09aac5",
+    h: "#2a232b",
+    ea: "#F3D4CF",
+    f: "#F3D4CF",
+    cs: "#F3D4CF",
+    fh: "#F3D4CF",
+    b: "#2a232b",
+    eb: "#000000",
+    e: "#000000",
+    i: "#4e60a3",
+    g: "#26120B",
+    m: "#f771a9",
   },
 };
 watch(
@@ -94,7 +93,6 @@ watch(
 );
 
 onBeforeMount(() => {
-  
   let result = [];
     Object.keys(props.shape).map((key) => {
       if (key != "left") result = [...result, ...props.shape[key]];
@@ -157,13 +155,13 @@ const drawPathGradient = (data) => {
 };
 const calcMat = () => {
   if(props.index==0){
-    if(props.type=='glasses')
+    if(props.type=='g')
       return "matrix(1.2,0,0,1.2,-20,-20)";
-    else if(props.type=='hair')
+    else if(props.type=='h')
       return "matrix(1,0,0,1,0,0.001007080078125)";
-    else if(props.type=='mustache')
+    else if(props.type=='mu')
       return "matrix(2,0,0,2,-100,-100)";
-    else if(props.type=='beard')
+    else if(props.type=='be')
       return "matrix(1,0,0,1,0,0.001007080078125)";
     else
       return props.mat;
