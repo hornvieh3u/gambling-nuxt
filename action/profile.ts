@@ -33,8 +33,8 @@ export const getGameHistory = (pagenum, store, router) => {
 }
 
 export const updateAvatar = (data,store, router) => {
-    store.commit('handleUpdateAvatar', data);
-    // AxiosWithAuth('Post',`/api/player/getGamePlayHistory`,store, router, data)
+    store.commit('handleUpdateAvatar', JSON.parse(data));
+    // AxiosWithAuth('Post',`/api/player/updateAvatar`,store, router, {"avatar":data})
     // .then(res => {
     //     store.commit('handleNotification',{type:'Success',message: "Profile Image Updated Successfully!"});
     //     store.commit('handleUpdateAvatar', data);

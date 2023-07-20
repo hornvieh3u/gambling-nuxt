@@ -12,7 +12,7 @@
       
     </defs>
     <g id="total">
-      <g id="back" :transform="item.mat" v-for="item in drawData.slice(0,1)">
+      <g id="back" :transform="item.m" v-for="item in drawData.slice(0,1)">
         <path
           v-for="pathItem in item.path"
           :d="pathItem.d"
@@ -26,8 +26,8 @@
           :stroke="pathItem?.stroke"
         ></path>
       </g>
-      <g id="human" :transform="matrix(props.mat.human, 'human')">
-        <g id="body-cloth-hair_back" :transform="item.mat" v-for="item in drawData.slice(1,5)">
+      <g id="human" :transform="matrix(props.mat.m, 'hm')">
+        <g id="body-cloth-hair_back" :transform="item.m" v-for="item in drawData.slice(1,5)">
           <path
             v-for="pathItem in item.path"
             :d="pathItem.d"
@@ -41,8 +41,8 @@
             :stroke="pathItem?.stroke"
           ></path>
         </g>
-        <g id="head" :transform="matrix(props.mat.head, 'head')">
-          <g :transform="item.mat" v-for="item in drawData.slice(5)">
+        <g id="head" :transform="matrix(props.mat.h, 'h')">
+          <g :transform="item.m" v-for="item in drawData.slice(5)">
             <path
               v-for="pathItem in item.path"
               :d="pathItem.d"
@@ -82,20 +82,20 @@ const init = () => {
   avatarData=props.gender?femaleData:maleData;
   let data: Object[] = [];
     Object.keys(props.data).map(zone=>{
-      if(props.gender!="female" || zone != "mustache" && zone != "beard"){
+      if(props.gender!="female" || zone != "mu" && zone != "be"){
         let zonePath = [];
-        let shape = avatarData[zone].shapes[props.data[zone].shapeIndex];
+        let shape = avatarData[zone].shapes[props.data[zone].s];
         
         Object.keys(shape).map(type=>{
-          if(zone!='hair' || type!='back'){
+          if(zone!='h' || type!='back'){
             zonePath = [...zonePath, ...shape[type]];
           }
         });
-        let resultPathList = drawPathGradient(zonePath, props.data[zone].color, props.data.face.color);
-        data.push({path: resultPathList, mat: matrix(props.data[zone].mat, zone)});
+        let resultPathList = drawPathGradient(zonePath, props.data[zone].c, props.data.f.c);
+        data.push({path: resultPathList, m: matrix(props.data[zone].m, zone)});
       }
     });
-    data.splice(1,0,{path:drawPathGradient(avatarData.hair.shapes[props.data.hair.shapeIndex].back, props.data.hair.color, props.data.face.color), mat: matrix(props.mat.head, 'head')});
+    data.splice(1,0,{path:drawPathGradient(avatarData.h.shapes[props.data.h.s].back, props.data.h.c, props.data.f.c), m: matrix(props.mat.h, 'h')});
     drawData.value = data;
 }
 
@@ -149,107 +149,107 @@ const drawPathGradient = (pathData, color, faceColor) => {
 };
 const matrix = (data, zone) =>{
   let scaleX=0,scaleY=0,rotdeltaX=30, rotdeltaY=20;
-  if(zone == 'backs'){
+  if(zone == 'bk'){
     return `matrix(1.5,0,0,1.5,-50,-40)`;
   }
-  if(zone == 'head'){
-    scaleX = 2.2; 
-    scaleY = 0;
-    return `matrix(${1+data.scaleupdown*0.05},${-0.2*data.rotate},${0.2*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  if(zone == 'h'){
+    scaleX = 5; 
+    scaleY =6.75;
+    return `matrix(${1+data.io*0.05},${-0.2*data.r},${0.2*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'human'){
+  if(zone == 'hm'){
     scaleX = 5; 
     scaleY = 5.88;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone.includes('ears')){
+  if(zone.includes('ea')){
     scaleX = 5; 
     scaleY = 5;
-  return `matrix(${1+data.scaleupdown*0.05},0,0,${1+data.scaleupdown*0.05},${data.leftright - data.scaleupdown*scaleX},${data.updown - data.scaleupdown*scaleY})`;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr - data.io*scaleX},${data.ud - data.io*scaleY})`;
   }
-  if(zone == 'face' || zone == 'hair'){
+  if(zone == 'f' || zone == 'h'){
     scaleX = 5; 
     scaleY = 6.75;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'mouth'){
+  if(zone == 'm'){
     scaleX = 5; 
     scaleY = 6.75;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'nose'){
+  if(zone == 'n'){
     scaleX = 5; 
     scaleY = 6.2;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone=='irisRight'){
+  if(zone=='iR'){
     scaleX = 6; 
     scaleY = 4.2;
-  return `matrix(${1+data.scaleupdown*0.05},0,0,${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX},${data.updown-data.scaleupdown*scaleY})`;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
   }
-  if(zone=='irisLeft'){
+  if(zone=='iL'){
     scaleX = 3.8; 
     scaleY = 4.2;
-  return `matrix(${1+data.scaleupdown*0.05},0,0,${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX},${data.updown-data.scaleupdown*scaleY})`;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
   }
-  if(zone=='eyesRight'){
+  if(zone=='eR'){
     scaleX = 6; 
     scaleY = 4.5;
-  return `matrix(${1+data.scaleupdown*0.05},0,0,${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX},${data.updown-data.scaleupdown*scaleY})`;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
   }
-  if(zone=='eyesLeft'){
+  if(zone=='eL'){
     scaleX = 4; 
     scaleY = 4.5;
-  return `matrix(${1+data.scaleupdown*0.05},0,0,${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX},${data.updown-data.scaleupdown*scaleY})`;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
   }
-  if(zone=='browsRight'){
+  if(zone=='bR'){
     scaleX = 6.5; 
     scaleY = 4;
     rotdeltaX=15;
     rotdeltaY=24;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.2*data.rotate},${0.2*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.2*data.r},${0.2*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone=='browsLeft'){
+  if(zone=='bL'){
     scaleX = 3; 
     scaleY = 4;
     rotdeltaX=15;
     rotdeltaY=15;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.2*data.rotate},${0.2*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.2*data.r},${0.2*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'glasses'){
+  if(zone == 'g'){
     scaleX = 4.7; 
     scaleY = 4.5;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'mustache'){
+  if(zone == 'mu'){
     scaleX = 5; 
     scaleY = 6.7;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'beard'){
+  if(zone == 'be'){
     scaleX = 5; 
     scaleY = 6.7;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'facehighlight'){
+  if(zone == 'fh'){
     scaleX = 5; 
     scaleY = 6.7;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'clothes'){
+  if(zone == 'c'){
     scaleX = 5; 
     scaleY = 6.7;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'chinshadow'){
+  if(zone == 'cs'){
     scaleX = 5; 
     scaleY = 6.7;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
-  if(zone == 'humanbody'){
+  if(zone == 'hb'){
     scaleX = 5; 
     scaleY = 6.7;
-  return `matrix(${1+data.scaleupdown*0.05},${-0.1*data.rotate},${0.1*data.rotate},${1+data.scaleupdown*0.05},${data.leftright+data.tightlywider-data.scaleupdown*scaleX-data.rotate*rotdeltaX},${data.updown*1-data.scaleupdown*scaleY+data.rotate*rotdeltaY})`;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
   }
 }
 </script>

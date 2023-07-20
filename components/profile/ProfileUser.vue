@@ -16,12 +16,12 @@ const router = useRouter();
                 class="!w-1/3 square transform rotate-45 left-1/2 -translate-x-1/2 top-12 sm:top-28 md:top-10 lg:top-8 rounded-lg overflow-hidden text-center"
             >
                 <q-img
-                    v-if="!('avatar' in store.state.User)"
+                    v-if="!store.state.User.avatar"
                     class="w-full transform -rotate-45"
                     alt="avatar"
                     src="/imgs/header/avatarFemale.png"
                 />
-                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="'avatar' in store.state.User" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat" :gender.sync="store.state.User.avatar.gender"/>
+                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="store.state.User.avatar" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat" :gender.sync="store.state.User.avatar.gender"/>
             </div>
             <div class="w-full text-center mt-24 sm:mt-40 md:mt-16 lg:mt-16">
                 <div class="flex justify-center pb-2">

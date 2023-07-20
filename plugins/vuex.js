@@ -14,6 +14,7 @@ const store = createStore({
             isSearchDiaolg: false,
             selectedProvider: '',
             isAvatarDiaolg: false,
+            haveResetCode: true,
             
             User: {},                   // user profile
             notification: {},           // notification(type,message)
@@ -51,6 +52,7 @@ const store = createStore({
         handleOnSearchDialog(state, payload) { state.isSearchDiaolg = payload.a; state.selectedProvider = payload.b; },
         handleOnAvatarDialog(state, payload) { state.isAvatarDiaolg = payload; },
         handleUpdateAvatar(state, payload) { state.User = {...state.User, avatar:payload}; },
+        handleResetCode(state, payload) { state.haveResetCode = payload; },
 
         handleGetUser(state, payload) { state.User = payload; },
         handleNotification(state, payload) { state.notification = payload; },

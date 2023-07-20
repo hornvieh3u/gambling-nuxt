@@ -14,3 +14,15 @@ export const getPromotion = (store: any) => {
             store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
     });
 }
+export const contactus = (data:object, store: any) => {
+    Axios('post','/api/contactUs',data)
+    .then(res=>{
+        store.commit('handleNotification',{type:'success',message: "Message Sent Successfully!"});
+    })
+    .catch(err=>{
+        if(err.response)
+            store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+        else
+            store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    });
+}
