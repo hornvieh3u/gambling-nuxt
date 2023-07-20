@@ -35,7 +35,8 @@ onBeforeMount(()=>{
             getFreespinHistory(store.state.pageNumber, store, router);
             break;
         case 'cash-back':
-            getCashbackHistory(store.state.pageNumber, store, router);
+            if(store.state.isLogin)
+                getCashbackHistory(store.state.pageNumber, store, router);
             break;
     }
 });

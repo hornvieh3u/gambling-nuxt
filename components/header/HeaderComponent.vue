@@ -73,12 +73,12 @@ dark.set(true);
                             @click="store.commit('handleMobileProfile', true)"
                             class="relative bg-gray-600 rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden cursor-pointer"
                         >
-                        <q-img
-                            v-if="!store.state.User.avatar"
-                            class="w-full transform -rotate-45"
-                            alt="avatar"
-                            src="/imgs/header/avatarFemale.png"
-                        />
+                            <q-img
+                                v-if="!store.state.User.avatar"
+                                class="w-full transform -rotate-45"
+                                alt="avatar"
+                                src="/imgs/header/avatarFemale.png"
+                            />
                             <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="store.state.User.avatar" :data.sync="store.state.User.avatar?.props" :mat.sync="store.state.User.avatar?.mat" :gender.sync="store.state.User.avatar?.gender"/>
                         </div>
                     </div>
