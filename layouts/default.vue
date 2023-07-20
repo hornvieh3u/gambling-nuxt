@@ -57,7 +57,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-    <q-layout view="hhh Lpp lff">
+    <q-layout view="hHh Lpp lff">
         <!-- Header -->
         <HeaderComponent />
         <!-- SideBar -->
