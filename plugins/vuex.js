@@ -14,7 +14,7 @@ const store = createStore({
             isSearchDiaolg: false,
             selectedProvider: '',
             isAvatarDiaolg: false,
-            haveResetCode: true,
+            haveResetCode: false,
             
             User: {},                   // user profile
             notification: {},           // notification(type,message)
