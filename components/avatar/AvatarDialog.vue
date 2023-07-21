@@ -19,7 +19,65 @@
         <div class="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-3">
           <div class="grid grid-cols-2 gap-2 md:grid-cols-1 md:col-span-2">
             <div class="square border-solid border-[3px] border-gray-400 rounded-xl">
-              <AvatarItem class="rounded-lg" :data.sync="avatarProps" :mat.sync="avatarMat" :gender.sync="genderToggle"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs"
+                class="svga-svg"
+                viewBox="0 0 200 200"
+                preserveAspectRatio="xMinYMin meet"
+                ref="svgData"
+              >
+                <g id="total">
+                  <g id="back" :transform="item.m" v-for="item in drawData.slice(0,1)">
+                    <path
+                      v-for="pathItem in item.path"
+                      :d="pathItem.d"
+                      :data-fromskin="pathItem?.fromskin"
+                      :data-filltype="pathItem?.fillType"
+                      :fill="pathItem.fill"
+                      :data-colored="pathItem?.colored"
+                      :data-stroketype="pathItem.strokeType"
+                      :stroke-width="pathItem?.strokeWidth"
+                      :opacity="pathItem?.opacity"
+                      :stroke="pathItem?.stroke"
+                    ></path>
+                  </g>
+                  <g id="human" :transform="matrix(avatarMat['m'], 'hm')">
+                    <g id="body-cloth-hair_back" :transform="item.m" v-for="item in drawData.slice(1,5)">
+                      <path
+                        v-for="pathItem in item.path"
+                        :d="pathItem.d"
+                        :data-fromskin="pathItem?.fromskin"
+                        :data-filltype="pathItem?.fillType"
+                        :fill="pathItem.fill"
+                        :data-colored="pathItem?.colored"
+                        :data-stroketype="pathItem.strokeType"
+                        :stroke-width="pathItem?.strokeWidth"
+                        :opacity="pathItem?.opacity"
+                        :stroke="pathItem?.stroke"
+                      ></path>
+                    </g>
+                    <g id="head" :transform="matrix(avatarMat['h'], 'h')">
+                      <g :transform="item.m" v-for="item in drawData.slice(5)">
+                        <path
+                          v-for="pathItem in item.path"
+                          :d="pathItem.d"
+                          :data-fromskin="pathItem?.fromskin"
+                          :data-filltype="pathItem?.fillType"
+                          :fill="pathItem.fill"
+                          :data-colored="pathItem?.colored"
+                          :data-stroketype="pathItem.strokeType"
+                          :stroke-width="pathItem?.strokeWidth"
+                          :opacity="pathItem?.opacity"
+                          :stroke="pathItem?.stroke"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </div>
             <div>
               <div class="w-full my-2 hidden md:!block">
@@ -193,10 +251,11 @@ import { useRouter } from "vue-router";
 import { tran } from "~~/utils/translation";
 import svgIcon from "./svgIcon.json";
 import ShapeItem from "./ShapeItem.vue";
-import AvatarItem from "./AvatarItem.vue";
 import {updateAvatar} from '~~/action/profile';
 import femaleData from './femaleAvatar.json';
 import maleData from './maleAvatar.json';
+import { colorTones} from './support';
+import fs from 'fs';
 
 const store = useStore();
 const router = useRouter();
@@ -211,6 +270,9 @@ const avatarProps=ref({});
 const avatarMat=ref({});
 const genderToggle = ref(true);
 let avatarData=ref();
+const svgData=ref();
+const drawData = ref();
+
 let matProps={
   ud: 0,
   lr: 0,
@@ -241,6 +303,7 @@ const init = () =>{
   });
   avatarProps.value=props;  
   avatarMat.value = {m: {...matProps, io:-4}, h: matProps};
+  avatarInit();
 }
 const randomInit = () => {
   matProps={
@@ -266,13 +329,17 @@ const randomInit = () => {
   avatarMat.value = {m: {...matProps, io:-4}, h: matProps};
 }
 const save = () => {
-  console.log(JSON.stringify({props: {...avatarProps.value}, mat:{...avatarMat.value}, gender:genderToggle.value}).length);
-  console.log(JSON.stringify({props: {...avatarProps.value}, mat:{...avatarMat.value}, gender:genderToggle.value}));
-  updateAvatar(JSON.stringify({props: {...avatarProps.value}, mat:{...avatarMat.value}, gender:genderToggle.value}), store, router);
-
+  // console.log(svgData.value.outerHTML);
+  updateAvatar(svgData.value.outerHTML, store, router);
   store.commit('handleOnAvatarDialog', false);
 };
 onBeforeMount(()=>{init()});
+watch(()=>avatarProps.value,()=>{
+  avatarInit();
+})
+watch(()=>avatarMat.value,()=>{
+  avatarInit();
+})
 watch(()=>title.value,()=>{
     subTitle.value = title.value;
 });
@@ -291,6 +358,25 @@ watch(()=>genderToggle.value,()=>{
     tabSet=['f','m','n','ea','e','i','b','g','h','c','bk','be','mu'];
   init();
 });
+const avatarInit = () => {
+    let data: Object[] = [];
+    Object.keys(avatarProps.value).map(zone=>{
+      if(genderToggle.value!=true || zone != "mu" && zone != "be"){
+        let zonePath = [];
+        let shape = avatarData.value[zone].shapes[avatarProps.value[zone].s];
+        
+        Object.keys(shape).map(type=>{
+          if(zone!='h' || type!='back'){
+            zonePath = [...zonePath, ...shape[type]];
+          }
+        });
+        let resultPathList = drawPathGradient(zonePath, avatarProps.value[zone].c, avatarProps.value['f'].c);
+        data.push({path: resultPathList, m: matrix(avatarProps.value[zone].m, zone)});
+      }
+    });
+    data.splice(1,0,{path:drawPathGradient(avatarData.value.h.shapes[avatarProps.value['h'].s].back, avatarProps.value['h'].c, avatarProps.value['f'].c), m: matrix(avatarMat.value['h'], 'h')});
+    drawData.value = data;
+}
 const setColor = (color) => {  
   if(['f','n','ea'].includes(subTitle.value)){
     ['f','n','ea','hb','cs'].map(zone=>{
@@ -701,5 +787,158 @@ const shapeName = (name:string) => {
     return name+"R";
   else
     return name;
+}
+const drawPathGradient = (pathData, color, faceColor) => {
+  let pathlist = [];
+  pathData.filter(path=>path?.hideoncanvas!=true).map((pathData, pathIndex) => {
+    let path = {
+      d: "",
+      colored: true,
+      fillType: "",
+      strokeType: "",
+      stroke: "",
+      strokeWidth: "",
+      fromskin: false,
+      fill: "",
+      opacity: 1,
+    };
+    path.d = pathData.path;
+    path.colored = pathData.colored;
+    path.fillType = pathData.fill;
+    path.strokeType = pathData.stroke;
+    if (pathData.fromskin) {
+      path.fromskin = pathData.fromskin;
+    }
+    if (path.colored == true) {
+      let tempColor;
+      if (pathData.fromskin) {
+        tempColor = faceColor; 
+      } else {
+        tempColor = color;
+      }
+      path.fill = colorTones(path.fillType, tempColor, false);
+      path.stroke = colorTones(path.strokeType, tempColor, false); 
+      path.strokeWidth = pathData?.strokeWidth;
+    } 
+    else {
+      if (pathData.fill == "gradient") {
+        path.fill = `url(#svg-humanbody-${pathIndex})`;
+      } else {
+        path.fill = pathData.fill;
+        path.stroke = pathData.stroke;
+        path.strokeWidth = pathData.strokeWidth;
+      }
+    }
+    if (pathData.opacity) {
+      path.opacity = pathData.opacity;
+    }
+    pathlist.push(path);
+  });
+  return pathlist;
+};
+const matrix = (data, zone) =>{
+  let scaleX=0,scaleY=0,rotdeltaX=30, rotdeltaY=20;
+  if(zone == 'bk'){
+    return `matrix(1.5,0,0,1.5,-50,-40)`;
+  }
+  if(zone == 'h'){
+    scaleX = 5; 
+    scaleY =6.75;
+    return `matrix(${1+data.io*0.05},${-0.2*data.r},${0.2*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'hm'){
+    scaleX = 5; 
+    scaleY = 5.88;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone.includes('ea')){
+    scaleX = 5; 
+    scaleY = 5;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr - data.io*scaleX},${data.ud - data.io*scaleY})`;
+  }
+  if(zone == 'f' || zone == 'h'){
+    scaleX = 5; 
+    scaleY = 6.75;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'm'){
+    scaleX = 5; 
+    scaleY = 6.75;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'n'){
+    scaleX = 5; 
+    scaleY = 6.2;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone=='iR'){
+    scaleX = 6; 
+    scaleY = 4.2;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
+  }
+  if(zone=='iL'){
+    scaleX = 3.8; 
+    scaleY = 4.2;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
+  }
+  if(zone=='eR'){
+    scaleX = 6; 
+    scaleY = 4.5;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
+  }
+  if(zone=='eL'){
+    scaleX = 4; 
+    scaleY = 4.5;
+  return `matrix(${1+data.io*0.05},0,0,${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX},${data.ud-data.io*scaleY})`;
+  }
+  if(zone=='bR'){
+    scaleX = 6.5; 
+    scaleY = 4;
+    rotdeltaX=15;
+    rotdeltaY=24;
+  return `matrix(${1+data.io*0.05},${-0.2*data.r},${0.2*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone=='bL'){
+    scaleX = 3; 
+    scaleY = 4;
+    rotdeltaX=15;
+    rotdeltaY=15;
+  return `matrix(${1+data.io*0.05},${-0.2*data.r},${0.2*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'g'){
+    scaleX = 4.7; 
+    scaleY = 4.5;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'mu'){
+    scaleX = 5; 
+    scaleY = 6.7;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'be'){
+    scaleX = 5; 
+    scaleY = 6.7;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'fh'){
+    scaleX = 5; 
+    scaleY = 6.7;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'c'){
+    scaleX = 5; 
+    scaleY = 6.7;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'cs'){
+    scaleX = 5; 
+    scaleY = 6.7;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
+  if(zone == 'hb'){
+    scaleX = 5; 
+    scaleY = 6.7;
+  return `matrix(${1+data.io*0.05},${-0.1*data.r},${0.1*data.r},${1+data.io*0.05},${data.lr+data.tw-data.io*scaleX-data.r*rotdeltaX},${data.ud*1-data.io*scaleY+data.r*rotdeltaY})`;
+  }
 }
 </script>

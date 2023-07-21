@@ -7,8 +7,6 @@ import SelectLanguageBox from '~~/components/header/SelectLanguageBox.vue';
 import ProfileButton from './ProfileButton.vue';
 import WalletButton from './WalletButton.vue';
 import ProfileButtonMobile from './ProfileButtonMobile.vue';
-import AvatarItem from '../avatar/AvatarItem.vue';
-import { ref } from 'vue';
 import { useStore } from 'vuex';
 import {linkTo} from '~~/utils/link';
 
@@ -74,12 +72,11 @@ dark.set(true);
                             class="relative bg-gray-600 rounded-lg before:top-0 rotate-45 w-8 h-8 text-center overflow-hidden cursor-pointer"
                         >
                             <q-img
-                                v-if="!store.state.User.avatar"
                                 class="w-full transform -rotate-45"
                                 alt="avatar"
-                                src="/imgs/header/avatarFemale.png"
+                                :class="store.state.User.avatar!=null && 'scale-[1.35]'"
+                                :src="store.state.User.avatar==null?`/imgs/header/avatar${store.state.User.gender}.png`:store.state.User.avatar"
                             />
-                            <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="store.state.User.avatar" :data.sync="store.state.User.avatar?.props" :mat.sync="store.state.User.avatar?.mat" :gender.sync="store.state.User.avatar?.gender"/>
                         </div>
                     </div>
                     <!-- <QBtn dense round flat icon="notifications">

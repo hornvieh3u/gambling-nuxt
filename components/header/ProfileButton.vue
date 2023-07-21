@@ -64,12 +64,11 @@ const handleClick = (name) => {
                 style="background-color: #3E4753;"
             >
                 <q-img
-                    v-if="!store.state.User.avatar"
                     class="w-full transform -rotate-45"
                     alt="avatar"
-                    src="/imgs/header/avatarFemale.png"
+                    :class="store.state.User.avatar!=null && 'scale-[1.35]'"
+                    :src="store.state.User.avatar==null?`/imgs/header/avatar${store.state.User.gender}.png`:store.state.User.avatar"
                 />
-                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="store.state.User.avatar" :data.sync="store.state.User.avatar.props" :mat.sync="store.state.User.avatar.mat" :gender.sync="store.state.User.avatar.gender"/>
             </div>
             {{ store.state.User.username }}
         </template>

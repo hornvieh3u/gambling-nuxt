@@ -8,7 +8,7 @@
         :placeholder="tran('First Name', store.state.lang)"
         standout
         readonly
-        v-model="person.first_name"
+        v-model="store.state.User.first_name"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -21,7 +21,7 @@
         :placeholder="tran('Last Name', store.state.lang)"
         standout
         readonly
-        v-model="person.last_name"
+        v-model="store.state.User.last_name"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -34,7 +34,7 @@
         :placeholder="tran('Email', store.state.lang)"
         standout
         readonly
-        v-model="person.email"
+        v-model="store.state.User.email"
         :dense="true"
       >
         <template v-slot:prepend> @ </template>
@@ -46,7 +46,7 @@
         :placeholder="tran('Phone Number', store.state.lang)"
         standout
         readonly
-        v-model="person.phone"
+        v-model="store.state.User.phone"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -59,7 +59,7 @@
         :placeholder="tran('Gender', store.state.lang)"
         standout
         readonly
-        v-model="person.gender"
+        v-model="store.state.User.gender"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -72,7 +72,7 @@
         :placeholder="tran('Date of birth', store.state.lang)"
         standout
         readonly
-        v-model="person.dob"
+        v-model="store.state.User.dob"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -85,7 +85,7 @@
         :placeholder="tran('Street Address', store.state.lang)"
         standout
         readonly
-        v-model="person.street_1_address"
+        v-model="store.state.User.street_1_address"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -98,7 +98,7 @@
         :placeholder="tran('State', store.state.lang)"
         standout
         readonly
-        v-model="person.state"
+        v-model="store.state.User.state"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -111,7 +111,7 @@
         :placeholder="tran('City', store.state.lang)"
         standout
         readonly
-        v-model="person.city"
+        v-model="store.state.User.city"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -124,7 +124,7 @@
         :placeholder="tran('Country', store.state.lang)"
         standout
         readonly
-        v-model="person.country"
+        v-model="store.state.User.country"
         :dense="true"
       >
         <template v-slot:prepend>
@@ -181,7 +181,6 @@ import {ResetPassword} from '~~/action/auth';
 import { tran } from "~~/utils/translation";
 
 const store = useStore();
-const person = ref(store.state.User);
 const old_password = ref("");
 const new_password = ref("");
 </script>

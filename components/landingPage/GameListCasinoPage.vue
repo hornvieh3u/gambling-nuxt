@@ -200,9 +200,8 @@ const imgurl = "/imgs/noGameImg.png";
             text-color="white" 
             color="primary" 
             @click="store.commit('handlePageNumber',store.state.pageNumber+1)"
-        >
-            Load More
-        </q-btn>
+            :label="tran('Load More', store.state.lang)"
+        />
       </div>
     </div>
 </template>
