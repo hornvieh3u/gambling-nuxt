@@ -17,7 +17,7 @@ export const getPromotion = (store: any) => {
 export const contactus = (data:object, store: any) => {
     Axios('post','/api/contactUs',data)
     .then(res=>{
-        store.commit('handleNotification',{type:'success',message: "Message Sent Successfully!"});
+        store.commit('handleNotification',{type:'info',message: "Message Sent Successfully!"});
     })
     .catch(err=>{
         if(err.response)

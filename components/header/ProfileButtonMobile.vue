@@ -68,12 +68,11 @@ const handleClick = (link) => {
                 class="!w-24 square transform rotate-45 left-1/2 -translate-x-1/2 rounded-md overflow-hidden text-center top-[51px] z-50"
             >
                 <q-img
-                    v-if="!store.state.User.avatar"
-                    class="w-full transform -rotate-45 z-50"
+                    class="w-full transform -rotate-45"
                     alt="avatar"
-                    src="/imgs/header/avatarFemale.png"
+                    :class="store.state.User.avatar!=null && 'scale-[1.35]'"
+                    :src="store.state.User.avatar==null?`/imgs/header/avatar${store.state.User.gender}.png`:store.state.User.avatar"
                 />
-                <AvatarItem class="scale-[1.35] transform -rotate-45" v-if="store.state.User.avatar" :data.sync="store.state.User.avatar?.props" :mat.sync="store.state.User.avatar?.mat" :gender.sync="store.state.User.avatar?.gender"/>
             </div>
             <div
                 class="rounded-md pb-2"

@@ -33,16 +33,18 @@ export const getGameHistory = (pagenum, store, router) => {
 }
 
 export const updateAvatar = (data,store, router) => {
-    store.commit('handleUpdateAvatar', JSON.parse(data));
-    // AxiosWithAuth('Post',`/api/player/updateAvatar`,store, router, {"avatar":data})
-    // .then(res => {
-    //     store.commit('handleNotification',{type:'Success',message: "Profile Image Updated Successfully!"});
-    //     store.commit('handleUpdateAvatar', data);
-    // })
-    // .catch(err=>{
-    //     if(err.response)
-    //         store.commit('handleNotification',{type:'Error',message:err.response.data.message});
-    //     else
-    //         store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
-    // });
+    // store.commit('handleUpdateAvatar', JSON.parse(data));
+    console.log(data);
+    AxiosWithAuth('Post',`/api/player/updateAvatar`,store, router, {"avatar":data})
+    .then(res => {
+        getProfile(store, router);
+        store.commit('handleNotification',{type:'Success',message: "Profile Image Updated Successfully!"});
+        store.commit('handleUpdateAvatar', data);
+    })
+    .catch(err=>{
+        if(err.response)
+            store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+        else
+            store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    });
 }

@@ -58,7 +58,7 @@ export const ResetPassword = (data: object, store: any) => {
 }
 //forgot password
 export const forgotPassword = (email: string, store: any) => {
-    Axios('post','/api/forgotPassword', {email:email})
+    Axios('post',`/api/forgotPassword/${email}`)
     .then(res=>{  
         store.commit('handleNotification',{type:'Success',message: 'Message Sent Successfully!\nPlease Check Your Email'});
         store.commit('handleResetCode', true);

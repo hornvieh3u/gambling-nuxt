@@ -43,7 +43,7 @@
     const setNewPass = () => {
         let data = {};
         Object.keys(resetInfo).map(item => {
-            data = {...data, [item] : loginInfo[item].value};
+            data = {...data, [item] : resetInfo[item].value};
         });
         data = {...data, email : loginInfo.email.value};
         setNewPassword(data, store, router);
@@ -161,7 +161,7 @@
                                 :label="tran('Create account', store.state.lang)"
                             />
                         </div>
-                        <div v-if="store.state.haveResetCode" :class="isForgot&&'mt-8'">
+                        <div v-if="store.state.haveResetCode">
                             <p
                                 class="font-bold text-xl text-shadow-lg text-center py-2"
                             >
@@ -182,7 +182,7 @@
                                     :dense="true"
                                 />
                             </div>
-                            <div v-if="isForgot==false" class="flex flex-nowrap items-center justify-start">
+                            <div class="flex flex-nowrap items-center justify-start">
                                 <q-icon
                                     class="opacity-50"
                                     size="sm"
@@ -197,7 +197,7 @@
                                     :dense="true"
                                 />
                             </div>
-                            <div v-if="isForgot==false" class="flex flex-nowrap items-center justify-start">
+                            <div class="flex flex-nowrap items-center justify-start">
                                 <q-icon
                                     class="opacity-50"
                                     size="sm"
