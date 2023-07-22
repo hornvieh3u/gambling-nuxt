@@ -51,6 +51,7 @@ const filterProvider = (val, update, abort) => {
 
 const selectProvider = (item) => {
   showProvider.value=false;
+  providers.value = providerList.value;
   provider.value = item;
 };
 const selectUnFocus = () => {
