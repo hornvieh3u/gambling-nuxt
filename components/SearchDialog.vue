@@ -13,11 +13,16 @@ const searchText = ref("");
 const provider = ref("");
 const providerList= ref([]);
 const focusgame = ref("");
+const providers = ref([]);
+const providerHeight=ref();
+let showProvider = ref(false);
 
 onBeforeUpdate(()=>{
   focusgame.value="";
-  providerList.value = store.state.providers.map(provider=>provider.name);
+  providerList.value = store.state.providers.map(provider=>provider.name).sort();
+  providers.value = providerList.value;
   provider.value = store.state.selectedProvider;
+  showProvider.value=false;
   store.commit('handleSearchResult',[]);
 });
 
@@ -35,12 +40,7 @@ watch(()=>provider.value,()=>{
     store.commit('handleSearchResult',[]);
 });
 
-const providers = ref(providerList.value);
 const filterProvider = (val, update, abort) => {
-  if (val.length < 2) {
-    abort();
-    return;
-  }
   update(() => {
     const needle = val.toLowerCase();
     providers.value = providerList.value.filter(
@@ -49,6 +49,16 @@ const filterProvider = (val, update, abort) => {
   });
 };
 
+const selectProvider = (item) => {
+  showProvider.value=false;
+  provider.value = item;
+};
+const selectUnFocus = () => {
+  showProvider.value=false;
+}
+const selectFocus = () => {
+  showProvider.value=!showProvider.value;
+}
 const play = (demo, slug) => {
   store.commit("handleOnSearchDialog", false);
   store.commit("handleGamePlayMode", demo);
@@ -71,7 +81,7 @@ const imgurl = "/imgs/noGameImg.png";
     v-model="store.state.isSearchDiaolg"
     @hide="store.commit('handleOnSearchDialog', {a:false, b:''});"
   >
-    <q-card style="width: 600px; max-width: 80vw" class="relative bg-gray-900">
+    <q-card style="width: 600px; max-width: 90vw" class="relative bg-gray-900">
       <q-card-section>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <q-input
@@ -80,7 +90,7 @@ const imgurl = "/imgs/noGameImg.png";
             v-model="searchText"
             dense
           >
-            <template v-slot:prepend>
+            <template v-slot:append>
               <q-icon name="search" />
             </template>
           </q-input>
@@ -92,8 +102,10 @@ const imgurl = "/imgs/noGameImg.png";
               :placeholder="tran('Select provider', store.state.lang)"
               hide-selected
               fill-input
-              :options="providers"
               @filter="filterProvider"
+              @click="selectFocus"
+              @popup-show="selectUnFocus"
+              @clear="selectFocus"
               dense
               clearable
             >
@@ -104,20 +116,16 @@ const imgurl = "/imgs/noGameImg.png";
                   alt="hot"
                 />
               </template>
-              <template v-slot:no-option>
-                <q-item>
-                  <q-item-section class="text-grey">
-                    {{ tran('No results', store.state.lang) }}
-                  </q-item-section>
-                </q-item>
-              </template>
             </q-select>
           </div>
         </div>
       </q-card-section>
-
+      <q-card-section class="scroll duration-300 p-0" :class="showProvider?'!max-h-[250px] pb-3':'max-h-[0px]'">
+        <div class="grid gap-2 grid-cols-2 sm:grid-cols-3">
+          <p class="p-1 ml-5  hover:bg-gray-700 cursor-pointer" v-for="item in providers" @click="selectProvider(item)">{{ item }}</p>
+        </div>
+      </q-card-section>
       <q-separator />
-
       <q-card-section style="height: 50vh" class="scroll">
         <p v-if="store.state.searchGameList.length==0" class="py-3 text-xl font-bold text-white text-center">No search result</p>
         <div class="">

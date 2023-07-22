@@ -262,7 +262,7 @@ const imgurl = "/imgs/noGameImg.png";
         />
         <p class="font-bold text-lg pl-2" v-for="(word, index) in game?.title.split(' ')">{{ index<3 ? tran(word, store.state.lang) : word }}</p>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-x-1">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-x-1 py-2">
         <div
           class="group hidden md:!block h-full p-1 w-full"
           v-for="gameItem in game?.list"
