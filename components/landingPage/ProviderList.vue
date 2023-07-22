@@ -27,14 +27,6 @@ const onSlideChange = () => {
 const providerSelectd = (provider) => {
     store.commit('handleOnSearchDialog', {a:true, b:provider});
 }
-const handleImageError = (index: number) => {
-    // console.log(https://beta.canada777.com/casino-provider/am-light.png);
-    // console.log(providerImage.value[index]?.src);
-    if (providerImage.value[index]?.src) {
-        providerImage.value[index].src = 'https://beta.canada777.com/casino-provider/am-light.png'
-    }
-    
-}
 </script>
 
 <template>
@@ -119,11 +111,9 @@ const handleImageError = (index: number) => {
                     >
                         <img
                             class="h-full object-fill object-center"
-                            alt="provider"
-                            :src="provider?.logo ?? ''"
-                            @error="handleImageError(index)"
+                            :alt="provider?.name"
+                            :src="provider?.logo"
                             ref="providerImage"
-                            :id="index"
                         />
                     </div>
                 </swiper-slide>
