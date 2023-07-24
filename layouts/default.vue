@@ -87,11 +87,7 @@ onBeforeMount(() => {
         <SignUp />
         <SearchDialog />
         <AvatarDialog />
-        <VerifyEmail
-            :open.sync="store.state.isVerifyEmail"
-        />
-        <Welcome
-            :open.sync="store.state.isWelcome"
-        />
+        <VerifyEmail />
+        <Welcome />
     </q-layout>
 </template>

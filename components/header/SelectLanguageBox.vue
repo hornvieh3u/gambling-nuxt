@@ -3,9 +3,8 @@ import { useStore } from 'vuex';
 const store = useStore();
 import Cookies from 'js-cookie';
 
-let lang = 'en';
 function onItemClick(item: any) {
-    lang = item?.icon;
+    let lang = item?.icon;
     store.commit('handleSetLanguage', lang);
     Cookies.set("lang", lang);
 }
@@ -42,7 +41,7 @@ const langs = [
             <div
                 class="flex items-center flex-nowrap items-center justify-start text-sm py-1"
             >
-                <img
+                <q-img
                     class="w-7 pr-1"
                     :src="`/imgs/header/${store.state.lang}_large.png`"
                     alt="lang"

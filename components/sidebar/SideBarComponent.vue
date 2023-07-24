@@ -179,7 +179,7 @@ const langs = [
                 <div
                     class="flex flex-nowrap justify-start text-sm w-full"
                 >
-                    <img
+                    <q-img
                         class="w-7 mr-3"
                         :src="`/imgs/header/${store.state.lang}_large.png`"
                         alt="lang"
@@ -198,7 +198,7 @@ const langs = [
                     <q-item-section>
                         <q-item-label>
                             <div class="flex items-center justify-start">
-                                <img
+                                <q-img
                                     class="w-3"
                                     :src="`/imgs/header/${lang.icon}.png`"
                                     alt="lang"

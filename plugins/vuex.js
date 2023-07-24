@@ -9,9 +9,9 @@ const store = createStore({
             isDrawer: false, 
             isSideNotification: false, 
             isWelcome: true, 
-            isVerifyEmail: false, 
+            isVerifyEmail: 0,
+            isDepositNow: false, 
             isLogin: false,             // login value
-            isregister: false,          // register value(when user register swap to login)
             isSearchDiaolg: false,
             selectedProvider: '',
             isAvatarDiaolg: false,
@@ -48,13 +48,13 @@ const store = createStore({
         handleWelcome(state, payload) { state.isWelcome = payload; },
         handleMobileProfile(state, payload) { state.onMoblieProfile = payload; },
         handleLogin(state, payload) { state.isLogin = payload; if(payload === false) state.User = {}; },
-        handleRegister(state, payload) { state.isRegister = payload; },
         handleOnLogin(state, payload) { state.onLogin = payload; },
         handleOnRegister(state, payload) { state.onRegister = payload; },
         handleOnSearchDialog(state, payload) { state.isSearchDiaolg = payload.a; state.selectedProvider = payload.b; },
         handleOnAvatarDialog(state, payload) { state.isAvatarDiaolg = payload; },
         handleUpdateAvatar(state, payload) { state.User = {...state.User, avatar:payload}; },
         handleResetCode(state, payload) { state.haveResetCode = payload; },
+        handleDepositeNow(state, payload) { state.isDepositNow = payload; },
 
         handleGetUser(state, payload) { state.User = payload; },
         handleNotification(state, payload) { state.notification = payload; },

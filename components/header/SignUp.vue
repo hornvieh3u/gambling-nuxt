@@ -40,22 +40,31 @@
     //         });
     //     }
     // );
-    const signUp = () => {                                          //call register action with inputed data and fingerprint, click_id and promo
-                            Object.keys(signupInfo).map(item => {
-                                userdata = {...userdata, [item] : signupInfo[item].value};
-                            });
-                            userdata = {...userdata, 'fingerprint': fpData.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
-                            SignUp(userdata, store);
+    const signUp = () => {  
+        if(validation()){                                       //call register action with inputed data and fingerprint, click_id and promo
+            Object.keys(signupInfo).map(item => {
+                userdata = {...userdata, [item] : signupInfo[item].value};
+            });
+            // userdata = {...userdata, 'fingerprint': fpData.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
+            userdata = {...userdata, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
+            SignUp(userdata, store);
+        }
     }
-
-    //when register successed and store.state.isregister became true, hide register dialog and show login dialog
-    watch(
-        ()=>store.state.isRegister,
-        ()=>{
-            store.commit('handleOnLogin', true);
-            store.commit('handleOnRegister', false);
-    });
+    const validation = () => {
+        let noti:string[] = [];
+        let result = true;
+        Object.keys(signupInfo).map(item => {
+            if(signupInfo[item].value==''){
+                noti.unshift(`${item} field is required.`);
+                result=false;
+            }
+        });
+        if(!result)
+            noti.map(item=>store.commit('handleNotification',{type:'Error',message: item}));
+        return result;
+    }
     watch(()=>model.value, ()=>{
+        signupInfo.country.value = model.value;
         if(countryList.includes(model.value))
             signupInfo.countryCode.value = countryCodes.filter(cc=>cc.name==model.value)[0].code;
     });
@@ -82,7 +91,7 @@
     signupInfo.gender.value = 'Male';
 
     const genders = ['Male', 'Female'];
-    const currencys = ['CAD', 'USD'];
+    const currencys = ['CAD', 'USD' , 'NZD' , 'EUR' , 'AUD' , 'GBP' , 'RUB'];
     const countryList = countryCodes.map(item=>item.name);
     const countries = ref(countryList);
     const onGenderItemClick = (item: any) => {
@@ -92,78 +101,51 @@
         signupInfo.currency.value = item
     }
     const filterFn = (val, update, abort) => {
-        if (val.length < 3) {
-          abort();
-          return;
-        }
+        // if (val.length < 3) {
+        //   abort();
+        //   return;
+        // }
         update(() => {
           const needle = val.toLowerCase();
           countries.value = countryList.filter(v => v.toLowerCase().indexOf(needle) > -1);
         })
-      }
-    const initData = () => {
-        signupInfo = {
-            first_name: ref(''),
-            last_name: ref(''),
-            username: ref(''),
-            gender: ref(''),
-            dob: ref(''),
-            email: ref(''),
-            password: ref(''),
-            password_confirmation: ref(''),
-            country: ref(''),
-            street_1_address: ref(''),
-            state: ref(''),
-            city: ref(''),
-            zip: ref(''),
-            currency: ref(''),
-            phone: ref(''),
-            countryCode: ref(''),
-        }; 
-        signupInfo.currency.value = '';
-        signupInfo.gender.value = 'Male';
-        signupInfo.country.value = '';
-        signupInfo.countryCode.value = '';
-        tab.value = "Next";
-        model.value = '';
-    }
+    };
 </script>
 <template>
-    <q-dialog v-model="store.state.onRegister" @hide="{store.commit('handleOnRegister', false);initData();}">
+    <q-dialog v-model="store.state.onRegister" @hide="()=>store.commit('handleOnRegister', false)">
         <q-card  class="w-full sm:w-4/5 md:w-3/5" style="width: 700px">
             <div style="background: rgb(0 90 201)">
                 <div class="sm:grid sm:grid-cols-2 p-2">
                     <div 
-                        class="p-1 mt-8 hidden sm:!block flex flex-nowrap justify-content-center text-center"
+                        class="p-1 mt-10 hidden sm:!block flex flex-nowrap justify-content-center text-center"
                     >
                         <q-img
-                            class="-mb-16 mt-0"
+                            class="-mb-12 mt-0"
                             style="max-width: 221px"
                             src="/imgs/new.png"
                             alt="man"
                         />
                         <q-img
-                            class="-mb-4"
+                            class="-mb-2"
                             style="max-width: 221px"
                             src="/imgs/casino_offers.png"
                             alt="man"
                         />
                         <div
-                            class="flex flex-nowrap justify-between items-center w-full mb-2"
+                            class="flex flex-nowrap justify-between items-center w-full"
                         >
                             <span style="font-size: 10px;text-align: center;"
                                 >{{tran('confirm', store.state.lang)}}</span>
                         </div>
-                        <p class="cursor-pointer text-xs pt-2 underline" @click="store.commit('handleOnLogin', true);store.commit('handleOnRegister', false);">
-                            {{tran('alreadyAccount', store.state.lang)}}
-                        </p>
                     </div>
                     <div class="p-1 mt-7 text-center">
                         <div>
-                            <p class="font-bold text-2xl text-shadow-lg text-center py-2 mb-2">
+                            <p class="font-bold text-2xl text-shadow-lg text-center py-2">
                                 {{tran('Sign Up', store.state.lang)}}
                             </p>
-
+                            <p class="cursor-pointer text-xs pb-4 underline" @click="store.commit('handleOnLogin', true);store.commit('handleOnRegister', false);">
+                                {{tran('alreadyAccount', store.state.lang)}}
+                            </p>
                             <q-tab-panels v-model="tab" animated class="bg-transparent text-white mb-3">
                                 <q-tab-panel name="Next">
                                     <div class="flex flex-nowrap items-center justify-start">
@@ -373,8 +355,6 @@
                                             use-input
                                             :placeholder="tran('Country', store.state.lang)"
                                             hide-selected
-                                            fill-input
-                                            input-debounce="0"
                                             :options="countries"
                                             @filter="filterFn"
                                             class="w-full"
@@ -489,9 +469,6 @@
                                     :label="tran('Register', store.state.lang)"
                                 />
                             </div>
-                            <p class="pt-4 sm:hidden text-xs cursor-pointer underline" @click="store.commit('handleOnLogin', true);store.commit('handleOnRegister', false);">
-                                {{tran('alreadyAccount', store.state.lang)}}
-                            </p>
                         </div>
                     </div>
                 </div>
