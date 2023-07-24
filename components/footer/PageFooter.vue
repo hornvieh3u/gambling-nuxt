@@ -18,7 +18,7 @@ import { tran } from "~~/utils/translation";
     >
         <div
             style="border-bottom: 1px solid rgba(123, 129, 147, 0.3)"
-            class="p-5 grid grid-cols-4 justify-items-center"
+            class="p-5 grid grid-cols-5 justify-items-center"
         >
             <div class="hidden lg:!block lg:col-span-1" style="max-width: 196px">
                 <q-img
@@ -33,9 +33,9 @@ import { tran } from "~~/utils/translation";
                 </p>
             </div>
             <div
-                class="px-0 grid grid-cols-2 lg:grid-cols-5 md:gap-4 w-full lg:w-auto md:col-span-2 col-span-4"
+                class="px-0 grid grid-cols-12 md:grid-cols-6 lg:grid-cols-12 md:gap-6 mx-3 w-full lg:w-auto md:col-span-3 col-span-5"
             >
-                <div class="col-span-1">
+                <div class="col-span-2 lg:col-span-2">
                     <p class="text-base font-semibold pb-2">{{ tran(`iGaming`, store.state.lang) }}</p>
                     <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/casino'))">
                         {{ tran(`All Games`, store.state.lang) }}
@@ -53,7 +53,7 @@ import { tran } from "~~/utils/translation";
                         {{ tran(`Roulette`, store.state.lang) }}
                     </p>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-2 lg:col-span-2">
                     <p class="text-base font-semibold pb-2">{{ tran(`Quick Links`, store.state.lang) }}</p>
                     <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="store.commit('handleOnRegister', true)">
                         {{ tran(`Registration`, store.state.lang) }}
@@ -71,7 +71,7 @@ import { tran } from "~~/utils/translation";
                         {{ tran(`Banking`, store.state.lang) }}
                     </p>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-2 lg:col-span-2">
                     <p class="text-base font-semibold pb-2">{{ tran(`About Us`, store.state.lang) }}</p>
                     <!-- <p class="pb-1" style="font-size: 11px; font-weight: 400">
                         About Europa777
@@ -89,49 +89,48 @@ import { tran } from "~~/utils/translation";
                         {{ tran(`Affiliates`, store.state.lang) }}
                     </p></a>
                 </div>
-                <div class="col-span-1 lg:col-span-2 grid grid-cols-2 gap-x-3">
-                    <p class="col-span-2 text-base font-semibold text-center pr-5 pb-2">{{ tran(`Help`, store.state.lang) }}</p>
-                    <div>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/terms-and-conditions'))">
-                            {{ tran(`Terms & Conditions`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/bonus-terms-and-conditions'))">
-                            {{ tran(`Bonus Terms`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/privacy-and-security-policy'))">
-                            {{ tran(`Privacy & Security Policy`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Fairness-RNG-Testing'))">
-                            {{ tran(`Fairness & RNG Testing`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/responsible-gambling'))">
-                            {{ tran(`Responsible Gambling`, store.state.lang) }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Self-exclusion'))">
-                            {{ tran(`Self-exclusion`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/KYC-AML-Policy'))">
-                            {{ tran(`KYC + AML Policy`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Deposit-Policy'))">
-                            {{ tran(`Deposit Policy`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Withdrawal-Policy'))">
-                            {{ tran(`Withdrawal Policy`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Privacy-Policy'))">
-                            {{ tran(`Privacy Policy`, store.state.lang) }}
-                        </p>
-                        <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Payment-Details-Policy'))">
-                            {{ tran(`Payment Details Policy`, store.state.lang) }}
-                        </p>
-                    </div>
+                <div class="col-span-3 lg:col-span-3">
+                    <p class="text-base font-semibold pb-2">{{ tran(`Help`, store.state.lang) }}</p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/terms-and-conditions'))">
+                        {{ tran(`Terms & Conditions`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/bonus-terms-and-conditions'))">
+                        {{ tran(`Bonus Terms`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/privacy-and-security-policy'))">
+                        {{ tran(`Privacy & Security Policy`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Fairness-RNG-Testing'))">
+                        {{ tran(`Fairness & RNG Testing`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/responsible-gambling'))">
+                        {{ tran(`Responsible Gambling`, store.state.lang) }}
+                    </p>
+                </div>
+                <div class="col-span-3 lg:col-span-3">
+                    <p class="text-base font-semibold pb-2">{{ tran(`Info`, store.state.lang) }}</p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Self-exclusion'))">
+                        {{ tran(`Self-exclusion`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/KYC-AML-Policy'))">
+                        {{ tran(`KYC + AML Policy`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Deposit-Policy'))">
+                        {{ tran(`Deposit Policy`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Withdrawal-Policy'))">
+                        {{ tran(`Withdrawal Policy`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Privacy-Policy'))">
+                        {{ tran(`Privacy Policy`, store.state.lang) }}
+                    </p>
+                    <p class="pb-1 cursor-pointer" style="font-size: 11px; font-weight: 400" @click="$router.push(linkTo('/Payment-Details-Policy'))">
+                        {{ tran(`Payment Details Policy`, store.state.lang) }}
+                    </p>
                 </div>
             </div>
             <div
-                class="flex justify-around w-full lg:w-auto lg:block pt-4 lg:pt-0 lg:col-span-1 md:col-span-2 col-span-4"
+                class="flex flex-row md:flex-col justify-around items-center md:justify-between w-full lg:w-auto lg:block pt-5 md:pt-0 lg:col-span-1 md:col-span-2 col-span-5"
             >
                 <div class="lg:hidden" style="max-width: 196px">
                     <q-img

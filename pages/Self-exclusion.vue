@@ -14,34 +14,38 @@ import Activity from "~~/components/landingPage/Activity.vue";
         <div
           class="bg-gray-300 bg-opacity-5 rounded-xl text-2xl font-extrabold uppercase mb-10 p-4 7"
         >
-          {{ tran("RESPONSIBLE GAMBLING", store.state.lang) }}
+          {{ tran("se0", store.state.lang) }}
         </div>
       </div>
       <div class="contentSection p-5">
         <div class="container text-white">
-          <div class="text-base font-normal pl-5">
-            <p class="pb-3">{{ tran("rg1", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg2", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg3", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg4", store.state.lang) }}</p>
-          </div>
-          <h5 class="mt-4 text-3xl font-bold pb-3">
-            {{ tran("rg5", store.state.lang) }}
-          </h5>
-          <div class="text-base font-normal pl-5">
-            <p class="pb-3">{{ tran("rg6", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg7", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg8", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg9", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg10", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg11", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg12", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg13", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg14", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg15", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg16", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg17", store.state.lang) }}</p>
-            <p class="pb-3">{{ tran("rg18", store.state.lang) }}</p>
+          <div class="text-base font-normal">
+            <p class="pb-3">{{ tran("se1", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se2", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se3", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se4", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se5", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se6", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se7", store.state.lang) }}</p>
+            <p class="pb-6">{{ tran("se8", store.state.lang) }}<span class="text-lg font-bold m-2">{{ tran("se9", store.state.lang) }}</span><span>{{ tran("se10", store.state.lang) }}</span></p>
+            <p class="pb-5 text-lg font-bold">{{ tran("se11", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se12", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se13", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se14", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se15", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se16", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se17", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se18", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se19", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se20", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se21", store.state.lang) }}</p>
+            <p class="pb-0 pl-7">{{ tran("se22", store.state.lang) }}</p>
+            <p class="pb-3 pl-7">{{ tran("se23", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se24", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se25", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se26", store.state.lang) }}</p>
+            <p class="pb-3">{{ tran("se27", store.state.lang) }}<span class="pl-2 cursor-pointer text-red font-bold"><a href="https://gameblock.com/" target="_blank">gamblock.com</a></span></p>
+            <p class="pb-3">{{ tran("se28", store.state.lang) }}<span class="pl-2 cursor-pointer text-red font-bold"><a href="https://betblocker.org/" target="_blank">betblocker.org</a></span></p>
           </div>
         </div>
       </div>
