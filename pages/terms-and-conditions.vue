@@ -18,7 +18,7 @@ useHead({
   <q-page>
     <div
       style="max-width: 1450px"
-      class="w-full px-0 md:px-6 lg:px-14 py-8 m-auto font-sans font-medium"
+      class="w-full px-4 lg:px-14 py-8 m-auto font-sans font-medium"
     >
       <section>
           <div class="flex items-center justify-center">

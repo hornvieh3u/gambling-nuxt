@@ -93,12 +93,40 @@ const list = [
                 link: "/bonus-terms-and-conditions",
             },
             {
-                name: 'Privacy and Security Policy',
+                name: 'Privacy & Security Policy',
                 link: "/privacy-and-security-policy",
+            },
+            {
+                name: 'Fairness & RNG Testing',
+                link: '/Fairness-RNG-Testing',
             },
             {
                 name: 'Responsible Gambling',
                 link: "/responsible-gambling",
+            },
+            {
+                name: 'Self-exclusion',
+                link: '/Self-exclusion',
+            },
+            {
+                name: 'KYC + AML Policy',
+                link: '/KYC-AML-Policy',
+            },
+            {
+                name: 'Deposit Policy',
+                link: '/Deposit-Policy',
+            },
+            {
+                name: 'Withdrawal Policy',
+                link: '/Withdrawal-Policy',
+            },
+            {
+                name: 'Privacy Policy',
+                link: '/Privacy-Policy',
+            },
+            {
+                name: 'Payment Details Policy',
+                link: '/Payment-Details-Policy',
             },
         ],
     },
@@ -150,7 +178,7 @@ const itemClick = (link) => {
                     />
                 </div>
                 <div
-                    class="relative max-h-0 overflow-hidden duration-300 group-focus:max-h-40"
+                    class="relative max-h-0 overflow-hidden duration-300 group-focus:max-h-80"
                 >
                 <div
                     v-for="topic in item?.content"

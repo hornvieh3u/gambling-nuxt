@@ -91,6 +91,13 @@ function selectCategory(val: string) {
                         <Verification v-if="selectedItem === 'Verification'" />
                     </div>
                 </div>
+                
+                <div
+                    v-if="selectedItem === 'Responsible Gambling'"
+                    class="w-full px-0 md:px-6 lg:px-14 py-8 m-auto font-sans font-medium"
+                >
+                    <profile-gambling />
+                </div>
             </section>
             <section class="pt-8">
                 <Activity />

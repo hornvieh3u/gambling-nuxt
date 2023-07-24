@@ -8,6 +8,7 @@ import SideBarMenu from '~~/components/sidebar/SideBarMenu.vue';
 import {linkTo} from '~~/utils/link';
 import { useStore } from 'vuex';
 import { tran } from "~~/utils/translation";
+import Cookies from 'js-cookie';
 
 const store = useStore();
 interface SideBarItemInterFace {
@@ -42,13 +43,10 @@ const sideBarLinks: SideBarItemInterFace[] = [
     //     link: '/tournament',
     // },
 ];
-let lang = {
-    name:'English',
-    icon:'en',
-};
 function onItemClick(item: any) {
-    lang = item?.icon;
+    let lang = item?.icon;
     store.commit('handleSetLanguage', lang);
+    Cookies.set("lang", lang);
 }
 
 const langs = [

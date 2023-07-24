@@ -79,11 +79,11 @@ dark.set(true);
                             />
                         </div>
                     </div>
-                    <!-- <QBtn dense round flat icon="notifications">
+                    <QBtn dense round flat icon="notifications" v-if="store.state.isLogin" @click="()=>store.commit('handleSideNotification',true)">
                         <QBadge rounded color="red" floating transparent>
                             4
                         </QBadge>
-                    </QBtn> -->
+                    </QBtn>
                 </template>
                 <div>
                     <SelectLanguageBox />

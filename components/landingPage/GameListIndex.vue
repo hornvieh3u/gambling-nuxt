@@ -189,14 +189,14 @@ const imgurl = "/imgs/noGameImg.png";
                     v-if="
                       store.state.favoriteGameSlugList.includes(gameItem?.slug)
                     "
-                    name="star"
+                    name="favorite"
                     size="xs"
                   />
                   <q-icon
                     v-if="
                       !store.state.favoriteGameSlugList.includes(gameItem?.slug)
                     "
-                    name="star_border"
+                    name="favorite_border"
                     size="xs"
                   />
                 </q-btn>
@@ -238,8 +238,8 @@ const imgurl = "/imgs/noGameImg.png";
                   style="background-color: transparent;"
                   @click="onFavorite(gameItem?.id, gameItem.slug)"
                 >
-                  <q-icon v-if="store.state.favoriteGameSlugList.includes(gameItem?.slug)" name="star" size="xs" />
-                  <q-icon v-if="!store.state.favoriteGameSlugList.includes(gameItem?.slug)" name="star_border" size="xs" />
+                  <q-icon v-if="store.state.favoriteGameSlugList.includes(gameItem?.slug)" name="favorite" size="xs" />
+                  <q-icon v-if="!store.state.favoriteGameSlugList.includes(gameItem?.slug)" name="favorite_border" size="xs" />
                 </q-btn>
               </div>
               <div class="absolute z-[3] w-full h-full top-0 left-0 rounded-lg" v-if="focusgame!=gameItem.id"></div>
@@ -315,7 +315,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star"
+                  name="favorite"
                   size="xs"
                 />
                 <q-icon
@@ -324,7 +324,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star_border"
+                  name="favorite_border"
                   size="xs"
                 />
               </q-btn>
@@ -390,7 +390,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star"
+                  name="favorite"
                   size="xs"
                 />
                 <q-icon
@@ -399,7 +399,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star_border"
+                  name="favorite_border"
                   size="xs"
                 />
               </q-btn>
