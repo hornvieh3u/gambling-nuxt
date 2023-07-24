@@ -1,22 +1,27 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useStore } from 'vuex';
+import {tran} from '~~/utils/translation';
+import {linkTo} from '~~/utils/link';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
 const store = useStore();
-const props = defineProps({
-    open: {
-        type: Boolean,
-        required: true,
-    },
-});
-let open = ref(props.open);
-watch(()=>props, (newValue) => {
-    open.value = newValue.open;
-});
+const deposit = () => {
+    if(store.state.isLogin){
+        router.push(linkTo('wallet/deposit'));
+    }
+    else{
+        store.commit('handleWelcome', false);
+        store.commit('handleOnLogin', true);
+        store.commit('handleDepositeNow', true);
+    }
+};
 </script>
 <template>
     <q-dialog
         class="welcome"
-        v-model="open"
+        v-model="store.state.isWelcome"
         @hide="store.commit('handleWelcome', false)"
     >
         <q-card class="w-full sm:w-3/5 md:w-1/2" style="width: 700px">
@@ -99,7 +104,8 @@ watch(()=>props, (newValue) => {
                                         background-color: #fff004;
                                         color: black;
                                     "
-                                    label="DEPOSIT NOW"
+                                    :label="tran('DEPOSIT NOW', store.state.lang)"
+                                    @click="deposit"
                                 />
                             </div>
                             <div class="w-full text-right">

@@ -11,6 +11,10 @@ import { useStore } from 'vuex';
 import {linkTo} from '~~/utils/link';
 
 const store = useStore();
+
+const notification = () => {
+    store.commit('handleSideNotification', !store.state.isSideNotification);
+}
 const { dark } = useQuasar();
 dark.set(true);
 </script>
@@ -79,7 +83,7 @@ dark.set(true);
                             />
                         </div>
                     </div>
-                    <QBtn dense round flat icon="notifications" v-if="store.state.isLogin" @click="()=>store.commit('handleSideNotification',true)">
+                    <QBtn dense round flat icon="notifications" v-if="store.state.isLogin" @click="notification">
                         <QBadge rounded color="red" floating transparent>
                             4
                         </QBadge>

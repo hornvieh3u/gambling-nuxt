@@ -33,8 +33,6 @@ export const getGameHistory = (pagenum, store, router) => {
 }
 
 export const updateAvatar = (data,store, router) => {
-    // store.commit('handleUpdateAvatar', JSON.parse(data));
-    console.log(data);
     AxiosWithAuth('Post',`/api/player/updateAvatar`,store, router, {"avatar":data})
     .then(res => {
         getProfile(store, router);

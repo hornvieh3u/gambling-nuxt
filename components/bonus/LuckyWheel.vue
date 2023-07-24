@@ -25,9 +25,7 @@ const handleSpin = () => {
   if (animacionRuletaEl) {
     animacionRuletaEl.remove();
   }
-//   console.log("=>", time);
   if(props.time==0) {
-//   console.log("=<", time);
       const styleEl = document.createElement("style");
       styleEl.id = "animacionRuleta";
     styleEl.textContent = `

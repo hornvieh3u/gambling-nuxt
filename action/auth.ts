@@ -10,6 +10,10 @@ export const logIn = (data: object, store: any, router: any) => {
         const tokenStr=res.data["token"];
         Cookies.set('token', tokenStr.split("|")[1] );
         store.commit('handleLogin',true);
+        if(store.state.isDepositNow){
+            router.push('/wallet/deposit');
+            store.commit('handleDepositeNow', true);
+        }
         getBalances(store);
         getProfile(store, router);
         store.commit('handleNotification',{type:'Success',message:'Login Successed!'});
@@ -33,7 +37,8 @@ export const SignUp = (data: object, store: any) => {
     .then(res=>{  
         Cookies.remove('click_id');
         Cookies.remove('promo');
-        store.commit('handleRegister',true);
+        store.commit('handleOnRegister', false);
+        store.commit('handleVerifyEmail', 2);
         store.commit('handleNotification',{type:'Success',message: 'Register Successed!'});
     })
     .catch(err=>{
@@ -61,6 +66,7 @@ export const forgotPassword = (email: string, store: any) => {
     Axios('post',`/api/forgotPassword/${email}`)
     .then(res=>{  
         store.commit('handleNotification',{type:'Success',message: 'Message Sent Successfully!\nPlease Check Your Email'});
+        store.commit('handleVerifyEmail', 1);
         store.commit('handleResetCode', true);
     })
     .catch(err=>{

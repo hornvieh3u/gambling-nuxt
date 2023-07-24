@@ -329,7 +329,6 @@ const randomInit = () => {
   avatarMat.value = {m: {...matProps, io:-4}, h: matProps};
 }
 const save = () => {
-  // console.log(svgData.value.outerHTML);
   updateAvatar(svgData.value.outerHTML, store, router);
   store.commit('handleOnAvatarDialog', false);
 };
