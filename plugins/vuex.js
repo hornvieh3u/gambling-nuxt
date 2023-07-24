@@ -7,6 +7,7 @@ const store = createStore({
             onRegister: false,          // show/hide register dialog
             onMoblieProfile: false, 
             isDrawer: false, 
+            isSideNotification: false, 
             isWelcome: true, 
             isVerifyEmail: false, 
             isLogin: false,             // login value
@@ -42,6 +43,7 @@ const store = createStore({
     mutations: {
         handleSetLanguage(state, payload) {state.lang = payload; },
         handleDrawer(state, payload) { state.isDrawer = payload; },
+        handleSideNotification(state, payload) { state.isSideNotification = payload; },
         handleVerifyEmail(state, payload) { state.isVerifyEmail = payload; },
         handleWelcome(state, payload) { state.isWelcome = payload; },
         handleMobileProfile(state, payload) { state.onMoblieProfile = payload; },

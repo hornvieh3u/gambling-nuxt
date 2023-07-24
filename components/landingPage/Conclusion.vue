@@ -23,8 +23,8 @@ import { tran } from "~~/utils/translation";
                     class="mt-2"
                     size="md"
                     color="primary"
-                    :label="tran('Join Now', store.state.lang)"
-                    @click="$router.push(linkTo('/bonus/cash-back'))"
+                    :label="tran('Deposit', store.state.lang)"
+                    @click="$router.push(linkTo('/wallet/deposit'))"
                 />
                 <q-btn 
                     v-if="store.state.isLogin === false"

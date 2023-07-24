@@ -92,7 +92,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star"
+                  name="favorite"
                   size="xs"
                 />
                 <q-icon
@@ -101,7 +101,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star_border"
+                  name="favorite_border"
                   size="xs"
                 />
               </q-btn>
@@ -167,7 +167,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star"
+                  name="favorite"
                   size="xs"
                 />
                 <q-icon
@@ -176,7 +176,7 @@ const imgurl = "/imgs/noGameImg.png";
                       gameItem?.slug
                     )
                   "
-                  name="star_border"
+                  name="favorite_border"
                   size="xs"
                 />
               </q-btn>

@@ -164,11 +164,6 @@ const store = useStore();
                 />
                 <q-img
                     class="w-9 md:w-10 lg:w-12 ml-1"
-                    src="/imgs/interac.png"
-                    alt="interac"
-                />
-                <q-img
-                    class="w-9 md:w-10 lg:w-12 ml-1"
                     src="/imgs/bitcoin.png"
                     alt="bitcoin"
                 />

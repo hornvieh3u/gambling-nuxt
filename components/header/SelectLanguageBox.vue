@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
 const store = useStore();
+import Cookies from 'js-cookie';
 
 let lang = 'en';
 function onItemClick(item: any) {
     lang = item?.icon;
     store.commit('handleSetLanguage', lang);
+    Cookies.set("lang", lang);
 }
 
 const langs = [

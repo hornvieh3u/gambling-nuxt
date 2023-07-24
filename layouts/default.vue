@@ -2,7 +2,8 @@
 import { onBeforeMount , inject } from 'vue';
 import { useStore } from 'vuex';
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
-import SideBarComponent from '@/components/sidebar/SideBarComponent.vue';
+import LeftSideBarComponent from '@/components/sidebar/SideBarComponent.vue';
+import RightSideBarComponent from '@/components/sideNotification/NotificationComponent.vue';
 import PageFooter from '@/components/footer/PageFooter.vue';
 import Login from '~~/components/header/Login.vue';
 import SignUp from '~~/components/header/SignUp.vue';
@@ -53,6 +54,9 @@ onBeforeMount(() => {
         getBalances(store);
         getFavoriteGameSlugs(store, store.state.pageNumber);
     }
+    if(Cookies.get("lang")){
+        store.commit('handleSetLanguage', Cookies.get("lang"));
+    }
 });
 </script>
 
@@ -61,7 +65,8 @@ onBeforeMount(() => {
         <!-- Header -->
         <HeaderComponent />
         <!-- SideBar -->
-        <SideBarComponent />
+        <LeftSideBarComponent />
+        <RightSideBarComponent />
         
         <!-- Container -->
         <q-page-container class="bg-gray-900">

@@ -40,7 +40,7 @@ const faqList = [
     },
     {
         question: "What if I have a problem or complaint?",
-        answer: ["That is why our excellent Support Team are there for you 24/7 to assist you with anything you may need via our live chat function or email at support@canada777.com"]
+        answer: ["That is why our excellent Support Team are there for you 24/7 to assist you with anything you may need via our live chat function or email at support@europa777.com"]
     },
     {
         question: "Is there a minimum or maximum deposit or withdrawal limit?",
@@ -52,7 +52,7 @@ const faqList = [
     },
     {
         question: "How can I deposit or withdraw?",
-        answer: ["The following deposit and withdrawal methods are available at Canada777: Interac, Visa, MasterCard, Crypto Wallet: BTC, LTC, ETH, TRX (Tron), BNB (Binance coin), BUSB (Binance USD)."]
+        answer: ["The following deposit and withdrawal methods are available at Europa777: Interac, Flexepin, Visa, MasterCard, Crypto Wallet: BTC, LTC, ETH, TRX (Tron), BNB (Binance coin), BUSB (Binance USD)."]
     },
 ]
 </script>
