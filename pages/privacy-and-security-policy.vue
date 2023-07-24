@@ -33,54 +33,54 @@ useHead({
         <div class="contentSection pt-5 pb-5">
           <div class="container text-white">
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp1', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp2', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp1', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp2', store.state.lang)}}</p>
             </div>
             
-            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('pp3', store.state.lang)}}</h5>
+            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('psp3', store.state.lang)}}</h5>
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp4', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp5', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp4', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp5', store.state.lang)}}</p>
             </div>
             
-            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('pp6', store.state.lang)}}</h5>
+            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('psp6', store.state.lang)}}</h5>
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp7', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp8', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp9', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp10', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp11', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp7', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp8', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp9', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp10', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp11', store.state.lang)}}</p>
             </div>
             
-            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('pp12', store.state.lang)}}</h5>
+            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('psp12', store.state.lang)}}</h5>
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp13', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp14', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp13', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp14', store.state.lang)}}</p>
             </div>
             
-            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('pp15', store.state.lang)}}</h5>
+            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('psp15', store.state.lang)}}</h5>
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp16', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp16', store.state.lang)}}</p>
             </div>
             
-            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('pp17', store.state.lang)}}</h5>
+            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('psp17', store.state.lang)}}</h5>
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp18', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp19', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp20', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp21', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp22', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp23', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp24', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp25', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp18', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp19', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp20', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp21', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp22', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp23', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp24', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp25', store.state.lang)}}</p>
             </div>
             
-            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('pp26', store.state.lang)}}</h5>
+            <h5 class="mt-4 font-weight-bold text-base font-medium pb-3">{{tran('psp26', store.state.lang)}}</h5>
             <div class="text-base font-normal pl-2">
-              <p class="pb-3">{{tran('pp27', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp28', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp29', store.state.lang)}}</p>
-              <p class="pb-3">{{tran('pp30', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp27', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp28', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp29', store.state.lang)}}</p>
+              <p class="pb-3">{{tran('psp30', store.state.lang)}}</p>
             </div>
 
           </div>

@@ -218,45 +218,49 @@ const itemClick = (link) => {
                 </p>
             </div>
 
-            <div class="m-auto pt-4" style="max-width: 280px">
-                <p class="text-base font-semibold pb-2">{{ tran(`Payment Methods`, store.state.lang) }}</p>
-                <q-img
-                    class="w-full"
-                    src="/imgs/footer/payment.png"
-                    alt="logo"
-                />
-                <p class="text-base font-semibold pt-4 pb-2">{{ tran(`Follow Us`, store.state.lang) }}</p>
-                <div class="flex justify-between items-center">
+            <div class="flex flex-row flex-wrap justify-around pt-4">
+                <div>
+                    <p class="text-base font-semibold pb-2">{{ tran(`Payment Methods`, store.state.lang) }}</p>
                     <q-img
-                        style="max-width: 17px"
-                        src="/imgs/footer/telegram.png"
+                        class="w-full"
+                        src="/imgs/footer/payment.png"
                         alt="logo"
                     />
-                    <q-img
-                        style="max-width: 17px"
-                        src="/imgs/footer/youtube.png"
-                        alt="logo"
-                    />
-                    <q-img
-                        style="max-width: 17px"
-                        src="/imgs/footer/twitter.png"
-                        alt="logo"
-                    />
-                    <q-img
-                        style="max-width: 17px"
-                        src="/imgs/footer/instagram.png"
-                        alt="logo"
-                    />
-                    <q-img
-                        style="max-width: 17px"
-                        src="/imgs/footer/linkdin.png"
-                        alt="logo"
-                    />
-                    <img
-                        style="max-height: 17px"
-                        src="/imgs/footer/facebook.png"
-                        alt="logo"
-                    />
+                </div>
+                <div>
+                    <p class="text-center text-base font-semibold pb-2">{{ tran(`Follow Us`, store.state.lang) }}</p>
+                    <div class="flex justify-between items-center">
+                        <q-img
+                            style="width: 17px;margin: 5px;"
+                            src="/imgs/footer/telegram.png"
+                            alt="logo"
+                        />
+                        <q-img
+                            style="width: 17px;margin: 5px;"
+                            src="/imgs/footer/youtube.png"
+                            alt="logo"
+                        />
+                        <q-img
+                            style="width: 17px;margin: 5px;"
+                            src="/imgs/footer/twitter.png"
+                            alt="logo"
+                        />
+                        <q-img
+                            style="width: 17px;margin: 5px;"
+                            src="/imgs/footer/instagram.png"
+                            alt="logo"
+                        />
+                        <q-img
+                            style="width: 17px;margin: 5px;"
+                            src="/imgs/footer/linkdin.png"
+                            alt="logo"
+                        />
+                        <img
+                            style="height: 17px;margin: 5px;"
+                            src="/imgs/footer/facebook.png"
+                            alt="logo"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
