@@ -355,6 +355,7 @@
                                             use-input
                                             :placeholder="tran('Country', store.state.lang)"
                                             hide-selected
+                                            input-debounce="0"
                                             :options="countries"
                                             @filter="filterFn"
                                             class="w-full"
