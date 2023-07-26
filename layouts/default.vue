@@ -16,9 +16,11 @@ import { getProfile } from '~~/action/profile';
 import { getProviders , getFavoriteGameSlugs } from '~~/action/game';
 import { getBalances } from '~~/action/wallet';
 import {useRoute , useRouter} from 'vue-router';
+import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa';
 import Cookies from 'js-cookie';
 import { tran } from "~~/utils/translation";
 
+const config = useRuntimeConfig();
 const not = useQuasar();
 const store = useStore();
 const route = useRoute();
@@ -26,27 +28,37 @@ const router = useRouter();
 
 // watch store.state.notification, when value changed, show notification
 watch(
-        ()=>store.state.notification,
-        ()=>{not.notify({
-                message: store.state.notification.type,
-                caption: store.state.notification.message,
-                icon: store.state.notification.type == 'Success'?'done':'info',
-                iconColor: store.state.notification.type == 'Success'?'green':'red',
-                color: 'white',
-                textColor: 'dark',
-                position: 'top-right',
-                progress:true,
-                multiLine: true,
-                timeout: 1500,}) 
+    ()=>store.state.notification,
+    ()=>{not.notify({
+            message: store.state.notification.type,
+            caption: store.state.notification.message,
+            icon: store.state.notification.type == 'Success'?'done':'info',
+            iconColor: store.state.notification.type == 'Success'?'green':'red',
+            color: 'white',
+            textColor: 'dark',
+            position: 'top-right',
+            progress:true,
+            multiLine: true,
+            timeout: 1500,}) 
 });
+
 watch(()=>route.path, ()=>{
     if(Cookies.get("token")){      
         getBalances(store);
         getFavoriteGameSlugs(store, store.state.pageNumber);
     }                                  
 });
+
+//fingerprintClient Init
+const fpjsClient = new FpjsClient({
+    loadOptions: {
+        apiKey: config.public.API_KEY
+    }
+});
+
+// fetch fingerprint data and store in fpData
 //init website(domain.com)
-onBeforeMount(() => {          
+onBeforeMount(() => {        
     getProviders(store);   
     if(Cookies.get("token")){                               //if Cookie contains token
         store.commit('handleLogin', true);                  //store.state.isLogin value set true
@@ -57,6 +69,22 @@ onBeforeMount(() => {
     if(Cookies.get("lang")){
         store.commit('handleSetLanguage', Cookies.get("lang"));
     }
+});
+onMounted(() => {
+    fpjsClient.init()
+    .then(() => {
+        fpjsClient.getVisitorData({ extendedResult: true })
+        .then(visitorData=>{
+            let fpData = visitorData;
+            store.commit('handleVisitorID',fpData.visitorId);
+        })
+        .catch(err=>{
+            store.commit('handleNotification',{type:'Error',message:`Can't fetch FingerPrint Data!\n Contact To Support Team!`});
+        });
+    })
+    .catch(err=>{
+        store.commit('handleNotification',{type:'Error',message:"FingerPrint initialize Error!\n Contact To Support Team!"});
+    });  
 });
 </script>
 

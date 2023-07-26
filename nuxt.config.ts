@@ -8,9 +8,28 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss', 
         'nuxt-quasar-ui',
     ],
+    // i18n: {
+    //     locales: [
+    //         {
+    //           code: 'en',
+    //           file: '/lang/en.json'
+    //         },
+    //         {
+    //           code: 'fr',
+    //           file: '/lang/fr.json'
+    //         }
+    //     ],
+    //     defaultLocale: 'en',
+    //     vueI18n: {
+    //       fallbackLocale: 'en'
+    //     },
+    //     detectBrowserLanguage: {
+    //       useCookie: true
+    //     }
+    // },
     runtimeConfig: {
         public: {
-          API_KEY: '1TMplKctJPlF6U8PBnDK',
+          API_KEY: 'Sy5WMUIbIV6m3IBk1PSL',
         },
     },
     quasar: {

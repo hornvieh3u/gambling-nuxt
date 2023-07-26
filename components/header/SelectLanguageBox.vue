@@ -30,6 +30,18 @@ const langs = [
         name: 'Serbian',
         icon: 'sr',
     },
+    {
+        name: 'Germany',
+        icon: 'gm',
+    },
+    {
+        name: 'Italy',
+        icon: 'it',
+    },
+    {
+        name: 'Poland',
+        icon: 'pl',
+    },
 ];
 </script>
 
@@ -42,7 +54,7 @@ const langs = [
                 class="flex items-center flex-nowrap items-center justify-start text-sm py-1"
             >
                 <q-img
-                    class="w-7 pr-1"
+                    class="w-7 mr-1"
                     :src="`/imgs/header/${store.state.lang}_large.png`"
                     alt="lang"
                 />

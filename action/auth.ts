@@ -32,14 +32,16 @@ export const logOut = (store: any, router: any) => {
     router.push("/");
 }
 //register
-export const SignUp = (data: object, store: any) => {    
+export const SignUp = (data: object, store: any) => { 
+    console.log(data);
+    return;   
     Axios('post','/api/register',data)
     .then(res=>{  
         Cookies.remove('click_id');
         Cookies.remove('promo');
         store.commit('handleOnRegister', false);
         store.commit('handleVerifyEmail', 2);
-        store.commit('handleNotification',{type:'Success',message: 'Register Successed!'});
+        // store.commit('handleNotification',{type:'Success',message: 'Register Successed!'});
     })
     .catch(err=>{
         if(err.response)
@@ -65,8 +67,8 @@ export const ResetPassword = (data: object, store: any) => {
 export const forgotPassword = (email: string, store: any) => {
     Axios('post',`/api/forgotPassword/${email}`)
     .then(res=>{  
-        store.commit('handleNotification',{type:'Success',message: 'Message Sent Successfully!\nPlease Check Your Email'});
-        store.commit('handleVerifyEmail', 1);
+        store.commit('handleVerifyEmail',1);
+        // store.commit('handleNotification',{type:'Success',message: 'Message Sent Successfully!\nPlease Check Your Inbox'});
         store.commit('handleResetCode', true);
     })
     .catch(err=>{

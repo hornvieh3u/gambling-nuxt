@@ -268,7 +268,7 @@ const subTitle=ref('f');
 const s=ref(0);
 const avatarProps=ref({});
 const avatarMat=ref({});
-const genderToggle = ref(true);
+const genderToggle = ref(store.state.User.gender=='Female');
 let avatarData=ref();
 const svgData=ref();
 const drawData = ref();

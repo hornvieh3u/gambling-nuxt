@@ -16,7 +16,7 @@ const store = createStore({
             selectedProvider: '',
             isAvatarDiaolg: false,
             haveResetCode: false,
-            
+            visitorID: '',
             User: {},                   // user profile
             notification: {},           // notification(type,message)
             promotions: [],             // promotions
@@ -55,6 +55,7 @@ const store = createStore({
         handleUpdateAvatar(state, payload) { state.User = {...state.User, avatar:payload}; },
         handleResetCode(state, payload) { state.haveResetCode = payload; },
         handleDepositeNow(state, payload) { state.isDepositNow = payload; },
+        handleVisitorID(state, payload) { state.visitorID = payload; },
 
         handleGetUser(state, payload) { state.User = payload; },
         handleNotification(state, payload) { state.notification = payload; },

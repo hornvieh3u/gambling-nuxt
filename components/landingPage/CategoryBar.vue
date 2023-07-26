@@ -116,23 +116,24 @@ const provider = {
                 />
             </div>
             <div 
-                class="md:hidden w-full md:w-[170px]"
+                class="md:hidden w-full md:w-fit"
                 :class="!!store.state.isDrawer ? 'xl:!block' : 'lg:!block xl:hidden'"    
             >
                 <div
-                    class="flex items-center bg-gray-700 rounded-lg h-9 my-1 px-2"
+                    class="flex items-center flex-nowrap bg-gray-700 rounded-lg h-9 my-1 px-2"
                     @click="store.commit('handleOnSearchDialog', {a:true, b:''});"
                 >
+                    <span class="w-[20px]">
+                        <q-icon
+                            class="mr-1"
+                            style="max-width: 20px"
+                            name="search"
+                            size="sm"
+                        />
+                    </span>
                     <p
-                        class="text-md rounded-lg"
+                        class="text-md rounded-lg w-fit text-center"
                     >
-                        <span class="w-[22px]">
-                            <q-icon
-                                style="max-width: 22px"
-                                name="search"
-                                size="sm"
-                            />
-                        </span>
                         {{tran('Search for Games', store.state.lang)}}
                     </p>
                 </div>
