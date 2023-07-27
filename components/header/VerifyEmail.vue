@@ -8,14 +8,17 @@ const model = ref();
 onBeforeMount(()=>{
     model.value = store.state.isVerifyEmail > 0;
 })
+watch(()=>store.state.isVerifyEmail, ()=>{
+    model.value = store.state.isVerifyEmail > 0;
+})
 const resend = () => {
     store.commit('handleVerifyEmail', 0);
-        store.commit('handleResetCode', false);
+    store.commit('handleResetCode', false);
 }
 </script>
 <template>
     <q-dialog v-model="model" @hide="store.commit('handleVerifyEmail', 0)">
-        <q-card style="width: 420px; max-width: 60vw">
+        <q-card style="width: 420px; max-width: 80vw">
             <div class="py-6 px-8 text-center" style="background: rgb(0 90 201)">
                 <p class="font-bold text-xl text-shadow-lg">{{tran('verify your email address', store.state.lang)}}</p>
                 <p class="font-normal text-xs pt-5">

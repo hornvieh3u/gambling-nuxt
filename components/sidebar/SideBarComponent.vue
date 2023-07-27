@@ -70,6 +70,18 @@ const langs = [
         name: 'Serbian',
         icon: 'sr',
     },
+    {
+        name: 'Germany',
+        icon: 'gm',
+    },
+    {
+        name: 'Italy',
+        icon: 'it',
+    },
+    {
+        name: 'Poland',
+        icon: 'pl',
+    },
 ];
 </script>
 <template>
@@ -184,7 +196,7 @@ const langs = [
                         :src="`/imgs/header/${store.state.lang}_large.png`"
                         alt="lang"
                     />
-                    {{ store.state.lang }}
+                    {{ langs.filter(item => item?.icon == store.state.lang)[0].name }}
                 </div>
             </template>
 
@@ -203,7 +215,7 @@ const langs = [
                                     :src="`/imgs/header/${lang.icon}.png`"
                                     alt="lang"
                                 />
-                                <p class="text-xs pl-1">{{ lang.name }}</p>
+                                <p class="text-md pl-1">{{ lang.name }}</p>
                             </div>
                         </q-item-label>
                     </q-item-section>

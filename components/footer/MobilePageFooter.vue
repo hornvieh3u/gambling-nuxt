@@ -154,7 +154,7 @@ const itemClick = (link) => {
     >
         <div
             style="border-bottom: 1px solid rgba(123, 129, 147, 0.3)"
-            class="p-5 grid grid-cols-1"
+            class="p-3 grid grid-cols-1"
         >
             <button
                 style="border-bottom: 1px solid rgba(123, 129, 147, 0.3)"
@@ -218,7 +218,7 @@ const itemClick = (link) => {
                 </p>
             </div>
 
-            <div class="flex flex-row flex-wrap justify-around pt-4">
+            <div class="flex flex-row flex-wrap justify-between pt-4">
                 <div>
                     <p class="text-base font-semibold pb-2">{{ tran(`Payment Methods`, store.state.lang) }}</p>
                     <q-img

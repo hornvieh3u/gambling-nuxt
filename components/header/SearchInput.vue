@@ -9,10 +9,10 @@ const store = useStore();
         class="bg-gray-700 rounded-lg h-9 flex flex-nowrap items-center pl-1 pr-2"
         @click="store.commit('handleOnSearchDialog', {a:true, b:''});"
     >
-        <span class="w-[22px]">
+        <span class="w-[20px]">
             <q-icon
-                class="mr-2"
-                style="max-width: 22px"
+                class="mr-1"
+                style="max-width: 20px"
                 name="search"
                 size="sm"
             />
@@ -20,7 +20,7 @@ const store = useStore();
         <p
             class="text-md rounded-lg"
         >
-        {{tran('Search for Games', store.state.lang)}}
+            {{tran('Search for Games', store.state.lang)}}
         </p>
     </div>
 </template>

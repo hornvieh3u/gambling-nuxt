@@ -2,12 +2,10 @@
     import { onMounted , ref , watch} from 'vue';
     import {SignUp} from '~~/action/auth';
     import {useStore} from 'vuex';
-    import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa';
     import { Cookies } from 'quasar';
     import countryCodes from './countryCode.json';
     import { tran } from "~~/utils/translation";
 
-    const config = useRuntimeConfig();
     const store = useStore();
     const tab = ref("Next");
     const model=ref('');
@@ -15,38 +13,13 @@
         if(tab.value == "Next") tab.value = "Prev";
         else tab.value = "Next";
     }
-    //fingerprintClient Init
-    const fpjsClient = new FpjsClient({
-        loadOptions: {
-            apiKey: config.public.API_KEY
-        }
-    });
-    let fpData;
-    //fetch fingerprint data and store in fpData
-    // onMounted(
-    //     ()=>{
-    //         fpjsClient.init()
-    //         .then(() => {
-    //             fpjsClient.getVisitorData({ extendedResult: true })
-    //             .then(visitorData=>{
-    //                 fpData = visitorData;
-    //             })
-    //             .catch(err=>{
-    //                 store.commit('handleNotification',{type:'Error',message:`Can't fetch FingerPrint Data! Contact To Support Team!`});
-    //             });
-    //         })
-    //         .catch(err=>{
-    //             store.commit('handleNotification',{type:'Error',message:"FingerPrint initialize Error!"});
-    //         });
-    //     }
-    // );
     const signUp = () => {  
         if(validation()){                                       //call register action with inputed data and fingerprint, click_id and promo
             Object.keys(signupInfo).map(item => {
                 userdata = {...userdata, [item] : signupInfo[item].value};
             });
             // userdata = {...userdata, 'fingerprint': fpData.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
-            userdata = {...userdata, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
+            userdata = {...userdata, 'visitorId':store.state.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
             SignUp(userdata, store);
         }
     }

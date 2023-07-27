@@ -33,6 +33,7 @@
         Object.keys(loginInfo).map(item => {
             data = {...data, [item] : loginInfo[item].value};
         });
+        data={...data, visitorId: store.state.visitorID};
         logIn(data, store, router);
     }
     const resetInfo = {
