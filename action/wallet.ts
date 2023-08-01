@@ -48,3 +48,16 @@ export const getBalances = (store) => {
             store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
     });
 }
+
+export const getPaymentMethods = (store, router) => {
+    AxiosWithAuth('get','/api/player/getPaymentGateways', store, router)
+    .then(res => {
+        store.commit('handlePaymentGateway', res.data.paymentGateways);
+    })
+    .catch(err=>{
+        if(err.response)
+            store.commit('handleNotification',{type:'Error',message:err.response.data.message});
+        else
+            store.commit('handleNotification',{type:'Error',message: "Network Connection Error."});
+    });
+}
