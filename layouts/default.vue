@@ -76,7 +76,7 @@ onMounted(() => {
         fpjsClient.getVisitorData({ extendedResult: true })
         .then(visitorData=>{
             let fpData = visitorData;
-            console.log(fpData.visitorId);
+            // console.log(fpData);
             store.commit('handleVisitorID',fpData.visitorId);
         })
         .catch(err=>{
