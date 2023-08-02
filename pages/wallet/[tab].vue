@@ -7,7 +7,7 @@ import Withdraw from '~~/components/wallet/Withdraw.vue';
 import Balances from '~~/components/wallet/Balances.vue';
 import { computed , onBeforeMount } from 'vue';
 import { useRouter , useRoute } from 'vue-router';
-import {getDepositHistory, getWithdrawHistory} from '~~/action/wallet';
+import {getDepositHistory, getWithdrawHistory, getPaymentMethods} from '~~/action/wallet';
 import { useStore } from 'vuex';
 import { tran } from "~~/utils/translation";
 import auth from '~~/middleware/routerMiddleware.js';
@@ -27,6 +27,9 @@ const selectedItem = ref(linkToTab(route.params.tab.toString()));
 //before component mount, call action if neccessary
 onBeforeMount(()=>{
     switch(route.params.tab.toString()){
+        case 'deposit':
+            getPaymentMethods(store, router);
+            break;
         case 'deposit-history':
             getDepositHistory(store.state.pageNumber, store, router);
             break;

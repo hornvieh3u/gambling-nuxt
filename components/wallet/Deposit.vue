@@ -6,7 +6,7 @@
             class="absolute w-full h-full opacity-50 top-0 left-0 rounded-md"
         ></div>
         <div class="relative">
-            <div class="hidden sm:!grid grid-cols-10 gap-4">
+            <div class="hidden sm:!grid grid-cols-10 gap-5">
                 <div class="col-span-4">
                     <div class="flex items-center justify-between w-full">
                         <p class="font-bold text-base">{{tran('Balance', store.state.lang)}}</p>
@@ -24,12 +24,13 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div
-                            v-for="payment in paymentList"
-                            class="rounded-md bg-white w-full h-10 text-center flex items-center justify-center flex-col"
+                            v-for="payment in store.state.paymentGateway"
+                            @click="selectPayment(payment)"
+                            class="rounded-md bg-white w-full h-10 text-center flex items-center justify-center flex-col cursor-pointer"
                         >
                             <img
                                 style="max-height: 50%"
-                                :src="`/imgs/payment/${payment?.icon}.png`"
+                                :src="`/imgs/payment/${payment?.name}.png`"
                                 spinner-color="primary"
                             />
                             <p class="text-xs" style="color: #535559">
@@ -39,38 +40,61 @@
                     </div>
                 </div>
                 <div class="col-span-6">
-                    <p class="font-bold text-base py-2">{{tran('Interac', store.state.lang)}}</p>
-                    <p class="font-bold text-base">{{tran('Deposit Sum', store.state.lang)}}</p>
+                    <p class="font-bold text-lg py-2">{{ selectedPayment?.name.toUpperCase() }}</p>
+                    <p class="font-semibold text-base">{{tran('Deposit Sum', store.state.lang)}}</p>
 
-                    <div class="flex justify-start items-center py-4">
-                        <q-btn class="w-36 h-10" color="primary" label="50" />
-                        <div class="p-1"></div>
+                    <div class="grid grid-cols-4 gap-1 mb-3">
+                        <q-btn color="primary" label="50" />
                         <q-btn
                             style="background: #120f0f 95%"
-                            class="w-36 h-10"
-                            label="100"
+                            label="200"
+                        />
+                        <q-btn color="primary" label="50" />
+                        <q-btn
+                            style="background: #120f0f 95%"
+                            label="500"
                         />
                     </div>
-
-                    <q-input
-                        filled
-                        v-model="number"
-                        type="number"
-                        :dense="true"
-                    >
-                        <q-btn
-                            label="CAD"
+                    <div class="flex flex-row no-wrap w-full mb-1">
+                        <q-input
+                            class="w-full"
+                            filled
+                            v-model="number"
+                            type="number"
+                            :dense="true"
+                            >
+                            
+                        </q-input>
+                        <q-select
+                            class="ml-2"
                             color="primary"
-                        />
-                    </q-input>
+                            v-model="currency"
+                            :options="options"
+                            borderless
+                            :dense="true"
+                            >
+                        </q-select>
+                    </div>
+                    <div v-for="itemField in selectedPayment?.field" class="mb-1">
+                        <q-input
+                            class="w-full"
+                            filled
+                            :placeholder="itemField?.placeholder"
+                            :type="itemField?.type"
+                            v-model="number"
+                            :dense="true"
+                            >
+                            
+                        </q-input>
+                    </div>
 
                     <div class="flex items-center justify-between pt-4">
                         <p class="text-base font-bold">{{tran('Do you have a bonus code?', store.state.lang)}}</p>
                     </div>
 
-                    <div class="flex items-center justify-start">
+                    <div class="w-full flex flex-row no-wrap items-center justify-start">
                         <q-input
-                            class="w-36 mr-2"
+                            class="w-36 mr-2 w-full"
                             filled
                             v-model="number"
                             type="number"
@@ -149,15 +173,17 @@
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div
-                                v-for="payment in paymentList"
-                                class="rounded-md bg-white w-full h-10 text-center flex items-center justify-center flex-col"
+                                v-for="payment in store.state.paymentGateway"
+                                @click="selectPayment(payment)"
+                                :class="selectedPayment == payment ? 'bg-blue-200 bg-opacity-30' : 'bg-white'"
+                                class="cursor-pointer rounded-md w-full h-10 text-center flex items-center justify-center flex-col"
                             >
                                 <img
                                     style="max-height: 50%"
-                                    :src="`/imgs/payment/${payment?.icon}.png`"
+                                    :src="`/imgs/payment/${payment?.name}.png`"
                                     spinner-color="primary"
                                 />
-                                <p class="text-xs" style="color: #535559">
+                                <p class="text-xs" :style="selectedPayment == payment ? 'color: #ffffff' : 'color: #535559'">
                                     {{tran('Min', store.state.lang)}} $30
                                 </p>
                             </div>
@@ -183,33 +209,59 @@
                         <div class="flex items-center justify-between">
                             <p class="font-bold text-base py-2">{{tran('Credit Card', store.state.lang)}}</p>
                             <div class="bg-white rounded-md w-1/2 p-3">
-                                <img alt="card" src="/imgs/payment/visa.png" />
+                                <img alt="card" :src="`/imgs/${selectedPayment?.name}/visa.png`" />
                             </div>
                         </div>
                         <p class="font-bold text-base">{{tran('Deposit Sum', store.state.lang)}}</p>
-                        <div class="grid grid-cols-2 py-4">
+                        <div class="grid grid-cols-4 gap-1 pb-2">
                             <q-btn
-                                class="w-full h-10 mr-1"
                                 color="primary"
                                 label="50"
                             />
                             <q-btn
                                 style="background: #120f0f 95%"
-                                class="w-full h-10 ml-1"
                                 label="100"
                             />
-                        </div>
-                        <q-input
-                            class="w-full mt-2"
-                            filled
-                            v-model="number"
-                            :dense="true"
-                        >
                             <q-btn
                                 color="primary"
-                                label="CAD"
+                                label="200"
                             />
-                        </q-input>
+                            <q-btn
+                                style="background: #120f0f 95%"
+                                label="500"
+                            />
+                        </div>
+                        <div class="flex flex-row no-wrap w-full mb-1">
+                            <q-input
+                                class="w-full"
+                                filled
+                                v-model="number"
+                                type="number"
+                                :dense="true"
+                                >
+                            </q-input>
+                            <q-select
+                                class="ml-2"
+                                color="primary"
+                                v-model="currency"
+                                :options="options"
+                                borderless
+                                :dense="true"
+                                >
+                            </q-select>
+                        </div>
+                        <div v-for="itemField in selectedPayment?.field" class="mb-1">
+                            <q-input
+                                class="w-full"
+                                filled
+                                :placeholder="itemField?.placeholder"
+                                :type="itemField?.type"
+                                v-model="number"
+                                :dense="true"
+                                >
+                                
+                            </q-input>
+                        </div>
                         <div class="grid grid-cols-2">
                             <q-btn
                                 class="w-full mt-2 mr-1"
@@ -269,96 +321,12 @@ const shape = ref(['']);
 const number = '';
 const currency = 'CAD';
 const options = ['CAD', 'USD'];
-const paymentList = [
-    {
-        icon: 'visa',
-        balance: '',
-    },
-    {
-        icon: 'mastercard',
-        balance: '',
-    },
-    {
-        icon: 'bitcoin',
-        balance: '',
-    },
-    {
-        icon: 'skrill',
-        balance: '',
-    },
-    {
-        icon: 'tron',
-        balance: '',
-    },
-    {
-        icon: 'ethereum',
-        balance: '',
-    },
-    {
-        icon: 'usdt',
-        balance: '',
-    },
-    {
-        icon: 'ripple',
-        balance: '',
-    },
-    {
-        icon: 'interac',
-        balance: '',
-    },
-    {
-        icon: 'jeton',
-        balance: '',
-    },
-    {
-        icon: 'binance',
-        balance: '',
-    },
-    {
-        icon: 'astropay',
-        balance: '',
-    },
-    {
-        icon: 'neosurf',
-        balance: '',
-    },
-    {
-        icon: 'neteuer',
-        balance: '',
-    },
-    {
-        icon: 'much',
-        balance: '',
-    },
-    {
-        icon: 'ecopayz',
-        balance: '',
-    },
-    {
-        icon: 'cardano',
-        balance: '',
-    },
-    {
-        icon: 'litecoin',
-        balance: '',
-    },
-    {
-        icon: 'sticpay',
-        balance: '',
-    },
-    {
-        icon: 'cashtocode',
-        balance: '',
-    },
-    {
-        icon: 'mifinity',
-        balance: '',
-    },
-    {
-        icon: 'bitcoin_cash',
-        balance: '',
-    },
-];
-
+const selectedPayment = ref();
+watch(()=>store.state.paymentGateway,()=>{
+    selectedPayment.value = store.state.paymentGateway[1];
+});
+const selectPayment = (payment) => {
+    selectedPayment.value = payment;
+}
 const step = ref(1);
 </script>

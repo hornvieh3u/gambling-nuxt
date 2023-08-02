@@ -26,6 +26,7 @@ const store = createStore({
 
             providers:[],               // provider list
             balance:{},                 // balance
+            paymentGateway:[],          // paymentGateway
 
             gameListByType:[],          // current game list(type)
             favoriteGameSlugList:[],      // favorite game list
@@ -60,6 +61,7 @@ const store = createStore({
         handleGetUser(state, payload) { state.User = payload; },
         handleNotification(state, payload) { state.notification = payload; },
         handleGetBalance(state, payload) { state.balance = payload; },
+        handlePaymentGateway(state, payload) { state.paymentGateway = payload; },
 
         handleGetProviders(state, payload) { state.providers = payload; },
         handleGetPromotion(state, payload) { state.promotions = payload; },
