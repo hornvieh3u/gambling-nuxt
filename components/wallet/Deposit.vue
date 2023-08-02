@@ -80,11 +80,25 @@
                             class="w-full"
                             filled
                             :placeholder="itemField?.placeholder"
-                            :type="itemField?.type"
+                            :type="itemField?.type=='date' ? 'text' : itemField?.type"
                             v-model="number"
                             :dense="true"
+                        >
+                            <q-icon 
+                                v-if="itemField?.type=='date'"
+                                name="event" 
+                                class="cursor-pointer mt-2"
+                                color="white"
+                                size="sm"
                             >
-                            
+                                <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                                    <q-date v-model="number" mask="MM/YYYY" minimal>
+                                        <div class="row items-center justify-end">
+                                            <q-btn v-close-popup :label="tran('Close', store.state.lang)" color="white" flat />
+                                        </div>
+                                    </q-date>
+                                </q-popup-proxy>
+                            </q-icon>    
                         </q-input>
                     </div>
 
@@ -318,7 +332,7 @@ import { useStore } from 'vuex';
 import { tran } from "~~/utils/translation";
 const store = useStore();
 const shape = ref(['']);
-const number = '';
+const number = ref('');
 const currency = 'CAD';
 const options = ['CAD', 'USD'];
 const selectedPayment = ref();
