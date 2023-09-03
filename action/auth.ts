@@ -33,8 +33,6 @@ export const logOut = (store: any, router: any) => {
 }
 //register
 export const SignUp = (data: object, store: any) => { 
-    console.log(data);
-    return;   
     Axios('post','/api/register',data)
     .then(res=>{  
         Cookies.remove('click_id');
