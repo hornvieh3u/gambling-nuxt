@@ -9,19 +9,15 @@
     const store = useStore();
     const tab = ref("Next");
     const model=ref('');
+    
+    watch(()=>model.value, ()=>{
+        signupInfo.country.value = model.value;
+        if(countryList.includes(model.value))
+            signupInfo.countryCode.value = countryCodes.filter(cc=>cc.name==model.value)[0].code;
+    });
     const tabChange = () => {
         if(tab.value == "Next") tab.value = "Prev";
         else tab.value = "Next";
-    }
-    const signUp = () => {  
-        if(validation()){                                       //call register action with inputed data and fingerprint, click_id and promo
-            Object.keys(signupInfo).map(item => {
-                userdata = {...userdata, [item] : signupInfo[item].value};
-            });
-            // userdata = {...userdata, 'fingerprint': fpData.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
-            userdata = {...userdata, 'visitorId':store.state.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
-            SignUp(userdata, store);
-        }
     }
     const validation = () => {
         let noti:string[] = [];
@@ -36,11 +32,16 @@
             noti.map(item=>store.commit('handleNotification',{type:'Error',message: item}));
         return result;
     }
-    watch(()=>model.value, ()=>{
-        signupInfo.country.value = model.value;
-        if(countryList.includes(model.value))
-            signupInfo.countryCode.value = countryCodes.filter(cc=>cc.name==model.value)[0].code;
-    });
+    const signUp = () => {  
+        if(validation()){                                       //call register action with inputed data and fingerprint, click_id and promo
+            Object.keys(signupInfo).map(item => {
+                userdata = {...userdata, [item] : signupInfo[item].value};
+            });
+            // userdata = {...userdata, 'fingerprint': fpData.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
+            userdata = {...userdata, 'visitorId':store.state.visitorId, 'click_id': Cookies.get('click_id'), 'promo': Cookies.get('promo')};
+            SignUp(userdata, store);
+        }
+    }
 
     let userdata = {};
     let signupInfo = {
