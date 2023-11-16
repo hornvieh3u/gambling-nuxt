@@ -34,24 +34,24 @@ const getGames=(pagenumber)=>{
     let isCasinoPage = route.path.toString().includes('casino'); 
     let isLandingpage = route.path.toString() == '/';
     switch(tab){
+        case 'slots':
+            getSlotsGames(store, pagenumber);
+            break;
         case '':
             isCasinoPage&&getAllGamesByType(store, pagenumber);
             isLandingpage&&getAllGames(store);
             break;
-        case 'slots':
-            getSlotsGames(store, pagenumber);
+        case 'table':
+            getTableGames(store, pagenumber);
             break;
         case 'live':
             getLiveGames(store, pagenumber);
             break;
-        case 'table':
-            getTableGames(store, pagenumber);
+        case 'favorites':
+            getFavoriteGames(store, pagenumber);
             break;
         case 'roulette':
             getRouletteGames(store, pagenumber);
-            break;
-        case 'favorites':
-            getFavoriteGames(store, pagenumber);
             break;
         case 'recent':
             getRecentPlayedGames(store, pagenumber);
