@@ -40,14 +40,7 @@ watch(()=>provider.value,()=>{
     store.commit('handleSearchResult',[]);
 });
 
-const filterProvider = (val, update, abort) => {
-  update(() => {
-    const needle = val.toLowerCase();
-    providers.value = providerList.value.filter(
-      (v:string) => v.toLowerCase().indexOf(needle) > -1
-    );
-  });
-};
+
 
 const selectProvider = (item) => {
   showProvider.value=false;
@@ -57,15 +50,20 @@ const selectProvider = (item) => {
 const selectUnFocus = () => {
   showProvider.value=false;
 }
-const selectFocus = () => {
-  showProvider.value=!showProvider.value;
-}
+
 const play = (demo, slug) => {
   store.commit("handleOnSearchDialog", false);
   store.commit("handleGamePlayMode", demo);
   router.push(linkTo(`/play/${slug}`));
 };
-
+const filterProvider = (val, update, abort) => {
+  update(() => {
+    const needle = val.toLowerCase();
+    providers.value = providerList.value.filter(
+      (v:string) => v.toLowerCase().indexOf(needle) > -1
+    );
+  });
+};
 const onFavorite = (id, slug) => {
   if (store.state.favoriteGameSlugList.includes(slug))
     removeFavoriteGameById(store, id, slug, route.query?.tab);
@@ -75,6 +73,9 @@ const onFavorite = (id, slug) => {
 const handleFocusGame = (id) => {
   focusgame.value = id;
 };
+const selectFocus = () => {
+  showProvider.value=!showProvider.value;
+}
 const imgurl = "/imgs/noGameImg.png";
 </script>
 <template>
