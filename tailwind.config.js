@@ -1,6 +1,6 @@
 module.exports = {
     mode: 'jit',
-    content: ['./pages/**/*.vue', './components/**/*.vue', './layouts/**/*.vue'],
+    content: ['./src/pages/**/*.vue', './src/components/**/*.vue', './src/layouts/**/*.vue'],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {

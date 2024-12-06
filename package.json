@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "pre"
   },
   "devDependencies": {
     "@nuxt/typescript-runtime": "^3.0.1",
@@ -14,7 +15,9 @@
     "@tailvue/nuxt": "^1.0.0",
     "@types/node": "^20.2.6",
     "nuxt": "^3.3.1",
-    "sass": "^1.59.3"
+    "sass": "^1.59.3",
+    "prettier:check": "prettier --check ./src",
+    "prettier:format": "prettier --write ./src"
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs-pro-spa": "^1.0.2",
